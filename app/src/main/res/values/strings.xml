@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ABA</string>
+    <string name="success">Ви успішно авторизувались.</string>
+    <string name="Save">Save</string>
+    <string name="Next">Next</string>
+    <string name="DB">Waiting Data Base</string>
+</resources>

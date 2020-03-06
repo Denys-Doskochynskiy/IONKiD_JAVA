@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3446cb"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Авторизація"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Login"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="75dp"
+            android:background="#696ed7"
+            android:text="Користувач:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/edit_user"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/user_text"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toRightOf="@+id/user_text"
+            android:background="#696ed7"
+            android:hint="введіть імя ">
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/password_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_text"
+            android:layout_alignLeft="@+id/user_text"
+            android:layout_marginTop="40dp"
+            android:background="#696ed7"
+            android:text="Пароль:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="253dp"
+            android:layout_height="23dp"
+            android:layout_alignLeft="@+id/edit_user"
+            android:layout_alignRight="@+id/edit_user"
+            android:layout_alignBottom="@+id/password_text"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:background="#696ed7"
+            android:hint="введіть пароль"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/attempts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password_text"
+            android:layout_alignLeft="@+id/password_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="48dp"
+            android:text="Спроб:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_password"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="103dp"
+            android:layout_marginEnd="133dp"
+            android:background="#3446cb"
+            android:onClick="Login"
+            android:text="Ввійти" />
+
+        <TextView
+            android:id="@+id/number_of_attempts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/attempts"
+            android:layout_alignRight="@+id/user_text"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/login_locked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/attempts"
+            android:layout_alignLeft="@+id/attempts"
+            android:layout_alignEnd="@+id/edit_password"
+            android:layout_alignRight="@+id/edit_password"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="57dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/singup"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_login"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="120dp"
+            android:background="#3446cb"
+            android:text="Sing Up" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

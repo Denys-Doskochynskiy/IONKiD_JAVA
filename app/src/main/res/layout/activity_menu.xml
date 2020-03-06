@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3446cb"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/task"
+        android:layout_width="323dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="328dp"
+        android:background="#696ed7"
+        android:text="Tasks"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#835766"
+        android:textColorHint="#00B30E0E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/doctors"
+        android:layout_width="323dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="264dp"
+        android:background="#696ed7"
+        android:text="Doctors"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/kids"
+        android:layout_width="148dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="184dp"
+        android:background="#696ed7"
+        android:text="Kids"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/chat"
+        android:layout_width="151dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="184dp"
+        android:background="#696ed7"
+        android:text=" Chat"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/profil"
+        android:layout_width="323dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="116dp"
+        android:background="#696ed7"
+        android:text=" Profile"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="127dp"
+        android:layout_height="115dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="396dp"
+        android:src="@mipmap/prometheus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
