@@ -13,7 +13,6 @@
         <activity android:name=".Information" />
         <activity android:name=".Menu" />
         <activity android:name=".Load" />
-        <activity android:name=".Task" />
         <activity android:name=".Login" />
         <activity android:name=".Reg" />
         <activity android:name=".MainActivity">
