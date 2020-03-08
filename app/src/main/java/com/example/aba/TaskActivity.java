@@ -1,5 +1,6 @@
 package com.example.aba;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class TaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_activity);
+
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBoxSecond = (CheckBox) findViewById(R.id.checkBoxSecond);
 
@@ -28,33 +30,40 @@ public class TaskActivity extends AppCompatActivity {
         textViewSecond = (TextView) findViewById(R.id.textViewSecond);
 
         save = (Button) findViewById(R.id.buttonSave);
-
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMenu();
+            }
+        });
         //Saving CheckBox
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
-        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean("checkBox", false);
-        checkBox.setChecked(checked);
-        CheckBox checkBoxSecond = (CheckBox) findViewById(R.id.checkBoxSecond);
-        checkBoxSecond.setChecked(checked);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
 // TODO Auto-generated method stub
                 SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
-                editor.putBoolean("cbx1_ischecked", isChecked);
-                editor.commit();
-            }
-        });
-        checkBoxSecond.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
-// TODO Auto-generated method stub
-                SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
-                editor.putBoolean("cbx1_ischecked", isChecked);
+                editor.putBoolean("cbx1_", isChecked);
                 editor.commit();
             }
         });
         SharedPreferences settings = getSharedPreferences("syllabus", 0);
-        Boolean isChecked = settings.getBoolean("cbx1_ischecked", false);
+        Boolean isChecked = settings.getBoolean("cbx1_", false);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+        checkBoxSecond.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton arg0, boolean isCheck) {
+// TODO Auto-generated method stub
+                SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
+                editor.putBoolean("cbx2_", isCheck);
+                editor.commit();
+            }
+        });
+
+        SharedPreferences setting = getSharedPreferences("syllabus", 0);
+        Boolean isCheck= setting.getBoolean("cbx2_", false);
+  ////////////////////////////////////////////////////////////////////////////////////
+
+
         {
             checkBox.setChecked(isChecked);
             if (isChecked) {
@@ -62,21 +71,20 @@ public class TaskActivity extends AppCompatActivity {
             } else {
                 textView.setBackgroundColor(Color.WHITE);
             }
-        }
-        //Saving CheckBox
+
+            //Saving CheckBox
 
 
-        {
-            checkBoxSecond.setChecked(isChecked);
-            if (isChecked) {
+            checkBoxSecond.setChecked(isCheck);
+            if (isCheck) {
                 textViewSecond.setBackgroundColor(Color.GREEN);
             } else {
                 textViewSecond.setBackgroundColor(Color.WHITE);
             }
         }
-
-
     }
+
+
 
     public void OnCheck(View view) {
 
@@ -106,8 +114,13 @@ public class TaskActivity extends AppCompatActivity {
             checkBoxSecond.setEnabled(false);
         }
 
+
     }
 
+    public void openMenu () {
+        Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+    }
 
 }
 
