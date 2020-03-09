@@ -31,11 +31,11 @@ public class Chose extends AppCompatActivity {
         });
     }
     public void openTaskTest1 () {
-        Intent intent = new Intent(this, Menu.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
     public void openTaskTest2 () {
-        Intent intent = new Intent(this,Menu.class);
+        Intent intent = new Intent(this,Reg.class);
         startActivity(intent);
     }
 }
