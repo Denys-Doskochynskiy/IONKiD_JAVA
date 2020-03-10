@@ -15,27 +15,34 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button task = findViewById(R.id.task);
+
+        Button taskActivity = findViewById(R.id.taskActivity);
         Button doctors = findViewById(R.id.doctors);
         Button kids = findViewById(R.id.kids);
         Button chat = findViewById(R.id.chat);
         Button profil = findViewById(R.id.profil);
 
-        task.setOnClickListener(this);
+        taskActivity.setOnClickListener(this);
         doctors.setOnClickListener(this);
         kids.setOnClickListener(this);
         chat.setOnClickListener(this);
         profil.setOnClickListener(this);
-        task.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTaskTest2();
-            }
-        });
+
+
+
+/*Поки що знаходиться в розробці
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openTaskTest();
+                openProfil();
+            }
+        });*/
+
+
+        taskActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTask();
             }
         });
     }
@@ -54,19 +61,24 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(this , "Chat temporarily unavailable", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.profil:
-                Toast.makeText(this , "Profile", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this , "Profile temporarily unavailable", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.taskActivity:
+                Toast.makeText(this , "Your task for today is...", Toast.LENGTH_SHORT).show();
                 break;
         }
 
     }
 
-    public void openTaskTest2 () {
-        Intent intent = new Intent(this, Task.class);
+    public void openTask () {
+        Intent intent = new Intent(this, TaskActivity.class);
         startActivity(intent);
     }
-    public void openTaskTest () {
+
+    /*Поки що знаходиться в розробці
+    public void openProfil () {
         Intent intent = new Intent(this, Chose
                 .class);
         startActivity(intent);
-    }
+    }*/
 }

@@ -14,7 +14,7 @@ public class Load extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(Load.this,Task.class);
+                Intent homeIntent = new Intent(Load.this,TaskActivity.class);
                 startActivity(homeIntent);
 
             }
