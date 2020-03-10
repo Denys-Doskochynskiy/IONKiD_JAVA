@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/task"
+        android:id="@+id/taskActivity"
         android:layout_width="323dp"
         android:layout_height="50dp"
         android:layout_marginBottom="328dp"
@@ -38,26 +38,26 @@
         android:id="@+id/kids"
         android:layout_width="148dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="180dp"
         android:background="#696ed7"
         android:text="Kids"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/chat"
         android:layout_width="151dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="180dp"
         android:background="#696ed7"
         android:text=" Chat"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -76,8 +76,8 @@
         android:id="@+id/imageView"
         android:layout_width="127dp"
         android:layout_height="115dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="396dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="412dp"
         android:src="@mipmap/prometheus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

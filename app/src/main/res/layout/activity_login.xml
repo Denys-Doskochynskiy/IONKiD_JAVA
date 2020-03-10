@@ -87,7 +87,7 @@
             android:visibility="invisible" />
 
         <Button
-            android:id="@+id/button_login"
+            android:id="@+id/singin"
             android:layout_width="98dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edit_password"
@@ -95,7 +95,7 @@
             android:layout_marginTop="103dp"
             android:layout_marginEnd="133dp"
             android:background="#3446cb"
-            android:onClick="Login"
+            android:onClick="onClick"
             android:text="Ввійти" />
 
         <TextView
@@ -120,10 +120,10 @@
             android:visibility="invisible" />
 
         <Button
-            android:id="@+id/singup"
+            android:id="@+id/signup"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button_login"
+            android:layout_below="@+id/singin"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="120dp"

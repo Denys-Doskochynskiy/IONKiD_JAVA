@@ -1,5 +1,5 @@
 package com.example.aba;
-
+/*
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -145,3 +145,4 @@ public class Information extends AppCompatActivity implements View.OnClickListen
 
 
 }
+*/
