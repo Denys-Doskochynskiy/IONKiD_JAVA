@@ -45,6 +45,12 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 openTask();
             }
         });
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRetrofitTest();
+            }
+        });
     }
 
     @Override
@@ -61,7 +67,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(this , "Chat temporarily unavailable", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.profil:
-                Toast.makeText(this , "Profile temporarily unavailable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this , "Retrofit test start", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.taskActivity:
                 Toast.makeText(this , "Your task for today is...", Toast.LENGTH_SHORT).show();
@@ -72,6 +78,11 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
     public void openTask () {
         Intent intent = new Intent(this, TaskActivity.class);
+        startActivity(intent);
+    }
+
+    public void openRetrofitTest () {
+        Intent intent = new Intent(this, RetrofitTest.class);
         startActivity(intent);
     }
 
