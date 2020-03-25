@@ -1,115 +1,150 @@
 package com.example.aba;
 
 
+
+
+import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class Reg extends AppCompatActivity implements View.OnClickListener{
+    public class  Reg extends Activity implements OnClickListener {
 
-    Button btnAdd, btnRead, btnClear;
-    EditText etUsername, etPassword;
-    Button next;
-    public DBHelper dbHelper;
+        final String LOG_TAG = "myLogs";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.reg);
+        Button btnAdd, btnRead, btnClear,next;
+        EditText etName, etEmail;
 
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnAdd.setOnClickListener(this);
+        DBHelper dbHelper;
 
-        btnRead = (Button) findViewById(R.id.btnRead);
-        btnRead.setOnClickListener(this);
+        /** Called when the activity is first created. */
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.reg);
 
-        btnClear = (Button) findViewById(R.id.btnClear);
-        btnClear.setOnClickListener(this);
+            btnAdd = (Button) findViewById(R.id.btnAdd);
+            btnAdd.setOnClickListener(this);
 
-        etUsername = (EditText) findViewById(R.id.etUsername);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+            btnRead = (Button) findViewById(R.id.btnRead);
+            btnRead.setOnClickListener(this);
 
-        next = (Button) findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNext();
+            btnClear = (Button) findViewById(R.id.btnClear);
+            btnClear.setOnClickListener(this);
+
+            etName = (EditText) findViewById(R.id.etUsername);
+            etEmail = (EditText) findViewById(R.id.etPassword);
+
+            next = (Button) findViewById(R.id.next);
+            next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openTaskLogin();
+                }
+            });
+            // создаем объект для создания и управления версиями БД
+            dbHelper = new DBHelper(this);
+        }
+
+        public void openTaskLogin () {
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+        }
+        @Override
+        public void onClick(View v) {
+
+            // создаем объект для данных
+            ContentValues cv = new ContentValues();
+
+            // получаем данные из полей ввода
+            String name = etName.getText().toString();
+            String email = etEmail.getText().toString();
+
+            // подключаемся к БД
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+
+            switch (v.getId()) {
+                case R.id.btnAdd:
+                    Log.d(LOG_TAG, "--- Insert in mytable: ---");
+                    // подготовим данные для вставки в виде пар: наименование столбца - значение
+
+                    cv.put("name", name);
+                    cv.put("email", email);
+                    // вставляем запись и получаем ее ID
+                    long rowID = db.insert("mytable", null, cv);
+                    Log.d(LOG_TAG, "row inserted, ID = " + rowID);
+                    break;
+                case R.id.btnRead:
+                    Log.d(LOG_TAG, "--- Rows in mytable: ---");
+                    // делаем запрос всех данных из таблицы mytable, получаем Cursor
+                    Cursor c = db.query("mytable", null, null, null, null, null, null);
+
+                    // ставим позицию курсора на первую строку выборки
+                    // если в выборке нет строк, вернется false
+                    if (c.moveToFirst()) {
+
+                        // определяем номера столбцов по имени в выборке
+                        int idColIndex = c.getColumnIndex("id");
+                        int nameColIndex = c.getColumnIndex("name");
+                        int emailColIndex = c.getColumnIndex("email");
+
+                        do {
+                            // получаем значения по номерам столбцов и пишем все в лог
+                            Log.d(LOG_TAG,
+                                    "ID = " + c.getInt(idColIndex) +
+                                            ", name = " + c.getString(nameColIndex) +
+                                            ", email = " + c.getString(emailColIndex));
+                            // переход на следующую строку
+                            // а если следующей нет (текущая - последняя), то false - выходим из цикла
+                            } while (c.moveToNext());
+                        } else
+                        Log.d(LOG_TAG, "0 rows");
+                    c.close();
+                    break;
+                case R.id.btnClear:
+                    Log.d(LOG_TAG, "--- Clear mytable: ---");
+                    // удаляем все записи
+                    int clearCount = db.delete("mytable", null, null);
+                    Log.d(LOG_TAG, "deleted rows count = " + clearCount);
+                    break;
             }
-        });
-
-        dbHelper = new DBHelper(this);
-
-    }
-
-    public void openNext () {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        String username = etUsername.getText().toString();
-        String password = etPassword.getText().toString();
-
-
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-
-        switch (v.getId()) {
-
-
-            case R.id.btnAdd:
-
-                contentValues.put(DBHelper.KEY_USERNAME, username);
-                contentValues.put(DBHelper.KEY_PASSWORD, password);
-
-                database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
-
-                break;
-
-            case R.id.btnRead:
-                Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null,
-                        null, null, null, null);
-
-                if (cursor.moveToFirst()) {
-                    int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_USERNAME);
-                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_PASSWORD);
-                    do {
-                        Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
-                                ", username = " + cursor.getString(nameIndex) +
-                                ", password = " + cursor.getString(emailIndex));
-                    } while (cursor.moveToNext());
-                } else
-                    Log.d("mLog", "0 rows");
-
-                cursor.close();
-
-
-                break;
-
-            case R.id.btnClear:
-                database.delete(DBHelper.TABLE_CONTACTS, null, null);
-
-                break;
-
+            // закрываем подключение к БД
+            dbHelper.close();
         }
 
 
-        dbHelper.close();
+
+        static class DBHelper extends SQLiteOpenHelper {
+
+            public DBHelper(Context context) {
+                // конструктор суперкласса
+                super(context, "myDB", null, 1);
+            }
+
+            @Override
+            public void onCreate(SQLiteDatabase db) {
+              //  Log.d(LOG_TAG, "--- onCreate database ---");
+                // создаем таблицу с полями
+                db.execSQL("create table mytable ("
+                        + "id integer primary key autoincrement,"
+                        + "name text,"
+                        + "email text" + ");");
+            }
+
+            @Override
+            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+            }
+        }
+
     }
-
-
-
-
-}
