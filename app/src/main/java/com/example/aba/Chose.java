@@ -1,7 +1,6 @@
 package com.example.aba;
 
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class Chose extends AppCompatActivity {
-    private Button Sign_in,Sign_up;
+    private Button Sign_in, Sign_up;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +30,14 @@ public class Chose extends AppCompatActivity {
             }
         });
     }
-    public void openTaskTest1 () {
+
+    public void openTaskTest1() {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
-    public void openTaskTest2 () {
-        Intent intent = new Intent(this,Reg.class);
+
+    public void openTaskTest2() {
+        Intent intent = new Intent(this, Reg.class);
         startActivity(intent);
     }
 }

@@ -1,30 +1,21 @@
 package com.example.aba;
 
-
-import android.content.ContentValues;
 import android.content.Intent;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.graphics.Color;
+
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Activity;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
 
 
 public class Login extends AppCompatActivity {
@@ -73,50 +64,42 @@ public class Login extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor c = db.query("mytable", null, null, null, null, null, null);
 
-        //if (c.moveToFirst()) {
 
         // определяем номера столбцов по имени в выборке
 
         if (c.moveToFirst()) {
 
-        int nameColIndex = c.getColumnIndex("name");
-        int emailColIndex = c.getColumnIndex("email");
-
+            int nameColIndex = c.getColumnIndex("name");
+            int emailColIndex = c.getColumnIndex("email");
 
 
             do {
-        if (username.getText().toString().equals(c.getString(nameColIndex)) &&
-                password.getText().toString().equals(c.getString(emailColIndex)))
-        {
-            Toast.makeText(getApplicationContext(), "Вхід виконано!",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, Menu.class);
-            startActivity(intent);
-        }
-
+                if (username.getText().toString().equals(c.getString(nameColIndex)) &&
+                        password.getText().toString().equals(c.getString(emailColIndex))) {
+                    Toast.makeText(getApplicationContext(), "Вхід виконано!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, Menu.class);
+                    startActivity(intent);
+                }
+                //
             } while (c.moveToNext());
-        } else if(true)
+        } else
+            Toast.makeText(getApplicationContext(), "Неправильні дані!", Toast.LENGTH_SHORT).show();
+        numberOfRemainingLoginAttempts--;
+        attempts.setVisibility(View.VISIBLE);
+        numberOfAttempts.setVisibility(View.VISIBLE);
+        numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
 
+        if (numberOfRemainingLoginAttempts == 0) {
+            login.setEnabled(false);
+            loginLocked.setVisibility(View.VISIBLE);
+            loginLocked.setBackgroundColor(Color.RED);
+            loginLocked.setText("Вхід заблоковано!");
             c.close();
-        else {
-            Toast.makeText(getApplicationContext(), "Неправильні дані!",Toast.LENGTH_SHORT).show();
-            numberOfRemainingLoginAttempts--;
-
-            attempts.setVisibility(View.VISIBLE);
-            numberOfAttempts.setVisibility(View.VISIBLE);
-            numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
-
-            if (numberOfRemainingLoginAttempts == 0)
-            {
-                login.setEnabled(false);
-                loginLocked.setVisibility(View.VISIBLE);
-                loginLocked.setBackgroundColor(Color.RED);
-                loginLocked.setText("Вхід заблоковано!");
-            }
         }
+        c.close();
 
 
     }
-
 
 
 }

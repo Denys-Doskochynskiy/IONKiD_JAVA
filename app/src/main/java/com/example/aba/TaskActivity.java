@@ -60,8 +60,8 @@ public class TaskActivity extends AppCompatActivity {
         });
 
         SharedPreferences setting = getSharedPreferences("syllabus", 0);
-        Boolean isCheck= setting.getBoolean("cbx2_", false);
-  ////////////////////////////////////////////////////////////////////////////////////
+        Boolean isCheck = setting.getBoolean("cbx2_", false);
+        ////////////////////////////////////////////////////////////////////////////////////
 
 
         {
@@ -83,7 +83,6 @@ public class TaskActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
     public void OnCheck(View view) {
@@ -117,7 +116,7 @@ public class TaskActivity extends AppCompatActivity {
 
     }
 
-    public void openMenu () {
+    public void openMenu() {
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
