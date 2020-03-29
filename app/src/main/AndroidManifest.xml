@@ -16,13 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Chose" />
         <activity android:name=".Information" />
         <activity android:name=".Menu" />
         <activity android:name=".Load" />
         <activity android:name=".Login" />
         <activity android:name=".Reg" />
-        <activity android:name=".TaskActivity"></activity>
+        <activity android:name=".TaskActivity" />
+        <activity android:name=".RecoverPassword" />
     </application>
 
 </manifest>

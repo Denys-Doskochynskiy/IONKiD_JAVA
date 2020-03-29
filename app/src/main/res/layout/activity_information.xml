@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#101B53"
+    android:background="#BBE1FA"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginBottom="240dp"
         android:text="Date of birth:"
-        android:textColor="#FFFFFF"
+        android:textColor="#1B262C"
         android:textSize="18sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,8 +29,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Surname"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#1B262C"
+        android:textColorHint="#0F4C75"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -43,7 +43,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text=" Patronymic"
-        android:textColor="#FFFFFF"
+        android:textColor="#1B262C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -102,7 +102,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:textColor="#FFFFFF"
+        android:textColor="#1B262C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
