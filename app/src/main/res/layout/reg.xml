@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etEmail"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
@@ -30,10 +30,10 @@
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername3" />
+        app:layout_constraintTop_toBottomOf="@+id/surname" />
 
     <EditText
-        android:id="@+id/etUsername3"
+        android:id="@+id/surname"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -43,10 +43,10 @@
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername5" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <EditText
-        android:id="@+id/etUsername4"
+        android:id="@+id/lastName"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="84dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etUsername5"
+        android:id="@+id/firstName"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -69,7 +69,7 @@
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername4" />
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -82,10 +82,10 @@
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/etPassword2"
+        android:id="@+id/numberOfPhone"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -95,10 +95,10 @@
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword3" />
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
 
     <EditText
-        android:id="@+id/etPassword3"
+        android:id="@+id/etConfirmPassword"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
