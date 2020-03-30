@@ -42,7 +42,7 @@ public class Menu extends AppCompatActivity {
                 openTask();
             }
         });
-
+      
 
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
