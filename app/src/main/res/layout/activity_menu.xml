@@ -4,82 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3446cb"
+    android:background="#BBE1FA"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/taskActivity"
-        android:layout_width="323dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="328dp"
-        android:background="#696ed7"
-        android:text="Tasks"
-        android:textColor="#FFFFFF"
+        android:id="@+id/kidsActivity"
+        android:layout_width="268dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:background="#3282B8"
+        android:text="Дитина"
+        android:textColor="#1B262C"
         android:textColorHighlight="#835766"
         android:textColorHint="#00B30E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageActivity"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/doctors"
-        android:layout_width="323dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="264dp"
-        android:background="#696ed7"
-        android:text="Doctors"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#FFFFFF"
+        android:id="@+id/taskActivity"
+        android:layout_width="268dp"
+        android:layout_height="53dp"
+        android:background="#3282B8"
+        android:text="Завдання"
+        android:textColor="#1B262C"
+        android:textColorHighlight="#835766"
+        android:textColorHint="#00B30E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
 
     <Button
-        android:id="@+id/kids"
-        android:layout_width="148dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="180dp"
-        android:background="#696ed7"
-        android:text="Kids"
-        android:textColor="#FFFFFF"
+        android:id="@+id/messageActivity"
+        android:layout_width="268dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:background="#3282B8"
+        android:text="Повідомлення"
+        android:textColor="#1B262C"
+        android:textColorHighlight="#835766"
+        android:textColorHint="#00B30E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskActivity"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/chat"
-        android:layout_width="151dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="180dp"
-        android:background="#696ed7"
-        android:text=" Chat"
-        android:textColor="#FFFFFF"
+        android:id="@+id/doctorsActivity"
+        android:layout_width="268dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:background="#3282B8"
+        android:text="Лікарі"
+        android:textColor="#1B262C"
+        android:textColorHighlight="#835766"
+        android:textColorHint="#00B30E0E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kidsActivity"
+        app:layout_constraintVertical_bias="0.005" />
+
+    <Button
+        android:id="@+id/settingsActivity"
+        android:layout_width="268dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:background="#3282B8"
+        android:text="Налаштування"
+        android:textColor="#1B262C"
+        android:textColorHighlight="#835766"
+        android:textColorHint="#00B30E0E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorsActivity"
+        app:layout_constraintVertical_bias="0.025" />
 
     <Button
         android:id="@+id/profil"
         android:layout_width="323dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="116dp"
-        android:background="#696ed7"
+        android:layout_marginBottom="32dp"
+        android:background="#3282B8"
         android:text="Retrofit test"
-        android:textColor="#FFFFFF"
+        android:textColor="#1B262C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="127dp"
-        android:layout_height="115dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="412dp"
-        android:src="@mipmap/prometheus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsActivity"
+        app:layout_constraintVertical_bias="0.937" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
