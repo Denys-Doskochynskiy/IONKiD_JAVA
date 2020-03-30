@@ -1,108 +1,105 @@
 package com.example.aba;
 
-
-import android.content.ContentValues;
 import android.content.Intent;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.graphics.Color;
+
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class Login extends AppCompatActivity{
-        private EditText username;
-        private EditText password;
-        private Button login;
-        private TextView loginLocked;
-        private TextView attempts;
-        private TextView numberOfAttempts;
-        private TextView signup;
-        private TextView forgotPassword;
+public class Login extends AppCompatActivity {
+    private EditText username;
+    private EditText password;
+    private Button login;
+    private TextView loginLocked;
+    private TextView attempts;
+    private TextView numberOfAttempts;
+    private TextView signup;
+    Reg.DBHelper dbHelper;
 
+    int numberOfRemainingLoginAttempts = 3;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
-        int numberOfRemainingLoginAttempts = 3;
+        username = (EditText) findViewById(R.id.edit_user);
+        password = (EditText) findViewById(R.id.edit_password);
+        login = (Button) findViewById(R.id.singin);
+        loginLocked = (TextView) findViewById(R.id.login_locked);
+        attempts = (TextView) findViewById(R.id.attempts);
+        numberOfAttempts = (TextView) findViewById(R.id.number_of_attempts);
+        numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
+        signup = (TextView) findViewById(R.id.signup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSignUp();
+            }
+        });
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_login);
+        dbHelper = new Reg.DBHelper(this);
 
-            username = (EditText) findViewById(R.id.edit_user);
-            password = (EditText) findViewById(R.id.edit_password);
-            login = (Button) findViewById(R.id.singin);
-            loginLocked = (TextView) findViewById(R.id.login_locked);
-            attempts = (TextView) findViewById(R.id.attempts);
-            numberOfAttempts = (TextView) findViewById(R.id.number_of_attempts);
-            numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
-            signup = (TextView) findViewById(R.id.signup);
-            signup.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onSignUp();
-                }
-            });
-            forgotPassword = (TextView) findViewById(R.id.forgotPassword);
-            forgotPassword.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onForgotPassword();
-                }
-            });
+    }
 
-
-        }
-
-    public void onSignUp()
-    {
+    public void onSignUp() {
         Intent intent = new Intent(this, Reg.class);
         startActivity(intent);
     }
 
-    public void onForgotPassword()
-    {
-        Intent intent = new Intent(this, RecoverPassword.class);
-        startActivity(intent);
-    }
 
-        public void onClick(View view)
-        {
-            if (username.getText().toString().equals("admin") &&
-                    password.getText().toString().equals("admin"))
-            {
-                Toast.makeText(getApplicationContext(), "Вхід виконано!",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, Menu.class);
-                startActivity(intent);
-            }
+    public void onClick(View view) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor c = db.query("mytable", null, null, null, null, null, null);
 
-            else
-            {
-                Toast.makeText(getApplicationContext(), "Неправильні дані!",Toast.LENGTH_SHORT).show();
-                numberOfRemainingLoginAttempts--;
 
-                attempts.setVisibility(View.VISIBLE);
-                numberOfAttempts.setVisibility(View.VISIBLE);
-                numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
+        // определяем номера столбцов по имени в выборке
 
-                if (numberOfRemainingLoginAttempts == 0)
-                {
-                    login.setEnabled(false);
-                    loginLocked.setVisibility(View.VISIBLE);
-                    loginLocked.setBackgroundColor(Color.RED);
-                    loginLocked.setText("Вхід заблоковано!");
+        if (c.moveToFirst()) {
+
+            int nameColIndex = c.getColumnIndex("name");
+            int emailColIndex = c.getColumnIndex("email");
+
+
+            do {
+                if (username.getText().toString().equals(c.getString(nameColIndex)) &&
+                        password.getText().toString().equals(c.getString(emailColIndex))) {
+                    Toast.makeText(getApplicationContext(), "Вхід виконано!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, Menu.class);
+                    startActivity(intent);
                 }
-            }
+                //
+            } while (c.moveToNext());
+        } else
+            Toast.makeText(getApplicationContext(), "Неправильні дані!", Toast.LENGTH_SHORT).show();
+        numberOfRemainingLoginAttempts--;
+        attempts.setVisibility(View.VISIBLE);
+        numberOfAttempts.setVisibility(View.VISIBLE);
+        numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
 
+        if (numberOfRemainingLoginAttempts == 0) {
+            login.setEnabled(false);
+            loginLocked.setVisibility(View.VISIBLE);
+            loginLocked.setBackgroundColor(Color.RED);
+            loginLocked.setText("Вхід заблоковано!");
+            c.close();
         }
+        c.close();
 
+
+    }
 
 
 }

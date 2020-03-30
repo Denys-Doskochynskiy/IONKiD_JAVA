@@ -2,12 +2,11 @@ package com.example.aba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     private static int SPLASH = 2800;
 
     @Override
@@ -17,7 +16,7 @@ public class MainActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this,Login .class);
+                Intent homeIntent = new Intent(MainActivity.this, Chose.class);
                 startActivity(homeIntent);
 
             }
@@ -25,6 +24,5 @@ public class MainActivity extends Activity {
         }, SPLASH);
 
     }
-
 }
 

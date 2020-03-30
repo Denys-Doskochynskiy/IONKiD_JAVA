@@ -22,7 +22,9 @@
         <activity android:name=".Login" />
         <activity android:name=".Reg" />
         <activity android:name=".TaskActivity" />
+        <activity android:name=".RetrofitTest" />
         <activity android:name=".RecoverPassword" />
+        <activity android:name=".Chose" />
     </application>
 
 </manifest>

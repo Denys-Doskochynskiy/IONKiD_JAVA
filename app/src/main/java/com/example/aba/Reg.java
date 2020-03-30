@@ -1,55 +1,61 @@
 package com.example.aba;
 
 
+import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class Reg extends AppCompatActivity implements View.OnClickListener{
+public class Reg extends Activity implements OnClickListener {
 
-    Button btnAdd, btnRead, btnClear;
-    EditText etUsername, etPassword;
-    Button next;
-    public DBHelper dbHelper;
+    final String LOG_TAG = "myLogs";
 
+    Button btnAdd, btnRead, btnClear, next;
+    EditText etName, etEmail;
+
+    DBHelper dbHelper;
+
+    /**
+     * Called when the activity is first created.
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reg);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
-
+/* кнопки для відладки
         btnRead = (Button) findViewById(R.id.btnRead);
         btnRead.setOnClickListener(this);
 
         btnClear = (Button) findViewById(R.id.btnClear);
         btnClear.setOnClickListener(this);
-
-        etUsername = (EditText) findViewById(R.id.etUsername);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+*/
+        etName = (EditText) findViewById(R.id.etUsername);
+        etEmail = (EditText) findViewById(R.id.etPassword);
 
         next = (Button) findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNext();
+                openTaskLogin();
             }
         });
-
+        // создаем объект для создания и управления версиями БД
         dbHelper = new DBHelper(this);
-
     }
 
-    public void openNext () {
+    public void openTaskLogin() {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
@@ -57,59 +63,114 @@ public class Reg extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        String username = etUsername.getText().toString();
-        String password = etPassword.getText().toString();
+        // создаем объект для данных
+        ContentValues cv = new ContentValues();
 
+        // получаем данные из полей ввода
+        String name = etName.getText().toString();
+        String email = etEmail.getText().toString();
 
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        // подключаемся к БД
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ContentValues contentValues = new ContentValues();
 
         switch (v.getId()) {
-
-
             case R.id.btnAdd:
+                Log.d(LOG_TAG, "--- Insert in mytable: ---");
+                // подготовим данные для вставки в виде пар: наименование столбца - значение
 
-                contentValues.put(DBHelper.KEY_USERNAME, username);
-                contentValues.put(DBHelper.KEY_PASSWORD, password);
+                cv.put("name", name);
+                cv.put("email", email);
+                // вставляем запись и получаем ее ID
+                long rowID = db.insert("mytable", null, cv);
+                Log.d(LOG_TAG, "row inserted, ID = " + rowID);
+                Log.d(LOG_TAG, "--- Rows in mytable: ---");
+                // делаем запрос всех данных из таблицы mytable, получаем Cursor
+                Cursor c = db.query("mytable", null, null, null, null, null, null);
 
-                database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
+                // ставим позицию курсора на первую строку выборки
+                // если в выборке нет строк, вернется false
+                if (c.moveToFirst()) {
 
-                break;
+                    // определяем номера столбцов по имени в выборке
+                    int idColIndex = c.getColumnIndex("id");
+                    int nameColIndex = c.getColumnIndex("name");
+                    int emailColIndex = c.getColumnIndex("email");
 
-            case R.id.btnRead:
-                Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null,
-                        null, null, null, null);
-
-                if (cursor.moveToFirst()) {
-                    int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_USERNAME);
-                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_PASSWORD);
                     do {
-                        Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
-                                ", username = " + cursor.getString(nameIndex) +
-                                ", password = " + cursor.getString(emailIndex));
-                    } while (cursor.moveToNext());
+                        // получаем значения по номерам столбцов и пишем все в лог
+                        Log.d(LOG_TAG,
+                                "ID = " + c.getInt(idColIndex) +
+                                        ", name = " + c.getString(nameColIndex) +
+                                        ", email = " + c.getString(emailColIndex));
+                        // переход на следующую строку
+                        // а если следующей нет (текущая - последняя), то false - выходим из цикла
+                    } while (c.moveToNext());
                 } else
-                    Log.d("mLog", "0 rows");
-
-                cursor.close();
-
-
+                    Log.d(LOG_TAG, "0 rows");
+                c.close();
                 break;
+            /*Кнопка для відладки
+            case R.id.btnRead:
+              Log.d(LOG_TAG, "--- Rows in mytable: ---");
+                // делаем запрос всех данных из таблицы mytable, получаем Cursor
+                Cursor c = db.query("mytable", null, null, null, null, null, null);
 
+                // ставим позицию курсора на первую строку выборки
+                // если в выборке нет строк, вернется false
+                if (c.moveToFirst()) {
+
+                    // определяем номера столбцов по имени в выборке
+                    int idColIndex = c.getColumnIndex("id");
+                    int nameColIndex = c.getColumnIndex("name");
+                    int emailColIndex = c.getColumnIndex("email");
+
+                    do {
+                        // получаем значения по номерам столбцов и пишем все в лог
+                        Log.d(LOG_TAG,
+                                "ID = " + c.getInt(idColIndex) +
+                                        ", name = " + c.getString(nameColIndex) +
+                                        ", email = " + c.getString(emailColIndex));
+                        // переход на следующую строку
+                        // а если следующей нет (текущая - последняя), то false - выходим из цикла
+                    } while (c.moveToNext());
+                } else
+                    Log.d(LOG_TAG, "0 rows");
+                c.close();*
+                break;
             case R.id.btnClear:
-                database.delete(DBHelper.TABLE_CONTACTS, null, null);
-
-                break;
-
+                Log.d(LOG_TAG, "--- Clear mytable: ---");
+                // удаляем все записи
+                int clearCount = db.delete("mytable", null, null);
+                Log.d(LOG_TAG, "deleted rows count = " + clearCount);
+                break;*/
         }
-
-
+        // закрываем подключение к БД
         dbHelper.close();
     }
 
 
+    static class DBHelper extends SQLiteOpenHelper {
 
+        public DBHelper(Context context) {
+            // конструктор суперкласса
+            super(context, "myDB", null, 1);
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            //  Log.d(LOG_TAG, "--- onCreate database ---");
+            // создаем таблицу с полями
+            db.execSQL("create table mytable ("
+                    + "id integer primary key autoincrement,"
+                    + "name text,"
+                    + "email text" + ");");
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        }
+    }
 
 }
