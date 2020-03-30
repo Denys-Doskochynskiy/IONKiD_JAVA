@@ -8,11 +8,11 @@
     tools:context=".TaskActivity">
 
     <ProgressBar
-        android:id="@+id/MondayBar"
+        android:id="@+id/mondayBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="299dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,128 +20,152 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/TuesdayBar"
+        android:id="@+id/mondayBar2"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="299dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MondayBar" />
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar" />
 
     <ProgressBar
-        android:id="@+id/WednesdayBar"
+        android:id="@+id/mondayBar3"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="299dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TuesdayBar" />
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar2" />
 
     <ProgressBar
-        android:id="@+id/ThursdayBar"
+        android:id="@+id/mondayBar4"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="299dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WednesdayBar" />
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar3" />
 
     <ProgressBar
-        android:id="@+id/FridayBar"
+        android:id="@+id/mondayBar5"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="299dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ThursdayBar" />
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar6" />
 
     <ProgressBar
-        android:id="@+id/SaturdayBar"
+        android:id="@+id/mondayBar7"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="299dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FridayBar" />
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar5" />
+
+    <ProgressBar
+        android:id="@+id/mondayBar6"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="#3282B8"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar4" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="128dp"
         android:layout_height="38dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:text="Понеділок"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/MondayBar"
-        app:layout_constraintStart_toStartOf="@+id/MondayBar"
-        app:layout_constraintTop_toTopOf="@+id/MondayBar" />
+        app:layout_constraintEnd_toEndOf="@+id/mondayBar"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/mondayBar"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="104dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="36dp"
         android:text="Вівторок"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/TuesdayBar"
-        app:layout_constraintStart_toStartOf="@+id/TuesdayBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="88dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="32dp"
         android:text="Середа"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/WednesdayBar"
-        app:layout_constraintStart_toStartOf="@+id/WednesdayBar"
-        app:layout_constraintTop_toBottomOf="@+id/TuesdayBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="87dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
         android:text="Четвер"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/ThursdayBar"
-        app:layout_constraintStart_toStartOf="@+id/ThursdayBar"
-        app:layout_constraintTop_toBottomOf="@+id/WednesdayBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="105dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="40dp"
         android:text="П'ятниця"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/FridayBar"
-        app:layout_constraintStart_toStartOf="@+id/FridayBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
         android:text="Субота"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/SaturdayBar"
-        app:layout_constraintStart_toStartOf="@+id/SaturdayBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="100dp"
+        android:text="Неділя"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

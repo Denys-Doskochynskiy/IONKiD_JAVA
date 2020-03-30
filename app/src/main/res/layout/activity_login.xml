@@ -30,8 +30,10 @@
             android:layout_marginBottom="103dp"
             android:layout_toRightOf="@+id/user_text"
             android:background="#0F4C75"
-            android:hint="введіть імя "
-            android:textSize="14sp">
+            android:hint="   Ваша пошта"
+            android:textColor="#1B262C"
+            android:textSize="14sp"
+            android:textStyle="bold">
 
             <requestFocus />
         </EditText>
@@ -51,9 +53,11 @@
             android:layout_marginRight="-1dp"
             android:layout_marginBottom="41dp"
             android:background="#0F4C75"
-            android:hint="введіть пароль"
+            android:hint="   Пароль"
             android:inputType="textPassword"
-            android:textSize="14sp" />
+            android:textColor="#1B262C"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/attempts"

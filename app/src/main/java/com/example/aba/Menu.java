@@ -24,25 +24,14 @@ public class Menu extends AppCompatActivity {
 
         Button profil = findViewById(R.id.profil);
 
-
-
-
-
-/*Поки що знаходиться в розробці
-        profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProfil();
-            }
-        });*/
-
         taskActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openTask();
             }
         });
-      
+
+
 
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,10 +39,24 @@ public class Menu extends AppCompatActivity {
                 openRetrofitTest();
             }
         });
+
+        /*Поки що знаходиться в розробці
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProfil();
+            }
+        });*/
+
     }
 
     public void openTask() {
         Intent intent = new Intent(this, TaskActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMessage() {
+        Intent intent = new Intent(this, Chat.class);
         startActivity(intent);
     }
 

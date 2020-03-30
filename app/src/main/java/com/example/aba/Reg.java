@@ -41,7 +41,7 @@ public class Reg extends Activity implements OnClickListener {
         btnClear = (Button) findViewById(R.id.btnClear);
         btnClear.setOnClickListener(this);
 */
-        etName = (EditText) findViewById(R.id.etUsername);
+        etName = (EditText) findViewById(R.id.etEmail);
         etEmail = (EditText) findViewById(R.id.etPassword);
 
         next = (Button) findViewById(R.id.next);
