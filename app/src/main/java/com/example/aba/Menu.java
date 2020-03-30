@@ -55,24 +55,6 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.doctors:
-                Toast.makeText(this, "Doctors temporarily unavailable", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.kids:
-                Toast.makeText(this, "Kids temporarily unavailable", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.chat:
-                Toast.makeText(this, "Chat temporarily unavailable", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.profil:
-                Toast.makeText(this, "Retrofit test start", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.taskActivity:
-                Toast.makeText(this, "Your task for today is...", Toast.LENGTH_SHORT).show();
-                break;
-        }
 
     }
 
