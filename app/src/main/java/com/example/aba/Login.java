@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity {
     private TextView loginLocked;
     private TextView attempts;
     private TextView numberOfAttempts;
-    private Button signup;
+    private TextView signup;
     Reg.DBHelper dbHelper;
 
     int numberOfRemainingLoginAttempts = 3;
@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
         attempts = (TextView) findViewById(R.id.attempts);
         numberOfAttempts = (TextView) findViewById(R.id.number_of_attempts);
         numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
-        signup = (Button) findViewById(R.id.signup);
+        signup = (TextView) findViewById(R.id.signup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
