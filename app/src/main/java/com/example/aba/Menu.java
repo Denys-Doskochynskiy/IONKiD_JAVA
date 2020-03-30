@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class Menu extends AppCompatActivity implements View.OnClickListener {
+public class Menu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,16 +17,14 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
 
 
         Button taskActivity = findViewById(R.id.taskActivity);
-        Button doctors = findViewById(R.id.doctors);
-        Button kids = findViewById(R.id.kids);
-        Button chat = findViewById(R.id.chat);
+        Button message = findViewById(R.id.messageActivity);
+        Button kids = findViewById(R.id.kidsActivity);
+        Button doctors = findViewById(R.id.doctorsActivity);
+        Button settings = findViewById(R.id.settingsActivity);
+
         Button profil = findViewById(R.id.profil);
 
-        taskActivity.setOnClickListener(this);
-        doctors.setOnClickListener(this);
-        kids.setOnClickListener(this);
-        chat.setOnClickListener(this);
-        profil.setOnClickListener(this);
+
 
 
 
@@ -38,24 +36,20 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
             }
         });*/
 
-
         taskActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openTask();
             }
         });
+
+
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRetrofitTest();
             }
         });
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 
     public void openTask() {
