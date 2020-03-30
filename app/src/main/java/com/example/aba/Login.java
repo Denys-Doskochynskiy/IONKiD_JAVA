@@ -80,7 +80,7 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(this, Menu.class);
                     startActivity(intent);
                 }
-                //
+
             } while (c.moveToNext());
         } else
             Toast.makeText(getApplicationContext(), "Неправильні дані!", Toast.LENGTH_SHORT).show();
