@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BBE1FA"
     tools:context=".TestComment">
 
     <Button
         android:id="@+id/btnBackMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#3282B8"
         android:text="Menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +24,7 @@
         android:id="@+id/btnReadAndAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#3282B8"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,14 +35,17 @@
 
     <EditText
         android:id="@+id/editComment"
-        android:layout_width="223dp"
-        android:layout_height="144dp"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
         android:ems="10"
         android:hint="Коментар про виконання тасок"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine|textPersonName"
+        android:lineSpacingExtra="18sp"
+        android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
+        app:layout_constraintVertical_bias="0.442" />
 </androidx.constraintlayout.widget.ConstraintLayout>
