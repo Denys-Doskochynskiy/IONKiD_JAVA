@@ -77,7 +77,7 @@ public class TaskActivityDay extends AppCompatActivity {
 
             checkBoxSecond.setChecked(isCheck);
             if (isCheck) {
-                textViewSecond.setBackgroundColor(Color.GREEN);
+                textViewSecond.setBackgroundColor(Color.BLUE);
             } else {
                 textViewSecond.setBackgroundColor(Color.WHITE);
             }
@@ -88,7 +88,7 @@ public class TaskActivityDay extends AppCompatActivity {
     public void OnCheck(View view) {
 
         if (checkBox.isChecked()) {
-            textView.setBackgroundColor(Color.GREEN);
+            textView.setBackgroundColor(Color.BLUE);
         } else {
             textView.setBackgroundColor(Color.WHITE);
         }
@@ -98,7 +98,7 @@ public class TaskActivityDay extends AppCompatActivity {
 
     public void onCheckSecond(View view) {
         if (checkBoxSecond.isChecked()) {
-            textViewSecond.setBackgroundColor(Color.GREEN);
+            textViewSecond.setBackgroundColor(Color.BLUE);
         } else {
             textViewSecond.setBackgroundColor(Color.WHITE);
         }
@@ -117,7 +117,7 @@ public class TaskActivityDay extends AppCompatActivity {
     }
 
     public void openMenu() {
-        Intent intent = new Intent(this, Menu.class);
+        Intent intent = new Intent(this, TestComment.class);
         startActivity(intent);
     }
 
