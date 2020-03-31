@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
 
     public void onClick(View view) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor c = db.query("mytable", null, null, null, null, null, null);
+        Cursor c = db.query("mytableIONKidV1", null, null, null, null, null, null);
 
 
         // определяем номера столбцов по имени в выборке

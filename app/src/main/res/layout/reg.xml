@@ -43,7 +43,7 @@
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName" />
+        app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
 
     <EditText
         android:id="@+id/lastName"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/firstName"
+        android:id="@+id/etFirstName"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/numberOfPhone"
+        android:id="@+id/etNumberOfPhone"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
