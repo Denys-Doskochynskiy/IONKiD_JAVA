@@ -200,7 +200,11 @@ public class Reg extends Activity implements OnClickListener {
                     + "firstName text,"
                     + "secondName text,"
                     + "surname text,"
-                   +"numberPhone text "
+                   +"numberPhone text ,"
+                    + "comment text"
+                    + ");");
+            db.execSQL("create table mytableIONKidV3 ("
+                    + "comment text"
                     + ");");
         }
 
