@@ -1,104 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BBE1FA"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <Button
-        android:id="@+id/kidsActivity"
-        android:layout_width="268dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="24dp"
-        android:background="#3282B8"
-        android:text="Дитина"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/messageActivity"
-        app:layout_constraintVertical_bias="0.0" />
+    <include
+        layout="@layout/app_bar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/taskActivity"
-        android:layout_width="268dp"
-        android:layout_height="53dp"
-        android:background="#3282B8"
-        android:text="Завдання"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_menu"
+        app:menu="@menu/activity_menu_drawer" />
 
-    <Button
-        android:id="@+id/messageActivity"
-        android:layout_width="268dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="24dp"
-        android:background="#3282B8"
-        android:text="Повідомлення"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskActivity"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/doctorsActivity"
-        android:layout_width="268dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="24dp"
-        android:background="#3282B8"
-        android:text="Лікарі"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kidsActivity"
-        app:layout_constraintVertical_bias="0.005" />
-
-    <Button
-        android:id="@+id/settingsActivity"
-        android:layout_width="268dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="20dp"
-        android:background="#3282B8"
-        android:text="Налаштування"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorsActivity"
-        app:layout_constraintVertical_bias="0.025" />
-
-    <Button
-        android:id="@+id/profil"
-        android:layout_width="323dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="32dp"
-        android:background="#3282B8"
-        android:text="Retrofit test"
-        android:textColor="#1B262C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsActivity"
-        app:layout_constraintVertical_bias="0.937" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

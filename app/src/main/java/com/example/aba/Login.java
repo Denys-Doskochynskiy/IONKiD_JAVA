@@ -22,6 +22,7 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login;
+   // private Button navDraw;
     private TextView loginLocked;
     private TextView attempts;
     private TextView numberOfAttempts;
@@ -49,10 +50,25 @@ public class Login extends AppCompatActivity {
                 onSignUp();
             }
         });
+       /* navDraw = (Button) findViewById(R.id.nd);
+        navDraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSignUp2();
+            }
+        });*/
 
         dbHelper = new Reg.DBHelper(this);
 
     }
+
+  /*  public void onSignUp2() {
+        Intent intent = new Intent(this, NavdrawActivity.class);
+        startActivity(intent);
+    }*/
+
+
+
 
     public void onSignUp() {
         Intent intent = new Intent(this, Reg.class);
