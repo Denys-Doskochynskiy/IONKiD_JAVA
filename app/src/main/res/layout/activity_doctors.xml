@@ -4,6 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BBE1FA"
     tools:context=".Doctors">
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="417dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="92dp"
+        android:background="#8B3282B8"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-3dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="185dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

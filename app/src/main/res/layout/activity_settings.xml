@@ -4,6 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BBE1FA"
     tools:context=".Settings">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="247dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="#3282B8"
+        android:text="Персональні дані"
+        android:textColor="#1B262C"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:layout_editor_absoluteX="82dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="247dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="#3282B8"
+        android:text="Допомога"
+        android:textColor="#1B262C"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:layout_editor_absoluteX="82dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="247dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="#3282B8"
+        android:text="Вийти з аккаунту"
+        android:textColor="#1B262C"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        tools:layout_editor_absoluteX="82dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="247dp"
+        android:layout_height="52dp"
+        android:background="#3282B8"
+        android:text="Вигляд"
+        android:textColor="#1B262C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375"
+        tools:layout_editor_absoluteX="82dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
