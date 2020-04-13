@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu"
+            android:icon="@drawable/ic_menu_black_24dp"
+            android:title="menu" />
+        <item
+            android:id="@+id/nav_doctor"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="doctor" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="chat" />
+        <item
+            android:id="@+id/nav_kids"
+            android:icon="@drawable/ic_people_outline_black_24dp"
+            android:title="kids" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="settings" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_taskaktivityday"
+                android:icon="@drawable/ic_content_paste_black_24dp"
+                android:title="tasks" />
+        </menu>
+    </item>
+
+</menu>

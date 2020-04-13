@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,23 +18,57 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestComment"/>
         <activity android:name=".Test3" />
         <activity android:name=".Test2" />
+
         <activity android:name=".ToConfirmReg" />
         <activity android:name=".AddKid" />
+
         <activity android:name=".AdditionKid" />
-        <activity android:name=".Chat" />
         <activity android:name=".TaskActivityDay" />
-        <activity android:name=".Settings" />
-        <activity android:name=".Doctors" />
-        <activity android:name=".Kids" />
-        <activity android:name=".Menu" />
         <activity android:name=".Load" />
         <activity android:name=".Login" />
         <activity android:name=".Reg" />
-        <activity android:name=".TaskActivity" />
-        <activity android:name=".RetrofitTest" />
+        <activity
+            android:name=".NavdrawActivity"
+            android:label="@string/title_activity_navdraw"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Chat"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Doctors"
+            android:label="@string/title_activity_doctors"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Kids"
+            android:label="@string/title_activity_kids"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Menu"
+            android:label="@string/title_activity_menu1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TestComment"
+            android:label="@string/title_activity_test_comment1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddKid"
+            android:label="@string/title_activity_add_kid1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TaskActivity"
+            android:label="@string/title_activity_task1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RetrofitTest"
+            android:label="@string/title_activity_retrofit_test1"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
