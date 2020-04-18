@@ -3,6 +3,7 @@ package com.example.aba;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -15,30 +16,191 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class Reg extends Activity implements OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
 
-    final String LOG_TAG = "myLogs";
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.firebase.client.Firebase;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Register extends AppCompatActivity {
+    EditText emailUser, password, numberOfPhone;
+    EditText firstName, confirmPassword, surname, lastName;
+    Button registerButton;
+    String email, pass, confirm;
+    String phone, surnameUser, lastNameUser, firstNameUser;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+
+        confirmPassword = findViewById(R.id.confirmPassword);
+        emailUser = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        registerButton = findViewById(R.id.registerButton);
+        numberOfPhone = findViewById(R.id.numberOfPhone);
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
+        surname = findViewById(R.id.surname);
+        Firebase.setAndroidContext(this);
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                phone=numberOfPhone.getText().toString();
+                surnameUser=surname.getText().toString();
+                lastNameUser=lastName.getText().toString();
+                firstNameUser=firstName.getText().toString();
+
+                email = emailUser.getText().toString().replace(".","DOT");
+                pass = password.getText().toString();
+                confirm = confirmPassword.getText().toString();
+                if(lastNameUser.equals("")) {
+                    lastName.setError("can't be blank");
+
+                } else if (firstNameUser.equals("")) {
+                    firstName.setError("can't be blank");
+
+                } else if (surnameUser.equals("")) {
+                    surname.setError("can't be blank");
+
+                }else if(email.equals("")){
+                    emailUser.setError("can't be blank");
+
+
+                } else if (pass.equals("")) {
+                    password.setError("can't be blank");
+
+                } else if (confirm.equals("")) {
+                    confirmPassword.setError("can't be blank");
+
+                }else if (phone.equals("")) {
+                    numberOfPhone.setError("can't be blank");
+
+                }else if(!lastNameUser.matches("[A-Za-z]+")){
+                    lastName.setError("Use only alphabet");
+
+                }else if(!firstNameUser.matches("[A-Za-z]+")){
+                    firstName.setError("Use only alphabet");
+
+                }else if(!surnameUser.matches("[A-Za-z]+")){
+                    surname.setError("Use only alphabet");
+
+              /*  } else if (!email.matches("^[a-z0-9](\\.?[a-z0-9]){5,29}@gmail\\    .com$")) {
+                    emailUser.setError(
+                            "Please don't use only corect email");*/
+                }  else if (email.length() < 13) {
+                    emailUser.setError("at least 5 characters long");
+                }  else if(!pass.matches("[A-Za-z0-9]+")){
+                    password.setError("only alphabet or number allowed");
+                }  else if (pass.length() < 5) {
+                    password.setError("at least 5 characters long");
+
+                } else if (!pass.equals(confirm)) {
+                    confirmPassword.setError("password does not match");
+                }else if(!phone.matches("[0-9]+")){
+                    numberOfPhone.setError("Use only number");
+
+                }
+
+                else {
+                    final ProgressDialog pd = new ProgressDialog(Register.this);
+                    pd.setMessage("Loading...");
+                    pd.show();
+
+                    String url = "https://ionkid-abd2f.firebaseio.com/users.json";
+
+                    StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String s) {
+                            Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/users");
+
+                            if (s.equals("null")) {
+
+
+                                reference.child(email).child("firstName").setValue(firstNameUser);
+                                reference.child(email).child("lastName").setValue(lastNameUser);
+                                reference.child(email).child("surname").setValue(surnameUser);
+
+                                reference.child(email).child("password").setValue(pass);
+
+                                reference.child(email).child("phoneNumber").setValue(phone);
+
+
+
+
+                                Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(Register.this, Login.class));
+                            } else {
+                                try {
+                                    JSONObject obj = new JSONObject(s);
+
+                                    if (!obj.has(email)) {
+                                        reference.child(email).child("firstName").setValue(firstNameUser);
+                                        reference.child(email).child("lastName").setValue(lastNameUser);
+                                        reference.child(email).child("surname").setValue(surnameUser);
+
+                                        reference.child(email).child("password").setValue(pass);
+
+                                        reference.child(email).child("phoneNumber").setValue(phone);
+
+                                        Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(Register.this, Login.class));
+                                    } else {
+                                        Toast.makeText(Register.this, "username already exists", Toast.LENGTH_LONG).show();
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            pd.dismiss();
+                        }
+
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+                            System.out.println("" + volleyError);
+                            pd.dismiss();
+                        }
+                    });
+
+                    RequestQueue rQueue = Volley.newRequestQueue(Register.this);
+                    rQueue.add(request);
+                }
+
+            }
+        });
+    }
+   /* final String LOG_TAG = "myLogs";
 
     Button btnAdd, btnRead, btnClear, next;
     EditText etName, etEmail, eNumberPhone,etFirstName,etSecondName,etSurname,etConfirmPassword;
 
     DBHelper dbHelper;
 
-    /**
-     * Called when the activity is first created.
-     */
-    @Override
+
+  @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reg);
+        setContentView(R.layout.activity_register);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
-/* кнопки для відладки
         btnRead = (Button) findViewById(R.id.btnRead);
         btnRead.setOnClickListener(this);*/
-        btnClear = (Button) findViewById(R.id.btnClean);
+    /*    btnClear = (Button) findViewById(R.id.btnClean);
         btnClear.setOnClickListener(this);
 
         etName = (EditText) findViewById(R.id.etEmail);
@@ -139,7 +301,7 @@ public class Reg extends Activity implements OnClickListener {
                 //if (id.equalsIgnoreCase("")) {
  //                   break;
    //             }
-                Log.d(LOG_TAG, "--- Delete from mytable: ---");
+         /*       Log.d(LOG_TAG, "--- Delete from mytable: ---");
                 // удаляем по id
                 int delCount = db.delete("mytableIONKidV1", "id = " + 25, null);
                 Log.d(LOG_TAG, "deleted rows count = " + delCount);
@@ -175,10 +337,14 @@ public class Reg extends Activity implements OnClickListener {
                 int clearCount = db.delete("mytable", null, null);
                 Log.d(LOG_TAG, "deleted rows count = " + clearCount);
                 break;*/
-        }
+     /*   }
         // закрываем подключение к БД
         dbHelper.close();
     }
+*/
+
+
+
 
 
     static class DBHelper extends SQLiteOpenHelper {

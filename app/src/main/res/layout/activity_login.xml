@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.example.aba.Login">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,10 +18,10 @@
         app:layout_constraintVertical_bias="1.0">
 
         <EditText
-            android:id="@+id/edit_user"
+            android:id="@+id/email"
             android:layout_width="211dp"
             android:layout_height="40dp"
-            android:layout_above="@+id/singin"
+            android:layout_above="@+id/loginButton"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="100dp"
@@ -29,7 +29,7 @@
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="107dp"
             android:layout_toRightOf="@+id/user_text"
-            android:background="#3282B8"
+            android:background="#0F4C75"
             android:hint="   Ваша пошта"
             android:textColor="#1B262C"
             android:textSize="14sp"
@@ -39,12 +39,12 @@
         </EditText>
 
         <EditText
-            android:id="@+id/edit_password"
+            android:id="@+id/password"
             android:layout_width="207dp"
             android:layout_height="40dp"
-            android:layout_above="@+id/singin"
-            android:layout_alignLeft="@+id/edit_user"
-            android:layout_alignRight="@+id/edit_user"
+            android:layout_above="@+id/loginButton"
+            android:layout_alignLeft="@+id/email"
+            android:layout_alignRight="@+id/email"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="101dp"
@@ -64,7 +64,7 @@
             android:id="@+id/attempts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/password_text"
+            android:layout_alignLeft="@+id/password"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -78,17 +78,16 @@
             android:visibility="invisible" />
 
         <Button
-            android:id="@+id/singin"
+            android:id="@+id/loginButton"
             android:layout_width="241dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/signup"
+            android:layout_above="@+id/register"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="84dp"
             android:layout_marginEnd="84dp"
             android:layout_marginBottom="66dp"
-            android:background="#3282B8"
-            android:onClick="onClick"
+            android:background="#0F4C75"
             android:text="Ввійти"
             android:textAlignment="center"
             android:textColor="#1B262C" />
@@ -98,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/attempts"
-            android:layout_alignRight="@+id/user_text"
+            android:layout_alignRight="@+id/email"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="67dp"
@@ -109,7 +108,7 @@
             android:layout_width="186dp"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/attempts"
-            android:layout_alignRight="@+id/edit_password"
+            android:layout_alignRight="@+id/password"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -123,7 +122,7 @@
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/signup"
+            android:id="@+id/register"
             android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

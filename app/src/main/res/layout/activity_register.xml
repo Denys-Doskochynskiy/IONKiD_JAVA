@@ -5,29 +5,30 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="#BBE1FA"
-    tools:context=".MainActivity">
+    tools:context="com.example.aba.Register">
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="64dp"
         android:background="#3282B8"
-        android:text="Add"
+        android:text="Зареєструватися"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/email"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Email"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,12 +40,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="По батькові"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <EditText
         android:id="@+id/lastName"
@@ -52,86 +53,64 @@
         android:layout_height="50dp"
         android:layout_marginTop="84dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Прізвище"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etFirstName"
+        android:id="@+id/firstName"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="І'мя"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/password"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Пароль"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
-        android:id="@+id/etNumberOfPhone"
+        android:id="@+id/numberOfPhone"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Номер телефону"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
 
     <EditText
-        android:id="@+id/etConfirmPassword"
+        android:id="@+id/confirmPassword"
         android:layout_width="213dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Повторіть пароль"
+        android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#3282B8"
-        android:text="next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.672"
-        app:layout_constraintStart_toEndOf="@+id/btnAdd" />
-
-    <Button
-        android:id="@+id/btnClean"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#3282B8"
-        android:text="CLEAN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

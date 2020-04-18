@@ -111,7 +111,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -131,7 +131,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -183,7 +183,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent(Menu.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent( Menu.this, Chat.class));
+            startActivity(new Intent( Menu.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent( Menu.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {

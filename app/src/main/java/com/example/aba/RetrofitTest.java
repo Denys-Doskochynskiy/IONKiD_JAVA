@@ -90,7 +90,7 @@ public class RetrofitTest extends AppCompatActivity
         });
     }
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -137,7 +137,7 @@ public class RetrofitTest extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent( RetrofitTest.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(RetrofitTest.this, Chat.class));
+            startActivity(new Intent(RetrofitTest.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(RetrofitTest.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {

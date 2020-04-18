@@ -48,7 +48,7 @@ public class Settings extends AppCompatActivity
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -95,7 +95,7 @@ public class Settings extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent(Settings.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(Settings.this, Chat.class));
+            startActivity(new Intent(Settings.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Settings.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
