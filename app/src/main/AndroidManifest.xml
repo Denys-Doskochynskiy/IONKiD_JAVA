@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Test3" />
-        <activity android:name=".Test2" />
-        <activity android:name=".Test1" />
+        <activity android:name=".UserPersonalData" />
+        <activity android:name=".ToConfirmReg" />
         <activity android:name=".AdditionKid" />
         <activity android:name=".TaskActivityDay" />
         <activity android:name=".Load" />
