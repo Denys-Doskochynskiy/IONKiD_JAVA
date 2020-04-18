@@ -60,7 +60,7 @@ public class Chose extends AppCompatActivity {
         startActivity(intent);
     }
     public void openTaskTest2 () {
-        Intent intent = new Intent(this, Reg.class);
+        Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
 }

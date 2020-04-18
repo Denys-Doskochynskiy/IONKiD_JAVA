@@ -48,7 +48,7 @@ public class Doctors extends AppCompatActivity
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -95,7 +95,7 @@ public class Doctors extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent( Doctors.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent( Doctors.this, Chat.class));
+            startActivity(new Intent( Doctors.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent( Doctors.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {

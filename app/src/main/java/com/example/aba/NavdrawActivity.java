@@ -132,7 +132,7 @@ public class NavdrawActivity extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent(NavdrawActivity.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(NavdrawActivity.this, Chat.class));
+            startActivity(new Intent(NavdrawActivity.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(NavdrawActivity.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
