@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "510693495451",
+    "firebase_url": "https://ionkid-abd2f.firebaseio.com",
+    "project_id": "ionkid-abd2f",
+    "storage_bucket": "ionkid-abd2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510693495451:android:cfae3663878234a3bf2c3e",
+        "android_client_info": {
+          "package_name": "com.example.aba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510693495451-4gd0v473qtvvvgqdhcp2corb7elbnihb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aba",
+            "certificate_hash": "a71ba3c6745d84a83e222c27a8a2497f658ed9e4"
+          }
+        },
+        {
+          "client_id": "510693495451-e7brbtl4fs6vskedn42379q9js7gv9k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyDL7DShOrN7ef-8E5DyZUzFNwgeJNeiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510693495451-e7brbtl4fs6vskedn42379q9js7gv9k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
