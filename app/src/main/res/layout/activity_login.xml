@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#BBE1FA"
@@ -30,7 +29,7 @@
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="107dp"
             android:layout_toRightOf="@+id/user_text"
-            android:background="#0F4C75"
+            android:background="#3282B8"
             android:hint="   Ваша пошта"
             android:textColor="#1B262C"
             android:textSize="14sp"
@@ -50,10 +49,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="101dp"
             android:layout_marginLeft="6dp"
+            android:layout_marginTop="29dp"
             android:layout_marginEnd="99dp"
             android:layout_marginRight="-6dp"
             android:layout_marginBottom="38dp"
-            android:background="#0F4C75"
+            android:background="#3282B8"
             android:hint="   Пароль"
             android:inputType="textPassword"
             android:textColor="#1B262C"
@@ -87,7 +87,7 @@
             android:layout_marginStart="84dp"
             android:layout_marginEnd="84dp"
             android:layout_marginBottom="66dp"
-            android:background="#0F4C75"
+            android:background="#3282B8"
             android:onClick="onClick"
             android:text="Ввійти"
             android:textAlignment="center"
