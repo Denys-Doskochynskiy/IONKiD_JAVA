@@ -78,7 +78,7 @@ public class Chat extends AppCompatActivity
             }
         });
 
-        reference1.addChildEventListener(new ChildEventListener() {
+      reference1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Map map = dataSnapshot.getValue(Map.class);
@@ -112,7 +112,7 @@ public class Chat extends AppCompatActivity
             public void onCancelled(FirebaseError firebaseError) {
 
             }
-        });
+        });/*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +121,7 @@ public class Chat extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
+*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
