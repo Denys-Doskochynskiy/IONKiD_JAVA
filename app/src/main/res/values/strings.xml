@@ -20,4 +20,12 @@
     <string name="title_activity_add_kid1">AddKid</string>
     <string name="title_activity_task1">TaskActivity</string>
     <string name="title_activity_retrofit_test1">RetrofitTest</string>
+    <string name="login" />
+    <string name="enter_username" />
+    <string name="enter_password" />
+    <string name="click_here_to_register" />
+    <string name="write_a_message" />
+    <string name="register" />
+    <string name="click_here_to_login" />
+    <string name="no_users_found" />
 </resources>

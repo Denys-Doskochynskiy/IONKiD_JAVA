@@ -48,7 +48,7 @@ public class Kids extends AppCompatActivity
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -95,7 +95,7 @@ public class Kids extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent( Kids.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent( Kids.this, Chat.class));
+            startActivity(new Intent( Kids.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent( Kids.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {

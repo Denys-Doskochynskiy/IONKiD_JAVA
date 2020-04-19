@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.util.Log;
 import android.view.View;
@@ -33,7 +32,7 @@ public class TestComment extends AppCompatActivity
     Button btnAdd, btnMenu;
     EditText editComment;
 
-    Reg.DBHelper dbHelper;
+    Register.DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +71,11 @@ public class TestComment extends AppCompatActivity
 
 
         // создаем объект для создания и управления версиями БД
-        dbHelper = new Reg.DBHelper(this);
+        dbHelper = new Register.DBHelper(this);
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Chat.class);
+        Intent intent = new Intent(this, Users.class);
         startActivity(intent);
     }
 
@@ -123,7 +122,7 @@ public class TestComment extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent( TestComment.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent( TestComment.this, Chat.class));
+            startActivity(new Intent( TestComment.this, Users.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent( TestComment.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
