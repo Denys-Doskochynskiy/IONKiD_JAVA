@@ -5,21 +5,28 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BBE1FA"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
     <include
         layout="@layout/app_bar_navdraw"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#BBE1FA" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#BBE1FA"
         android:fitsSystemWindows="true"
+        android:foregroundTint="#00FFFFFF"
         app:headerLayout="@layout/nav_header_navdraw"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconTint="@color/colorPrimaryDark"
+        app:itemTextColor="#1B262C"
         app:menu="@menu/activity_navdraw_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

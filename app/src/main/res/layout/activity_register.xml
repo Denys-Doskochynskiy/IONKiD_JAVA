@@ -13,19 +13,21 @@
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="52dp"
         android:background="#3282B8"
         android:onClick="onClick"
         android:text="Зареєструватися"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfPhone"
+        app:layout_constraintVertical_bias="0.53" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Email"
@@ -38,7 +40,7 @@
     <EditText
         android:id="@+id/surname"
         android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="По батькові"
@@ -51,20 +53,21 @@
     <EditText
         android:id="@+id/lastName"
         android:layout_width="213dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="84dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Прізвище"
         android:inputType="textPersonName"
         android:textColor="#1B262C"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/firstName"
         android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="І'мя"
@@ -77,7 +80,7 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Пароль"
@@ -90,7 +93,7 @@
     <EditText
         android:id="@+id/numberOfPhone"
         android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Номер телефону"
@@ -103,7 +106,7 @@
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="213dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Повторіть пароль"
