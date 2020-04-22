@@ -2,22 +2,18 @@ package com.example.aba;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.view.MenuItem;
-import android.widget.Button;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,31 +21,21 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        floatingActionButton();
+        drawerLayoutAndToolbar();
+        navigationView();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTaskMessage();
-            }
-        });
+        findViewAndClickListener();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void findViewAndClickListener() {
         Button taskActivity = findViewById(R.id.taskActivity);
         Button message = findViewById(R.id.messageActivity);
         Button kids = findViewById(R.id.kidsActivity);
         Button doctors = findViewById(R.id.doctorsActivity);
         Button settings = findViewById(R.id.settingsActivity);
-
         Button profil = findViewById(R.id.profil);
 
         taskActivity.setOnClickListener(new View.OnClickListener() {
@@ -95,25 +81,39 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
-        /*Поки що знаходиться в розробці
-        profil.setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void floatingActionButton() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openProfil();
+                openTaskMessage();
             }
-        });*/
-
+        });
     }
+
+    public void drawerLayoutAndToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    public void navigationView() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
 
     public void openTask() {
         Intent intent = new Intent(this, TaskActivity.class);
         startActivity(intent);
     }
 
-    public void openMessage() {
-        Intent intent = new Intent(this, Users.class);
-        startActivity(intent);
-    }
 
     public void openRetrofitTest() {
         Intent intent = new Intent(this, RetrofitTest.class);
@@ -142,7 +142,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -152,19 +152,17 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -175,7 +173,6 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_doctor) {
@@ -183,15 +180,15 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent(Menu.this, Kids.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent( Menu.this, Users.class));
+            startActivity(new Intent(Menu.this, Users.class));
         } else if (id == R.id.nav_settings) {
-            startActivity(new Intent( Menu.this, Settings.class));
+            startActivity(new Intent(Menu.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent( Menu.this, TaskActivityDay.class));
+            startActivity(new Intent(Menu.this, TaskActivityDay.class));
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

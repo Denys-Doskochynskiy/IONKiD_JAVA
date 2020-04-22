@@ -1,7 +1,5 @@
 package com.example.aba;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,6 +9,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class TaskActivityDay extends AppCompatActivity {
 
@@ -23,45 +23,25 @@ public class TaskActivityDay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day);
 
-        checkBox = (CheckBox) findViewById(R.id.checkBox);
-        checkBoxSecond = (CheckBox) findViewById(R.id.checkBoxSecond);
 
-        textView = (TextView) findViewById(R.id.textView);
-        textViewSecond = (TextView) findViewById(R.id.textViewSecond);
+        textView = findViewById(R.id.textView);
+        textViewSecond = findViewById(R.id.textViewSecond);
 
-        save = (Button) findViewById(R.id.buttonSave);
+        save = findViewById(R.id.buttonSave);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMenu();
             }
         });
-        //Saving CheckBox
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
-// TODO Auto-generated method stub
-                SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
-                editor.putBoolean("cbx1_", isChecked);
-                editor.commit();
-            }
-        });
+        checkBoxFirst();
         SharedPreferences settings = getSharedPreferences("syllabus", 0);
         Boolean isChecked = settings.getBoolean("cbx1_", false);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-        checkBoxSecond.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton arg0, boolean isCheck) {
-// TODO Auto-generated method stub
-                SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
-                editor.putBoolean("cbx2_", isCheck);
-                editor.commit();
-            }
-        });
 
+        checkBoxSecond();
         SharedPreferences setting = getSharedPreferences("syllabus", 0);
         Boolean isCheck = setting.getBoolean("cbx2_", false);
-        ////////////////////////////////////////////////////////////////////////////////////
 
 
         {
@@ -71,8 +51,6 @@ public class TaskActivityDay extends AppCompatActivity {
             } else {
                 textView.setBackgroundColor(Color.WHITE);
             }
-
-            //Saving CheckBox
 
 
             checkBoxSecond.setChecked(isCheck);
@@ -84,6 +62,30 @@ public class TaskActivityDay extends AppCompatActivity {
         }
     }
 
+    public void checkBoxSecond() {
+        checkBoxSecond = findViewById(R.id.checkBoxSecond);
+        checkBoxSecond.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton arg0, boolean isCheck) {
+
+                SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
+                editor.putBoolean("cbx2_", isCheck);
+                editor.commit();
+            }
+        });
+
+    }
+
+    public void checkBoxFirst() {
+        checkBox = findViewById(R.id.checkBox);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+
+                SharedPreferences.Editor editor = getSharedPreferences("syllabus", 0).edit();
+                editor.putBoolean("cbx1_", isChecked);
+                editor.commit();
+            }
+        });
+    }
 
     public void OnCheck(View view) {
 
@@ -124,21 +126,5 @@ public class TaskActivityDay extends AppCompatActivity {
 }
 
 
-  /*
-   Перехід на інше вікно
 
-
-     next = (Button) findViewById(R.id.task);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTaskTest2();
-            }
-        });
-    public void openTaskTest2 () {
-        Intent intent = new Intent(this, Menu.class);
-        startActivity(intent);
-    }
-
-*/
 
