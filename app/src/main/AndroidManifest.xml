@@ -24,7 +24,6 @@
         <activity android:name=".ToConfirmReg" />
         <activity android:name=".AdditionKid" />
         <activity android:name=".TaskActivityDay" />
-        <activity android:name=".Load" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity
