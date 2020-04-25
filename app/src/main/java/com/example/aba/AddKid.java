@@ -1,10 +1,13 @@
 package com.example.aba;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,101 +15,243 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.firebase.client.Firebase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-public class AddKid extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class AddKid extends AppCompatActivity {
+    Button addKid;
+    String genderKid, widthKid,lastNameKid;
+    String cityKid, countryKid;
+    String growthKid, diagnoseKid, dateKid;
+    String firstNameKid,  bloodTypeKid;
+    EditText gender, width;
+    EditText  city, country;
+    EditText growth, diagnose, date;
+    EditText first, lastKid, bloodType;
+
+
+    /*   genderKid = gender.getText().toString();
+                 widthKid = width.getText().toString();
+                 widthKid = lastName.getText().toString();
+                 firstNameKid = firstName.getText().toString();
+
+                 cityKid = city.getText().toString();
+                 countryKid = country.getText().toString();
+                 growthKid = growth.getText().toString();
+                 diagnoseKid = diagnose.getText().toString();
+                 dateKid = date.getText().toString();
+                 bloodTypeKid = bloodType.getText().toString();*/
+
+      /*    if (firstNameKid.equals("")) {
+                    firstName.setError("can't be blank");
+
+                } else if (widthKid.equals("")) {
+                    lastName.setError("can't be blank");
+
+                } else if (countryKid.equals("")) {
+                    country.setError("can't be blank");
+
+                } else if (cityKid.equals("")) {
+                    city.setError("can't be blank");
+
+
+                } else if (genderKid.equals("")) {
+                    gender.setError("can't be blank");
+
+                } else if (dateKid.equals("")) {
+                    date.setError("can't be blank");
+
+                } else if (widthKid.equals("")) {
+                    width.setError("can't be blank");
+
+                } else if (growthKid.equals("")) {
+                    growth.setError("can't be blank");
+
+
+                } else if (bloodTypeKid.equals("")) {
+                    bloodType.setError("can't be blank");
+
+                } else if (diagnoseKid.equals("")) {
+                    diagnose.setError("can't be blank");
+*/
+
+      /*
+                                reference.child(widthKid).child("firstName").setValue(firstNameKid);
+                                reference.child(firstNameKid).child("lastName").setValue(widthKid);
+                                reference.child(firstNameKid).child("surname").setValue(bloodTypeKid);
+                                reference.child(firstNameKid).child("surname").setValue(dateKid);
+                                reference.child(firstNameKid).child("surname").setValue(diagnoseKid);
+                                reference.child(firstNameKid).child("surname").setValue(genderKid);
+                                reference.child(firstNameKid).child("surname").setValue(growthKid);
+
+                                reference.child(firstNameKid).child("password").setValue(countryKid);
+
+                                reference.child(countryKid).child("phoneNumber").setValue(cityKid);
+
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_kid);
+        setContentView(R.layout.activity_addition_kid);
+        findView();
+        Firebase.setAndroidContext(this);
 
-        drawerLayoutAndToolbar();
 
-        floatingActionButton();
 
-        navigationView();
-
-    }
-
-    public void floatingActionButton() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        addKid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openTaskMessage();
+                genderKid = gender.getText().toString();
+                widthKid = width.getText().toString();
+                lastNameKid = lastKid.getText().toString();
+                firstNameKid = first.getText().toString();
+
+                cityKid = city.getText().toString();
+                countryKid = country.getText().toString();
+                growthKid = growth.getText().toString();
+                diagnoseKid = diagnose.getText().toString();
+                dateKid = date.getText().toString();
+                bloodTypeKid = bloodType.getText().toString();
+
+          if (genderKid.equals("")) {
+              gender.setError("can't be blank");
+
+
+                } else if (firstNameKid.equals("")) {
+                    first.setError("can't be blank");
+
+          } else if (lastNameKid.equals("")) {
+              lastKid.setError("can't be blank");
+
+                } else if (countryKid.equals("")) {
+                    country.setError("can't be blank");
+
+                } else if (cityKid.equals("")) {
+                    city.setError("can't be blank");
+
+/*
+                } else if(widthKid.equals("")) {
+                  last.setError("can't be blank");
+*/
+                } else if (dateKid.equals("")) {
+                    date.setError("can't be blank");
+
+                } else if (widthKid.equals("")) {
+                    width.setError("can't be blank");
+
+                } else if (growthKid.equals("")) {
+                    growth.setError("can't be blank");
+
+
+                } else if (bloodTypeKid.equals("")) {
+                    bloodType.setError("can't be blank");
+
+                } else if (diagnoseKid.equals("")) {
+                    diagnose.setError("can't be blank");
+                } else {
+                    final ProgressDialog pd = new ProgressDialog(AddKid.this);
+                    pd.setMessage("Loading...");
+                    pd.show();
+
+                    String url = "https://ionkid-abd2f.firebaseio.com/users/kids.json";
+
+                    StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String s) {
+                                Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/users/"+UserDetails.username+"/kids");
+
+                            if (s.equals("null")) {
+                                reference.child(lastNameKid).child("Width").setValue(widthKid);
+                                reference.child(lastNameKid).child("Gennder").setValue(genderKid);
+                                reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
+                                reference.child(lastNameKid).child("width").setValue(widthKid);
+                                reference.child(lastNameKid).child("blood").setValue(bloodTypeKid);
+                                reference.child(lastNameKid).child("date").setValue(dateKid);
+                                reference.child(lastNameKid).child("diagnose").setValue(diagnoseKid);
+                                reference.child(lastNameKid).child("gender").setValue(genderKid);
+                                reference.child(lastNameKid).child("growth").setValue(growthKid);
+
+
+                                reference.child(lastNameKid).child("country").setValue(countryKid);
+                                reference.child(countryKid).child("city").setValue(cityKid);
+                                UserDetails.kidName=lastNameKid;
+                                Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(AddKid.this, Menu.class));
+                            } else {
+                                try {
+                                    JSONObject obj = new JSONObject(s);
+
+                                    if (!obj.has(lastNameKid) ){
+                                        reference.child(lastNameKid).child("Width").setValue(widthKid);
+                                        reference.child(lastNameKid).child("Gennder").setValue(genderKid);
+                                        reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
+                                        reference.child(lastNameKid).child("width").setValue(widthKid);
+                                        reference.child(lastNameKid).child("blood").setValue(bloodTypeKid);
+                                        reference.child(lastNameKid).child("date").setValue(dateKid);
+                                        reference.child(lastNameKid).child("diagnose").setValue(diagnoseKid);
+                                        reference.child(lastNameKid).child("gender").setValue(genderKid);
+                                        reference.child(lastNameKid).child("growth").setValue(growthKid);
+
+
+                                        reference.child(lastNameKid).child("country").setValue(countryKid);
+                                        reference.child(lastNameKid).child("city").setValue(cityKid);
+                                        Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                        UserDetails.kidName=lastNameKid;
+                                        startActivity(new Intent(AddKid.this, Menu.class));
+                                    } else {
+                                        Toast.makeText(AddKid.this, "username already exists", Toast.LENGTH_LONG).show();
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            pd.dismiss();
+                        }
+
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+                            System.out.println("" + volleyError);
+                            pd.dismiss();
+                        }
+                    });
+
+                    RequestQueue rQueue = Volley.newRequestQueue(AddKid.this);
+                    rQueue.add(request);
+                }
+
             }
         });
     }
 
-    public void drawerLayoutAndToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+    public void findView() {
+        gender = findViewById(R.id.gender);
+        width = findViewById(R.id.weidth);
+        city = findViewById(R.id.city);
+        country = findViewById(R.id.country);
+        growth = findViewById(R.id.growth);
+        diagnose = findViewById(R.id.diagnose);
+        date = findViewById(R.id.dateOfBirth);
+        first = findViewById(R.id.firstName);
+        lastKid= findViewById(R.id.lastKidName);
+        bloodType = findViewById(R.id.bloodType);
+        addKid = findViewById(R.id.addKid);
     }
 
-    public void navigationView() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
 
-    public void openTaskMessage() {
-        Intent intent = new Intent(this, Users.class);
-        startActivity(intent);
-    }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_kid1, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.nav_doctor) {
-            startActivity(new Intent(AddKid.this, Doctors.class));
-        } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(AddKid.this, Kids.class));
-        } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(AddKid.this, Users.class));
-        } else if (id == R.id.nav_settings) {
-            startActivity(new Intent(AddKid.this, Settings.class));
-        } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(AddKid.this, TaskActivityDay.class));
-
-        }
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
 }

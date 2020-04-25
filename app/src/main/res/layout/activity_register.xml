@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:background="#3282B8"
-        android:onClick="onClick"
         android:text="Зареєструватися"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

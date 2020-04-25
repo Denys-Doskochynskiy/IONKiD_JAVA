@@ -110,7 +110,7 @@ public class TaskActivity extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(TaskActivity.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(TaskActivity.this, Kids.class));
+            startActivity(new Intent(TaskActivity.this, AddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(TaskActivity.this, Users.class));
         } else if (id == R.id.nav_settings) {
