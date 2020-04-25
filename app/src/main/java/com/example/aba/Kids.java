@@ -42,7 +42,7 @@ public class Kids extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kids);
+        setContentView(R.layout.chose_kids);
 
         usersList = findViewById(R.id.usersList);
         noUsersText = findViewById(R.id.noUsersText);
