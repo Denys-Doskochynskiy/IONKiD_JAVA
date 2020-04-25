@@ -97,7 +97,7 @@ public class Doctors extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Doctors.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Doctors.this, Kids.class));
+            startActivity(new Intent(Doctors.this, AddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(Doctors.this, Users.class));
         } else if (id == R.id.nav_settings) {

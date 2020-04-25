@@ -96,7 +96,7 @@ public class Settings extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Settings.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Settings.this, Kids.class));
+            startActivity(new Intent(Settings.this, AddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(Settings.this, Users.class));
         } else if (id == R.id.nav_settings) {

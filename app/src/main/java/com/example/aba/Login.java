@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = username.getText().toString().replace(".", "DOT");
+                user = username.getText().toString().replace(".", ",");
                 pass = password.getText().toString();
 
                 if (user.equals("")) {
