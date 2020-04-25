@@ -140,7 +140,7 @@ public class RetrofitTest extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(RetrofitTest.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(RetrofitTest.this, Kids.class));
+            startActivity(new Intent(RetrofitTest.this, AddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(RetrofitTest.this, Users.class));
         } else if (id == R.id.nav_settings) {

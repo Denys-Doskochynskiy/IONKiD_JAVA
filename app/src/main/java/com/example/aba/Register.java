@@ -48,7 +48,7 @@ public class Register extends AppCompatActivity {
                 lastNameUser = lastName.getText().toString();
                 firstNameUser = firstName.getText().toString();
 
-                email = emailUser.getText().toString().replace(".", "DOT");
+                email = emailUser.getText().toString().replace(".", ",");
                 pass = password.getText().toString();
                 confirm = confirmPassword.getText().toString();
                 if (lastNameUser.equals("")) {
