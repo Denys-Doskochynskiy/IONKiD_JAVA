@@ -1,10 +1,12 @@
 package com.example.aba;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+
+import java.time.Instant;
 
 public class Settings extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +30,19 @@ public class Settings extends AppCompatActivity
         drawerLayoutAndToolbar();
         navigationView();
 
+        ImageView personalData =  findViewById(R.id.personalData);
+
+        personalData.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openPersonalData();
+            }
+        });
+    }
+
+    public void openPersonalData(){
+        Intent intent = new Intent(this, UserPersonalData.class);
+        startActivity(intent);
     }
 
     public void floatingActionButton() {

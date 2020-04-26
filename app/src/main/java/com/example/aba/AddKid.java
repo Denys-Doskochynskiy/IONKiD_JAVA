@@ -184,7 +184,7 @@ public class AddKid extends AppCompatActivity {
 
 
                                 reference.child(lastNameKid).child("country").setValue(countryKid);
-                                reference.child(countryKid).child("city").setValue(cityKid);
+                                reference.child(lastNameKid).child("city").setValue(cityKid);
                                 UserDetails.kidName=lastNameKid;
                                 Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(AddKid.this, Menu.class));
