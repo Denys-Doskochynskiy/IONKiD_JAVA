@@ -196,7 +196,7 @@ public class Chat extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Chat.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Chat.this, AddKid.class));
+            startActivity(new Intent(Chat.this, Kids.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(Chat.this, Chat.class));
         } else if (id == R.id.nav_settings) {
