@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BBE1FA"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
     <ScrollView
@@ -12,13 +13,12 @@
         android:layout_width="700dp"
         android:layout_height="498dp"
         android:layout_weight="20">
-
-
     <include
-        layout="@layout/app_bar_chat"
+        layout="@layout/app_bar_navdraw"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</ScrollView>
+        android:layout_height="match_parent"
+        android:background="#BBE1FA" />
+    </ScrollView>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -26,9 +26,11 @@
         android:layout_gravity="start"
         android:background="#BBE1FA"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_chat"
+        android:foregroundTint="#00FFFFFF"
+        app:headerLayout="@layout/nav_header_navdraw"
+        app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/colorPrimaryDark"
         app:itemTextColor="#1B262C"
-        app:menu="@menu/activity_chat_drawer" />
+        app:menu="@menu/activity_navdraw_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
