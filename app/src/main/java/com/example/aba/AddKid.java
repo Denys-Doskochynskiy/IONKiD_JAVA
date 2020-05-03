@@ -40,66 +40,6 @@ public class AddKid extends AppCompatActivity {
     EditText first, lastKid, bloodType;
 
 
-    /*   genderKid = gender.getText().toString();
-                 widthKid = width.getText().toString();
-                 widthKid = lastName.getText().toString();
-                 firstNameKid = firstName.getText().toString();
-
-                 cityKid = city.getText().toString();
-                 countryKid = country.getText().toString();
-                 growthKid = growth.getText().toString();
-                 diagnoseKid = diagnose.getText().toString();
-                 dateKid = date.getText().toString();
-                 bloodTypeKid = bloodType.getText().toString();*/
-
-      /*    if (firstNameKid.equals("")) {
-                    firstName.setError("can't be blank");
-
-                } else if (widthKid.equals("")) {
-                    lastName.setError("can't be blank");
-
-                } else if (countryKid.equals("")) {
-                    country.setError("can't be blank");
-
-                } else if (cityKid.equals("")) {
-                    city.setError("can't be blank");
-
-
-                } else if (genderKid.equals("")) {
-                    gender.setError("can't be blank");
-
-                } else if (dateKid.equals("")) {
-                    date.setError("can't be blank");
-
-                } else if (widthKid.equals("")) {
-                    width.setError("can't be blank");
-
-                } else if (growthKid.equals("")) {
-                    growth.setError("can't be blank");
-
-
-                } else if (bloodTypeKid.equals("")) {
-                    bloodType.setError("can't be blank");
-
-                } else if (diagnoseKid.equals("")) {
-                    diagnose.setError("can't be blank");
-*/
-
-      /*
-                                reference.child(widthKid).child("firstName").setValue(firstNameKid);
-                                reference.child(firstNameKid).child("lastName").setValue(widthKid);
-                                reference.child(firstNameKid).child("surname").setValue(bloodTypeKid);
-                                reference.child(firstNameKid).child("surname").setValue(dateKid);
-                                reference.child(firstNameKid).child("surname").setValue(diagnoseKid);
-                                reference.child(firstNameKid).child("surname").setValue(genderKid);
-                                reference.child(firstNameKid).child("surname").setValue(growthKid);
-
-                                reference.child(firstNameKid).child("password").setValue(countryKid);
-
-                                reference.child(countryKid).child("phoneNumber").setValue(cityKid);
-
-*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
