@@ -77,20 +77,6 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <EditText
-        android:id="@+id/bloodType"
-        android:layout_width="177dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="Blood type"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
-
-    <EditText
         android:id="@+id/city"
         android:layout_width="177dp"
         android:layout_height="40dp"
@@ -118,20 +104,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.371" />
 
-    <EditText
-        android:id="@+id/gender"
-        android:layout_width="177dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="Gender"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
-
     <Button
         android:id="@+id/addKid"
         android:layout_width="wrap_content"
@@ -157,5 +129,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.063" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="177dp"
+        android:layout_height="40dp"
+        android:hint="Gender"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.274"/>
+
+    <Spinner
+        android:id="@+id/spinnerBlood"
+        android:layout_width="177dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
