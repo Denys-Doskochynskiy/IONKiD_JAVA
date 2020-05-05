@@ -10,19 +10,19 @@
     tools:showIn="@layout/app_bar_settings">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/appearence"
         android:layout_width="270dp"
         android:layout_height="45dp"
         android:layout_marginBottom="16dp"
         android:background="#3282B8"
-        app:layout_constraintBottom_toTopOf="@+id/imageView15"
+        app:layout_constraintBottom_toTopOf="@+id/personalData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/background_for_personal_data_activity" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/exitFromAccount"
         android:layout_width="270dp"
         android:layout_height="45dp"
         android:layout_marginBottom="184dp"
@@ -35,13 +35,13 @@
         app:srcCompat="@mipmap/background_for_personal_data_activity" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/personalData"
         android:layout_width="270dp"
         android:layout_height="45dp"
         android:layout_marginBottom="28dp"
         android:background="#3282B8"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintBottom_toTopOf="@+id/exitFromAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +53,10 @@
         android:layout_height="wrap_content"
         android:text="Вигляд"
         android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintBottom_toBottomOf="@+id/appearence"
+        app:layout_constraintEnd_toEndOf="@+id/appearence"
+        app:layout_constraintStart_toStartOf="@+id/appearence"
+        app:layout_constraintTop_toTopOf="@+id/appearence" />
 
     <TextView
         android:id="@+id/persData"
@@ -64,10 +64,10 @@
         android:layout_height="wrap_content"
         android:text="Персональні дані"
         android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView15"
-        app:layout_constraintEnd_toEndOf="@+id/imageView15"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="@+id/imageView15" />
+        app:layout_constraintBottom_toBottomOf="@+id/personalData"
+        app:layout_constraintEnd_toEndOf="@+id/personalData"
+        app:layout_constraintStart_toStartOf="@+id/personalData"
+        app:layout_constraintTop_toTopOf="@+id/personalData" />
 
     <TextView
         android:id="@+id/textView21"
@@ -75,16 +75,16 @@
         android:layout_height="wrap_content"
         android:text="Вийти з аккаунту"
         android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintBottom_toBottomOf="@+id/exitFromAccount"
+        app:layout_constraintEnd_toEndOf="@+id/exitFromAccount"
+        app:layout_constraintStart_toStartOf="@+id/exitFromAccount"
+        app:layout_constraintTop_toTopOf="@+id/exitFromAccount" />
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="89dp"
         android:layout_height="83dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/appearence"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
