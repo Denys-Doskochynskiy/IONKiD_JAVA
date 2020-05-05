@@ -23,7 +23,7 @@ DatabaseReference reff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_data);
+        setContentView(R.layout.activity_user_personal_data);
         first=findViewById(R.id.firstName);
         second=findViewById(R.id.secondName);
         number=findViewById(R.id.country);
