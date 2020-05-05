@@ -41,7 +41,7 @@
         app:srcCompat="@mipmap/photo_to_change" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toTopOf="@+id/info_background" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/secondName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -62,10 +62,10 @@
         app:layout_constraintEnd_toEndOf="@+id/info_background"
         app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="@+id/info_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -74,46 +74,10 @@
         app:layout_constraintEnd_toEndOf="@+id/info_background"
         app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="@+id/info_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/secondName" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:text="Адреса проживання: Київ, Старі Петрівці"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/info_background"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="@+id/info_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Рік народження: 1973"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/info_background"
-        app:layout_constraintHorizontal_bias="0.162"
-        app:layout_constraintStart_toStartOf="@+id/info_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="273dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="12dp"
-        android:text="Електронна пошта: vladislavzaharchenko1973@gmail.com"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/info_background"
-        app:layout_constraintHorizontal_bias="0.588"
-        app:layout_constraintStart_toStartOf="@+id/info_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -122,6 +86,6 @@
         app:layout_constraintEnd_toEndOf="@+id/info_background"
         app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="@+id/info_background"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/surname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
