@@ -33,8 +33,8 @@ public class AddKid extends Activity {
     EditText city, country;
     EditText growth, diagnose, date;
     EditText first, lastKid, bloodType;
-    String[] data = {"Select blood type", "|", "||", "|||", "|V"};
-    String[] dataBlood = {"Select gender", "Male", "Female"};
+    String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
+    String[] data = {"Select gender", "Male", "Female"};
 
 
     @Override
@@ -139,6 +139,7 @@ public class AddKid extends Activity {
 
 
                             if (s.equals("null")) {
+
                                 reference.child(lastNameKid).child("Blood Type").setValue("'Blood type is: " + spinnerBlood.getSelectedItemPosition());
                                 reference.child(lastNameKid).child("Gender").setValue("'Value is: " + spinner.getSelectedItemPosition() + " '" + "if 1 it's Boy,if 2 it's Girl");
                                 reference.child(lastNameKid).child("Width").setValue(widthKid);
