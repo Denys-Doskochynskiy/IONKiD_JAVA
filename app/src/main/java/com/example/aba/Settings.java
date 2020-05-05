@@ -1,12 +1,13 @@
 package com.example.aba;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +18,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-import java.time.Instant;
-
 public class Settings extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,21 +25,20 @@ public class Settings extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
-
-        ImageView personalData =  findViewById(R.id.personalData);
-
-        personalData.setOnClickListener(new View.OnClickListener(){
+      TextView  taskActivity = findViewById(R.id.persData);
+        taskActivity.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                openPersonalData();
+            public void onClick(View v) {
+                openTask();
             }
         });
-    }
 
-    public void openPersonalData(){
+    }
+    public void openTask() {
         Intent intent = new Intent(this, UserPersonalData.class);
         startActivity(intent);
     }
@@ -113,7 +111,7 @@ public class Settings extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Settings.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Settings.this, Kids.class));
+            startActivity(new Intent(Settings.this, AddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(Settings.this, Users.class));
         } else if (id == R.id.nav_settings) {

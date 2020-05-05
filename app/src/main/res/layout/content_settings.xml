@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="@+id/appearence" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/persData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Персональні дані"
