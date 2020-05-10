@@ -21,7 +21,7 @@ import android.view.View.OnClickListener;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
-public class TaskActivityDay extends AppCompatActivity implements OnClickListener {
+public class TaskActivityDay2 extends AppCompatActivity implements OnClickListener {
 
 
     CheckBox cb1, cb2, cb3, cb4, cb5;
@@ -36,9 +36,9 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_day);
+        setContentView(R.layout.activity_task_day2);
 
-        reference = database.getInstance().getReference().child("tasksOfMonday");
+        reference = database.getInstance().getReference().child("tasksOfTuesday");
 
 
         taskFB = new TaskFB();
@@ -215,7 +215,7 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
 
         switch (v.getId()) {
             case R.id.buttonsave:
-                Intent intent = new Intent(this, TestComment1.class);
+                Intent intent = new Intent(this, TestComment2.class);
                 startActivity(intent);
         }
 
@@ -256,5 +256,3 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
         }
     }
 }
-
-
