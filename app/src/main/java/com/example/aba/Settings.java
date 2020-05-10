@@ -1,10 +1,13 @@
 package com.example.aba;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,10 +25,22 @@ public class Settings extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
+      TextView  taskActivity = findViewById(R.id.persData);
+        taskActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTask();
+            }
+        });
 
+    }
+    public void openTask() {
+        Intent intent = new Intent(this, UserPersonalData.class);
+        startActivity(intent);
     }
 
     public void floatingActionButton() {

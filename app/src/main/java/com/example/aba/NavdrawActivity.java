@@ -134,7 +134,7 @@ public class NavdrawActivity extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(NavdrawActivity.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(NavdrawActivity.this, AddKid.class));
+            startActivity(new Intent(NavdrawActivity.this, Kids.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(NavdrawActivity.this, Users.class));
         } else if (id == R.id.nav_settings) {

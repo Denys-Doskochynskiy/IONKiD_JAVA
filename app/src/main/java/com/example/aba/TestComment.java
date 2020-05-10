@@ -128,7 +128,7 @@ public class TestComment extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(TestComment.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(TestComment.this, AddKid.class));
+            startActivity(new Intent(TestComment.this, Kids.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(TestComment.this, Users.class));
         } else if (id == R.id.nav_settings) {

@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -46,7 +49,14 @@ public class Kids extends AppCompatActivity
 
         usersList = findViewById(R.id.usersList);
         noUsersText = findViewById(R.id.noUsersText);
+        ImageView addKid =  findViewById(R.id.addKid);
 
+        addKid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openAddKid();
+            }
+                });
         pd = new ProgressDialog(Kids.this);
         pd.setMessage("Loading...");
         pd.show();
@@ -77,6 +87,10 @@ public class Kids extends AppCompatActivity
         });
     }
 
+    public void openAddKid(){
+        Intent intent = new Intent(this, AddKid.class);
+        startActivity(intent);
+    }
 
     public void doOnSuccess(String s) {
         try {
