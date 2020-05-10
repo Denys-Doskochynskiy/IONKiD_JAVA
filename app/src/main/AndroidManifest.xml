@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestComment7"></activity>
+        <activity android:name=".TestComment1"></activity>
+        <activity android:name=".TestComment7" />
         <activity android:name=".TestComment6" />
         <activity android:name=".TestComment5" />
         <activity android:name=".TestComment4" />
@@ -62,10 +63,6 @@
         <activity
             android:name=".Menu"
             android:label="@string/title_activity_menu1"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".TestComment"
-            android:label="@string/title_activity_test_comment1"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddKid"
