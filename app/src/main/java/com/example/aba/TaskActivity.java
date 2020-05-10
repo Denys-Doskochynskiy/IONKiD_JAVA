@@ -59,6 +59,58 @@ public class TaskActivity extends AppCompatActivity
     public void navigationView() {
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ProgressBar mondayBar = findViewById(R.id.mondayBar);
+        ProgressBar tuesdayBar = findViewById(R.id.tuesdayBar);
+        ProgressBar wednesdayBar = findViewById(R.id.wednesdayBar);
+        ProgressBar thursdayBar = findViewById(R.id.thursdayBar);
+        ProgressBar fridayBar = findViewById(R.id.fridayBar);
+        ProgressBar saturdayBar = findViewById(R.id.saturdayBar);
+        ProgressBar sundayBar = findViewById(R.id.sundayBar);
+
+        mondayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMondayBar();
+            }
+        });
+        tuesdayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTuesdayBar();
+            }
+        });
+        wednesdayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWednesdayBar();
+            }
+        });
+        thursdayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openthursdayBar();
+            }
+        });
+        fridayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFridayBar();
+            }
+        });
+        saturdayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSaturdayBar();
+            }
+        });
+        sundayBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSundayBar();
+            }
+        });
+
     }
 
     public void openTaskMessage() {
@@ -68,6 +120,36 @@ public class TaskActivity extends AppCompatActivity
 
     public void openMondayBar() {
         Intent intent = new Intent(this, TaskActivityDay.class);
+        startActivity(intent);
+    }
+
+    public void openTuesdayBar() {
+        Intent intent = new Intent(this, TaskActivityDay2.class);
+        startActivity(intent);
+    }
+
+    public void openWednesdayBar() {
+        Intent intent = new Intent(this, TaskActivityDay3.class);
+        startActivity(intent);
+    }
+
+    public void openthursdayBar() {
+        Intent intent = new Intent(this, TaskActivityDay4.class);
+        startActivity(intent);
+    }
+
+    public void openFridayBar() {
+        Intent intent = new Intent(this, TaskActivityDay5.class);
+        startActivity(intent);
+    }
+
+    public void openSaturdayBar() {
+        Intent intent = new Intent(this, TaskActivityDay6.class);
+        startActivity(intent);
+    }
+
+    public void openSundayBar() {
+        Intent intent = new Intent(this, TaskActivityDay7.class);
         startActivity(intent);
     }
 
@@ -116,7 +198,9 @@ public class TaskActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(TaskActivity.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
+
             startActivity(new Intent(TaskActivity.this, TaskActivityDay.class));
+
 
         }
 
