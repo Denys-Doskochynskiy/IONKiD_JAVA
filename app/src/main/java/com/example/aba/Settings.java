@@ -117,7 +117,7 @@ public class Settings extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Settings.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Settings.this, TaskActivityDay.class));
+            startActivity(new Intent(Settings.this, TaskActivity.class));
 
         }
 
