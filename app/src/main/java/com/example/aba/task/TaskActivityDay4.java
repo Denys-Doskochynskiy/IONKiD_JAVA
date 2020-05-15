@@ -1,4 +1,4 @@
-package com.example.aba;
+package com.example.aba.task;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.example.aba.R;
+import com.example.aba.TaskFB;
+import com.example.aba.UserDetails;
+import com.example.aba.comment.TestComment4;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +25,7 @@ import android.view.View.OnClickListener;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
-public class TaskActivityDay6 extends AppCompatActivity implements OnClickListener {
+public class TaskActivityDay4 extends AppCompatActivity implements OnClickListener {
 
 
     CheckBox checkBox, checkBox2, checkBox3, checkBox4, checkBox5;
@@ -36,9 +40,9 @@ public class TaskActivityDay6 extends AppCompatActivity implements OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_day6);
+        setContentView(R.layout.activity_task_day4);
 
-        reference = database.getInstance().getReference().child("tasksOfSaturday");
+        reference = database.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfThursday");
 
 
         taskFB = new TaskFB();
@@ -215,7 +219,7 @@ public class TaskActivityDay6 extends AppCompatActivity implements OnClickListen
 
         switch (v.getId()) {
             case R.id.buttonsave:
-                Intent intent = new Intent(this, TestComment6.class);
+                Intent intent = new Intent(this, TestComment4.class);
                 startActivity(intent);
         }
 

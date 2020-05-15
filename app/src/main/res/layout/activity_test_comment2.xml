@@ -5,7 +5,7 @@
     android:background="#BBE1FA"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestComment2">
+    tools:context=".comment.TestComment2">
 
     <Button
         android:id="@+id/btnBackMenu"

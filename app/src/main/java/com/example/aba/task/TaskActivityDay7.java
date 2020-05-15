@@ -1,4 +1,4 @@
-package com.example.aba;
+package com.example.aba.task;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.example.aba.R;
+import com.example.aba.TaskFB;
+import com.example.aba.UserDetails;
+import com.example.aba.comment.TestComment7;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,10 +25,10 @@ import android.view.View.OnClickListener;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
-public class TaskActivityDay2 extends AppCompatActivity implements OnClickListener {
+public class TaskActivityDay7 extends AppCompatActivity implements OnClickListener {
 
 
-    CheckBox cb1, cb2, cb3, cb4, cb5;
+    CheckBox checkBox, checkBox2, checkBox3, checkBox4, checkBox5;
     Button buttonSave;
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -36,17 +40,17 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_day2);
+        setContentView(R.layout.activity_task_day7);
 
-        reference = database.getInstance().getReference().child("tasksOfTuesday");
+        reference = database.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfSunday");
 
 
         taskFB = new TaskFB();
-        cb1 = findViewById(R.id.cb1);
-        cb2 = findViewById(R.id.cb2);
-        cb3 = findViewById(R.id.cb3);
-        cb4 = findViewById(R.id.cb4);
-        cb5 = findViewById(R.id.cb5);
+        checkBox = findViewById(R.id.cb1);
+        checkBox2 = findViewById(R.id.cb2);
+        checkBox3 = findViewById(R.id.cb3);
+        checkBox4 = findViewById(R.id.cb4);
+        checkBox5 = findViewById(R.id.cb5);
         progressBar = findViewById(R.id.pb);
         buttonSave = findViewById(R.id.buttonsave);
         buttonSave.setOnClickListener(this);
@@ -91,15 +95,15 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
         if (preferences.contains("checkbox1") && preferences.getBoolean("checkbox1", false) == true) {
-            cb1.setChecked(true);
+            checkBox.setChecked(true);
         } else {
-            cb1.setChecked(false);
+            checkBox.setChecked(false);
 
         }
-        cb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cb1.isChecked()) {
+                if (checkBox.isChecked()) {
                     editor.putBoolean("checkbox1", true);
                     progressBar.setProgress(progressBar.getProgress()+20);
                     editor.apply();
@@ -113,15 +117,15 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
 
 
         if (preferences.contains("checkbox2") && preferences.getBoolean("checkbox2", false) == true) {
-            cb2.setChecked(true);
+            checkBox2.setChecked(true);
         } else {
-            cb2.setChecked(false);
+            checkBox2.setChecked(false);
 
         }
-        cb2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cb2.isChecked()) {
+                if (checkBox2.isChecked()) {
                     editor.putBoolean("checkbox2", true);
                     progressBar.setProgress(progressBar.getProgress()+20);
                     editor.apply();
@@ -135,15 +139,15 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
 
 
         if (preferences.contains("checkbox3") && preferences.getBoolean("checkbox3", false) == true) {
-            cb3.setChecked(true);
+            checkBox3.setChecked(true);
         } else {
-            cb3.setChecked(false);
+            checkBox3.setChecked(false);
 
         }
-        cb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cb3.isChecked()) {
+                if (checkBox3.isChecked()) {
                     editor.putBoolean("checkbox3", true);
                     progressBar.setProgress(progressBar.getProgress()+20);
                     editor.apply();
@@ -156,15 +160,15 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
         });
 
         if (preferences.contains("checkbox4") && preferences.getBoolean("checkbox4", false) == true) {
-            cb4.setChecked(true);
+            checkBox4.setChecked(true);
         } else {
-            cb4.setChecked(false);
+            checkBox4.setChecked(false);
 
         }
-        cb4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cb4.isChecked()) {
+                if (checkBox4.isChecked()) {
                     editor.putBoolean("checkbox4", true);
                     progressBar.setProgress(progressBar.getProgress()+20);
                     editor.apply();
@@ -177,15 +181,15 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
         });
 
         if (preferences.contains("checkbox5") && preferences.getBoolean("checkbox5", false) == true) {
-            cb5.setChecked(true);
+            checkBox5.setChecked(true);
         } else {
-            cb5.setChecked(false);
+            checkBox5.setChecked(false);
 
         }
-        cb5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (cb5.isChecked()) {
+                if (checkBox5.isChecked()) {
                     editor.putBoolean("checkbox5", true);
                     progressBar.setProgress(progressBar.getProgress()+20);
                     editor.apply();
@@ -215,39 +219,39 @@ public class TaskActivityDay2 extends AppCompatActivity implements OnClickListen
 
         switch (v.getId()) {
             case R.id.buttonsave:
-                Intent intent = new Intent(this, TestComment2.class);
+                Intent intent = new Intent(this, TestComment7.class);
                 startActivity(intent);
         }
 
-        if (cb1.isChecked()) {
+        if (checkBox.isChecked()) {
             taskFB.setTask(d1);
             reference.child(String.valueOf(i + 1)).setValue(taskFB);
         } else {
             taskFB.setTask(n1);
             reference.child(String.valueOf(i + 1)).setValue(taskFB);
         }
-        if (cb2.isChecked()) {
+        if (checkBox2.isChecked()) {
             taskFB.setTask(d2);
             reference.child(String.valueOf(i + 2)).setValue(taskFB);
         } else {
             taskFB.setTask(n2);
             reference.child(String.valueOf(i + 2)).setValue(taskFB);
         }
-        if (cb3.isChecked()) {
+        if (checkBox3.isChecked()) {
             taskFB.setTask(d3);
             reference.child(String.valueOf(i + 3)).setValue(taskFB);
         } else {
             taskFB.setTask(n3);
             reference.child(String.valueOf(i + 3)).setValue(taskFB);
         }
-        if (cb4.isChecked()) {
+        if (checkBox4.isChecked()) {
             taskFB.setTask(d4);
             reference.child(String.valueOf(i + 4)).setValue(taskFB);
         } else {
             taskFB.setTask(n4);
             reference.child(String.valueOf(i + 4)).setValue(taskFB);
         }
-        if (cb5.isChecked()) {
+        if (checkBox5.isChecked()) {
             taskFB.setTask(d5);
             reference.child(String.valueOf(i + 5)).setValue(taskFB);
         } else {

@@ -1,4 +1,4 @@
-package com.example.aba;
+package com.example.aba.task;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.example.aba.R;
+import com.example.aba.TaskFB;
+import com.example.aba.UserDetails;
+import com.example.aba.comment.TestComment5;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +42,7 @@ public class TaskActivityDay5 extends AppCompatActivity implements OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day5);
 
-        reference = database.getInstance().getReference().child("tasksOfFriday");
+        reference = database.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfFriday");
 
 
         taskFB = new TaskFB();

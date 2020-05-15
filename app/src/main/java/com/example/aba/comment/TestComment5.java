@@ -1,4 +1,4 @@
-package com.example.aba;
+package com.example.aba.comment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.aba.Comment;
+import com.example.aba.R;
+import com.example.aba.UserDetails;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class TestComment4 extends AppCompatActivity {
+public class TestComment5 extends AppCompatActivity {
 
     final String LOG_TAG = "myLogs";
 
@@ -24,16 +27,16 @@ public class TestComment4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_comment4);
+        setContentView(R.layout.activity_test_comment5);
         btnAdd = (Button) findViewById(R.id.btnReadAndAdd);
-        reff = FirebaseDatabase.getInstance().getReference().child("tasksOfThursday/comment");
+        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfFriday/comment");
         comment = new Comment();
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 comment.setComment(editComment.getText().toString().trim());
                 reff.setValue(comment);
-                Toast.makeText(TestComment4.this,"comment was sent",Toast.LENGTH_LONG).show();
+                Toast.makeText(TestComment5.this,"comment was sent",Toast.LENGTH_LONG).show();
             }
 
         });
