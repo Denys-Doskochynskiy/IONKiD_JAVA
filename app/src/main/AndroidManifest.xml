@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".comment.TestComment1"></activity>
+        <activity android:name=".comment.TestComment1" />
         <activity android:name=".comment.TestComment7" />
         <activity android:name=".comment.TestComment6" />
         <activity android:name=".comment.TestComment5" />
@@ -40,6 +40,7 @@
         <activity android:name=".Load" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
+        <activity android:name=".AddKidInRegistration"/>
         <activity
             android:name=".NavdrawActivity"
             android:label="@string/title_activity_navdraw"
@@ -72,10 +73,10 @@
             android:name=".TaskActivity"
             android:label="@string/title_activity_task1"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RetrofitTest"
-            android:label="@string/title_activity_retrofit_test1"
-            android:theme="@style/AppTheme.NoActionBar" />
+<!--        <activity-->
+<!--            android:name=".RetrofitTest"-->
+<!--            android:label="@string/title_activity_retrofit_test1"-->
+<!--            android:theme="@style/AppTheme.NoActionBar" />-->
     </application>
 
 </manifest>
