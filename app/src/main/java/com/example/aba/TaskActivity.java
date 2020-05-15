@@ -29,10 +29,6 @@ public class TaskActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-     /* if(UserDetails.kidName==null){
-            Intent homeIntent = new Intent(TaskActivity.this, Kids .class);
-            startActivity(homeIntent);
-        }*/
         setContentView(R.layout.task_activity);
         floatingActionButton();
         drawerLayoutAndToolbar();

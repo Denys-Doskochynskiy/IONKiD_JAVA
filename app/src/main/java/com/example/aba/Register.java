@@ -119,10 +119,10 @@ public class Register extends AppCompatActivity {
                                 reference.child(email).child("password").setValue(pass);
 
                                 reference.child(email).child("phoneNumber").setValue(phone);
-
+                                UserDetails.username = email;
 
                                 Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(Register.this, Login.class));
+                                startActivity(new Intent(Register.this, AddKidInRegistration.class));
                             } else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
@@ -135,9 +135,9 @@ public class Register extends AppCompatActivity {
                                         reference.child(email).child("password").setValue(pass);
 
                                         reference.child(email).child("phoneNumber").setValue(phone);
-
+                                        UserDetails.username = email;
                                         Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(Register.this, Login.class));
+                                        startActivity(new Intent(Register.this, AddKidInRegistration.class));
                                     } else {
                                         Toast.makeText(Register.this, "username already exists", Toast.LENGTH_LONG).show();
                                     }

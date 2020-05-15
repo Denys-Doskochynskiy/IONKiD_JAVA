@@ -20,10 +20,6 @@ public class KidInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if(UserDetails.kidName==null){
-            Intent homeIntent = new Intent(KidInfo.this, Kids .class);
-            startActivity(homeIntent);
-        }*/
         setContentView(R.layout.activity_info_kid);
         first=findViewById(R.id.firstName);
         second=findViewById(R.id.lastKidName);
