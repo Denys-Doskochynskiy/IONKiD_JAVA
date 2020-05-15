@@ -27,7 +27,7 @@ public class Settings extends AppCompatActivity
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
-      TextView  taskActivity = findViewById(R.id.persData);
+      TextView  taskActivity = findViewById(R.id.personalData);
         taskActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
