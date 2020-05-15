@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.Button;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +38,7 @@ public class TaskActivity extends AppCompatActivity
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
-        ProgressBar mondayBar = findViewById(R.id.mondayBar);
+        Button mondayBar = findViewById(R.id.mondayBar);
 
         mondayBar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,13 +72,13 @@ public class TaskActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ProgressBar mondayBar = findViewById(R.id.mondayBar);
-        ProgressBar tuesdayBar = findViewById(R.id.tuesdayBar);
-        ProgressBar wednesdayBar = findViewById(R.id.wednesdayBar);
-        ProgressBar thursdayBar = findViewById(R.id.thursdayBar);
-        ProgressBar fridayBar = findViewById(R.id.fridayBar);
-        ProgressBar saturdayBar = findViewById(R.id.saturdayBar);
-        ProgressBar sundayBar = findViewById(R.id.sundayBar);
+        Button mondayBar = findViewById(R.id.mondayBar);
+        Button tuesdayBar = findViewById(R.id.tuesdayBar);
+        Button wednesdayBar = findViewById(R.id.wednesdayBar);
+        Button thursdayBar = findViewById(R.id.thursdayBar);
+        Button fridayBar = findViewById(R.id.fridayBar);
+        Button saturdayBar = findViewById(R.id.saturdayBar);
+        Button sundayBar = findViewById(R.id.sundayBar);
 
         mondayBar.setOnClickListener(new View.OnClickListener() {
             @Override
