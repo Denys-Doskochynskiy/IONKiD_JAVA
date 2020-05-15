@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.aba.task.TaskActivityDay;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -140,7 +141,7 @@ public class NavdrawActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(NavdrawActivity.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(NavdrawActivity.this, TaskActivityDay.class));
+            startActivity(new Intent(NavdrawActivity.this, TaskActivity.class));
 
         }
 

@@ -154,7 +154,7 @@ public class AddKid extends Activity {
 
                                 reference.child(lastNameKid).child("country").setValue(countryKid);
                                 reference.child(lastNameKid).child("city").setValue(cityKid);
-                                UserDetails.kidName = lastNameKid;
+                                //UserDetails.kidName = lastNameKid;
                                 Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(AddKid.this, Menu.class));
                             } else {
@@ -177,7 +177,7 @@ public class AddKid extends Activity {
                                         reference.child(lastNameKid).child("country").setValue(countryKid);
                                         reference.child(lastNameKid).child("city").setValue(cityKid);
                                         Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                        UserDetails.kidName = lastNameKid;
+                                        //UserDetails.kidName = lastNameKid;
                                         startActivity(new Intent(AddKid.this, Menu.class));
                                     } else {
                                         Toast.makeText(AddKid.this, "username already exists", Toast.LENGTH_LONG).show();

@@ -39,7 +39,7 @@ public class Kids extends AppCompatActivity
     ListView usersList;
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
-    int totalUsers = 0;
+    int totalUsers = -100;
     ProgressDialog pd;
 
     @Override
@@ -54,7 +54,7 @@ public class Kids extends AppCompatActivity
         addKid.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                openAddKid();
+                openMenu();
             }
                 });
         pd = new ProgressDialog(Kids.this);
@@ -81,13 +81,15 @@ public class Kids extends AppCompatActivity
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                UserDetails.chatWith = al.get(position);
+                UserDetails.kidName = al.get(position);
+
                 startActivity(new Intent(Kids.this, Menu.class));
             }
         });
     }
 
-    public void openAddKid(){
+    public void openMenu(){
+
         Intent intent = new Intent(this, AddKid.class);
         startActivity(intent);
     }
@@ -102,7 +104,7 @@ public class Kids extends AppCompatActivity
             while (i.hasNext()) {
                 key = i.next().toString();
 
-                if (!key.equals(UserDetails.username)) {
+                if (!key.equals(UserDetails.kidName)) {
                     al.add(key);
                 }
 
@@ -113,106 +115,12 @@ public class Kids extends AppCompatActivity
             e.printStackTrace();
         }
 
-        if (totalUsers <= 1) {
-            noUsersText.setVisibility(View.VISIBLE);
-            usersList.setVisibility(View.GONE);
-        } else {
+
             noUsersText.setVisibility(View.GONE);
             usersList.setVisibility(View.VISIBLE);
             usersList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al));
-        }
+
 
         pd.dismiss();
     }
 }
-/*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kids);
-        floatingActionButton();
-        drawerLayoutAndToolbar();
-        navigationView();
-    }
-
-
-    public void floatingActionButton() {
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTaskMessage();
-            }
-        });
-    }
-
-    public void drawerLayoutAndToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-    }
-
-    public void navigationView() {
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    public void openTaskMessage() {
-        Intent intent = new Intent(this, Users.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.kids, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.nav_doctor) {
-            startActivity(new Intent(Kids.this, Doctors.class));
-        } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Kids.this, AddKid.class));
-        } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(Kids.this, Users.class));
-        } else if (id == R.id.nav_settings) {
-            startActivity(new Intent(Kids.this, Settings.class));
-        } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Kids.this, TaskActivityDay.class));
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }*/
-
