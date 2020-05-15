@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.aba.task.TaskActivityDay;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -187,7 +188,7 @@ public class Chat extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Chat.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Chat.this, TaskActivityDay.class));
+            startActivity(new Intent(Chat.this, TaskActivity.class));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

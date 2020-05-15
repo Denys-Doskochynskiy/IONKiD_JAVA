@@ -33,16 +33,7 @@ DatabaseReference reff;
 
         reff= FirebaseDatabase.getInstance().getReference().child("users").child(UserDetails.username);
         reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            /*
-            *  reference.child(email).child("firstName").setValue(firstNameUser);
-                                        reference.child(email).child("lastName").setValue(lastNameUser);
-                                        reference.child(email).child("surname").setValue(surnameUser);
 
-                                        reference.child(email).child("password").setValue(pass);
-
-                                        reference.child(email).child("phoneNumber").setValue(phone);
-*/
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String name=dataSnapshot.child("firstName").getValue().toString();
                 String sur=dataSnapshot.child("surname").getValue().toString();

@@ -1,9 +1,9 @@
 package com.example.aba;
 
 public class UserDetails {
-    static String username = "";
-    static String password = "";
-    static String chatWith = "";
-    static String kidName = "";
-    static String ratingDoc = "";
+   public static String username = "";
+   public static String password = "";
+   public static String chatWith = "";
+   public static String kidName = "";
+   public static String ratingDoc = "";
 }

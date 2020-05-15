@@ -13,6 +13,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.aba.task.TaskActivityDay;
+import com.example.aba.task.TaskActivityDay2;
+import com.example.aba.task.TaskActivityDay3;
+import com.example.aba.task.TaskActivityDay4;
+import com.example.aba.task.TaskActivityDay5;
+import com.example.aba.task.TaskActivityDay6;
+import com.example.aba.task.TaskActivityDay7;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,6 +29,10 @@ public class TaskActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+     /* if(UserDetails.kidName==null){
+            Intent homeIntent = new Intent(TaskActivity.this, Kids .class);
+            startActivity(homeIntent);
+        }*/
         setContentView(R.layout.task_activity);
         floatingActionButton();
         drawerLayoutAndToolbar();
@@ -199,7 +210,7 @@ public class TaskActivity extends AppCompatActivity
             startActivity(new Intent(TaskActivity.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
 
-            startActivity(new Intent(TaskActivity.this, TaskActivityDay.class));
+            startActivity(new Intent(TaskActivity.this, TaskActivity.class));
 
 
         }

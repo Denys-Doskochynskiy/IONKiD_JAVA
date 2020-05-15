@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.aba.task.TaskActivityDay;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -126,7 +127,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openTaskKids() {
-        Intent intent = new Intent(this, Kids.class);
+        Intent intent = new Intent(this, KidInfo.class);
         startActivity(intent);
     }
 
@@ -184,7 +185,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Menu.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Menu.this, TaskActivityDay.class));
+            startActivity(new Intent(Menu.this, TaskActivity.class));
 
         }
 
