@@ -34,12 +34,18 @@
     <string name="eng_login_now">Login now</string>
     <string name="eng_remember_password">Don\'t remember password?</string>
     <string name="eng_do_not_have_an_account">Don\'t have an account</string>
+    <string name="eng_appearance">Appearance</string>
+    <string name="eng_personal_data">Personal data</string>
+    <string name="eng_exit">Log out</string>
 
     <string name="ua_email_address">Пошта</string>
     <string name="ua_password">Пароль</string>
     <string name="ua_login_now">Увійти</string>
     <string name="ua_remember_password">Не пам\'ятаю пароль</string>
     <string name="ua_do_not_have_an_account">Немає аккаунту</string>
+    <string name="ua_appearance">Вигляд</string>
+    <string name="ua_personal_data">Персональні дані</string>
+    <string name="ua_exit">Вийти з аккаунту</string>
 
 
 </resources>

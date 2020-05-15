@@ -28,7 +28,6 @@
         android:inputType="textEmailAddress"
         android:src="@mipmap/logo"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -80,7 +79,7 @@
         android:textColor="@color/login_form_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@id/login" />
 
     <View
         android:id="@+id/footer_line"
