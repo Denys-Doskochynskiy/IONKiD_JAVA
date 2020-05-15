@@ -36,7 +36,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Button kids = findViewById(R.id.kidsActivity);
         Button doctors = findViewById(R.id.doctorsActivity);
         Button settings = findViewById(R.id.settingsActivity);
-        Button profil = findViewById(R.id.profil);
+        //Button profil = findViewById(R.id.profil);
 
         taskActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,12 +74,12 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         });
 
 
-        profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openRetrofitTest();
-            }
-        });
+//        profil.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openRetrofitTest();
+//            }
+//        });
 
     }
 
@@ -115,10 +115,10 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
 
-    public void openRetrofitTest() {
-        Intent intent = new Intent(this, RetrofitTest.class);
-        startActivity(intent);
-    }
+//    public void openRetrofitTest() {
+//        Intent intent = new Intent(this, RetrofitTest.class);
+//        startActivity(intent);
+//    }
 
     public void openTaskSettings() {
         Intent intent = new Intent(this, Settings.class);
