@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#BBE1FA"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.aba.AddKidInRegistration">
+    tools:context="com.example.aba.kids.AddKidInRegistration">
 
     <EditText
         android:id="@+id/growth"

@@ -11,66 +11,65 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".comment.TestComment1" />
-        <activity android:name=".comment.TestComment7" />
-        <activity android:name=".comment.TestComment6" />
-        <activity android:name=".comment.TestComment5" />
-        <activity android:name=".comment.TestComment4" />
-        <activity android:name=".comment.TestComment3" />
-        <activity android:name=".comment.TestComment2" />
-        <activity android:name=".task.TaskActivityDay7" />
-        <activity android:name=".task.TaskActivityDay6" />
-        <activity android:name=".task.TaskActivityDay4" />
-        <activity android:name=".task.TaskActivityDay5" />
-        <activity android:name=".task.TaskActivityDay3" />
-        <activity android:name=".task.TaskActivityDay2" />
-        <activity android:name=".Users" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".comment.days.TestComment1" />
+        <activity android:name=".comment.days.TestComment7" />
+        <activity android:name=".comment.days.TestComment6" />
+        <activity android:name=".comment.days.TestComment5" />
+        <activity android:name=".comment.days.TestComment4" />
+        <activity android:name=".comment.days.TestComment3" />
+        <activity android:name=".comment.days.TestComment2" />
+        <activity android:name=".task.day.TaskActivityDay7" />
+        <activity android:name=".task.day.TaskActivityDay6" />
+        <activity android:name=".task.day.TaskActivityDay4" />
+        <activity android:name=".task.day.TaskActivityDay5" />
+        <activity android:name=".task.day.TaskActivityDay3" />
+        <activity android:name=".task.day.TaskActivityDay2" />
+        <activity android:name=".users.Users" />
+        <activity android:name=".menuActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Test3" />
-        <activity android:name=".UserPersonalData" />
-        <activity android:name=".ToConfirmReg" />
-        <activity android:name=".KidInfo" />
-        <activity android:name=".task.TaskActivityDay" />
-        <activity android:name=".Load" />
-        <activity android:name=".Login" />
-        <activity android:name=".Register" />
-        <activity android:name=".AddKidInRegistration"/>
+        <activity android:name=".unimplemented.Test3" />
+        <activity android:name=".users.UserPersonalData" />
+        <activity android:name=".unimplemented.ToConfirmReg" />
+        <activity android:name=".kids.KidInfo" />
+        <activity android:name=".task.day.TaskActivityDay" />
+        <activity android:name=".users.Login" />
+        <activity android:name=".users.Register" />
+        <activity android:name=".kids.AddKidInRegistration"/>
         <activity
-            android:name=".NavdrawActivity"
+            android:name=".menuActivity.NavdrawActivity"
             android:label="@string/title_activity_navdraw"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Settings"
+            android:name=".menuActivity.Settings"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Chat"
+            android:name=".menuActivity.Chat"
             android:label="@string/title_activity_chat"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Doctors"
+            android:name=".menuActivity.Doctors"
             android:label="@string/title_activity_doctors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Kids"
+            android:name=".kids.Kids"
             android:label="@string/title_activity_kids"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Menu"
+            android:name=".menuActivity.Menu"
             android:label="@string/title_activity_menu1"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddKid"
+            android:name=".kids.AddKid"
             android:label="@string/title_activity_add_kid1"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TaskActivity"
+            android:name=".task.TaskActivity"
             android:label="@string/title_activity_task1"
             android:theme="@style/AppTheme.NoActionBar" />
 <!--        <activity-->
