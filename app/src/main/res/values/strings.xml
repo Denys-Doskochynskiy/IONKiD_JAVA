@@ -29,6 +29,14 @@
     <string name="click_here_to_login" />
     <string name="no_users_found" />
 
+    <string name="eng_monday">Monday</string>
+    <string name="eng_tuesday">Tuesday</string>
+    <string name="eng_wednesday">Wednesday</string>
+    <string name="eng_thursday">Thursday</string>
+    <string name="eng_friday">Friday</string>
+    <string name="eng_saturday">Saturday</string>
+    <string name="eng_sunday">Sunday</string>
+
     <string name="eng_email_address">Email address</string>
     <string name="eng_password">Password</string>
     <string name="eng_login_now">Login now</string>
@@ -47,5 +55,12 @@
     <string name="ua_personal_data">Персональні дані</string>
     <string name="ua_exit">Вийти з аккаунту</string>
 
+    <string name="ua_monday">Понеділок</string>
+    <string name="ua_tuesday">Вівторок</string>
+    <string name="ua_wednesday">Середа</string>
+    <string name="ua_thursday">Четвер</string>
+    <string name="ua_friday">П\'ятниця</string>
+    <string name="ua_saturday">Субота</string>
+    <string name="ua_sunday">Неділя</string>
 
 </resources>
