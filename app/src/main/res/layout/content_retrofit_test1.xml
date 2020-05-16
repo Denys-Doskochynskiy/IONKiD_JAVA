@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".RetrofitTest"
+    tools:context=".testingActivity.RetrofitTest"
     tools:showIn="@layout/app_bar_retrofit_test1">
 
     <androidx.core.widget.NestedScrollView
@@ -14,7 +14,7 @@
         android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".RetrofitTest">
+        tools:context=".testingActivity.RetrofitTest">
 
         <LinearLayout
             android:layout_width="match_parent"

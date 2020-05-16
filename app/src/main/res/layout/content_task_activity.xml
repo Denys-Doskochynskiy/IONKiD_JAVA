@@ -6,168 +6,119 @@
     android:layout_height="match_parent"
     android:background="#BBE1FA"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".TaskActivity"
+    tools:context=".task.TaskActivity"
     tools:showIn="@layout/app_bar_task1">
 
-    <ProgressBar
+    <Button
         android:id="@+id/mondayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="48dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_monday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
+    <Button
         android:id="@+id/tuesdayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_tuesday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/mondayBar" />
 
-    <ProgressBar
+    <Button
         android:id="@+id/wednesdayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_wednesday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/tuesdayBar" />
 
-    <ProgressBar
+    <Button
         android:id="@+id/thursdayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="44dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_thursday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/wednesdayBar" />
 
-    <ProgressBar
-        android:id="@+id/saturdayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="56dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <ProgressBar
-        android:id="@+id/sundayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <ProgressBar
+    <Button
         android:id="@+id/fridayBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="287dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="44dp"
-        android:background="#3282B8"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_friday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/thursdayBar" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="128dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="40dp"
-        android:text="Понеділок"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/saturdayBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_saturday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/fridayBar" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="104dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="28dp"
-        android:text="Вівторок"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="88dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="24dp"
-        android:text="Середа"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <Button
+        android:id="@+id/sundayBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="@string/eng_sunday"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_text"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/saturdayBar" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="87dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="36dp"
-        android:text="Четвер"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="60dp" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="105dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="32dp"
-        android:text="П'ятниця"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="88dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="40dp"
-        android:text="Субота"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="88dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="48dp"
-        android:text="Неділя"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="60dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
