@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BBE1FA"
-    tools:context=".TaskActivityDay6">
+    tools:context=".task.day.TaskActivityDay6">
 
 
     <CheckBox

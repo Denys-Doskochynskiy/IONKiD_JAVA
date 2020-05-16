@@ -1,4 +1,4 @@
-package com.example.aba;
+package com.example.aba.task.day;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
+import com.example.aba.R;
+import com.example.aba.comment.days.TestComment7;
+import com.example.aba.task.TaskFB;
+import com.example.aba.users.UserDetails;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +38,7 @@ public class TaskActivityDay7 extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day7);
 
-        ref = db.getInstance().getReference().child("tasksOfSunday");
+        ref = db.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasksOfSunday");
 
         task = new TaskFB();
 
