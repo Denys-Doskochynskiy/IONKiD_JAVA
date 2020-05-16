@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
 
     android:background="#BBE1FA"
-    tools:context="com.example.aba.Register">
+    tools:context="com.example.aba.users.Register">
 
     <Button
         android:id="@+id/registerButton"
