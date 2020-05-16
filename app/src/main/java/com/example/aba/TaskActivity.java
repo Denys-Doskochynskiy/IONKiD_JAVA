@@ -114,8 +114,11 @@ public class TaskActivity extends AppCompatActivity
     }
 
     public void openTaskMessage() {
+
+
         Intent intent = new Intent(this, Users.class);
         startActivity(intent);
+
     }
 
     public void openMondayBar() {

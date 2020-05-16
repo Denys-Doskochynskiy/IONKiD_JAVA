@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestComment1"></activity>
+        <activity android:name=".TaskActivityDay7"></activity>
+        <activity android:name=".TestComment1" />
         <activity android:name=".TestComment7" />
         <activity android:name=".TestComment6" />
         <activity android:name=".TestComment5" />
         <activity android:name=".TestComment4" />
         <activity android:name=".TestComment3" />
         <activity android:name=".TestComment2" />
-        <activity android:name=".TaskActivityDay7" />
         <activity android:name=".TaskActivityDay6" />
         <activity android:name=".TaskActivityDay4" />
         <activity android:name=".TaskActivityDay5" />
