@@ -3,9 +3,11 @@ package com.example.aba.task.day;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +37,9 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
     TaskFB task;
     int i = 0;
     ProgressBar pb11;
+    int incFuel = 0;
+    final String FUELBAR = "fuelBar";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +73,8 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
 
             }
         });
-
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
         if (preferences.contains("box11") && preferences.getBoolean("box11", false) == true) {
@@ -175,6 +181,27 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
                 }
             }
         });
+    }
+
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
+        editor1.putInt(FUELBAR, pb11.getProgress());
+        editor1.commit();
+
+    }
+
+    public void onResume(){
+        super.onResume();
+        pb11 = (ProgressBar) findViewById(R.id.pb11);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        incFuel = sharedPref.getInt(FUELBAR, 0);
+        pb11.setProgress(incFuel);
+    }
+
+    public void onStop(){
+        super.onStop();
     }
 
     @Override

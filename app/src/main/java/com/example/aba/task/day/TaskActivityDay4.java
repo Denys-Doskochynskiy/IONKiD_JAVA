@@ -3,6 +3,7 @@ package com.example.aba.task.day;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ public class TaskActivityDay4 extends AppCompatActivity implements OnClickListen
     TaskFB task;
     int i = 0;
     ProgressBar pb41;
+    int incFuel = 0;
+    final String FUELBAR = "fuelBar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,8 @@ public class TaskActivityDay4 extends AppCompatActivity implements OnClickListen
 
             }
         });
-
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
         if (preferences.contains("box41") && preferences.getBoolean("box41", false) == true) {
@@ -175,6 +179,27 @@ public class TaskActivityDay4 extends AppCompatActivity implements OnClickListen
                 }
             }
         });
+    }
+
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
+        editor1.putInt(FUELBAR, pb41.getProgress());
+        editor1.commit();
+
+    }
+
+    public void onResume(){
+        super.onResume();
+        pb41 = (ProgressBar) findViewById(R.id.pb41);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        incFuel = sharedPref.getInt(FUELBAR, 0);
+        pb41.setProgress(incFuel);
+    }
+
+    public void onStop(){
+        super.onStop();
     }
 
     @Override
