@@ -3,6 +3,7 @@ package com.example.aba.task.day;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,14 +34,15 @@ public class TaskActivityDay6 extends AppCompatActivity implements OnClickListen
     DatabaseReference ref6;
     TaskFB task;
     int i = 0;
-    ProgressBar pb61;
+    ProgressBar pb61;int incFuel = 0;
+    final String FUELBAR = "fuelBar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day6);
 
-        ref6 = db6.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasksOfSaturday");
+        ref6 = db6.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfSaturday");
 
         task = new TaskFB();
 
@@ -67,7 +69,8 @@ public class TaskActivityDay6 extends AppCompatActivity implements OnClickListen
 
             }
         });
-
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
         if (preferences.contains("box61") && preferences.getBoolean("box61", false) == true) {
@@ -174,6 +177,27 @@ public class TaskActivityDay6 extends AppCompatActivity implements OnClickListen
                 }
             }
         });
+    }
+
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
+        editor1.putInt(FUELBAR, pb61.getProgress());
+        editor1.commit();
+
+    }
+
+    public void onResume(){
+        super.onResume();
+        pb61 = (ProgressBar) findViewById(R.id.pb61);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        incFuel = sharedPref.getInt(FUELBAR, 0);
+        pb61.setProgress(incFuel);
+    }
+
+    public void onStop(){
+        super.onStop();
     }
 
     @Override
