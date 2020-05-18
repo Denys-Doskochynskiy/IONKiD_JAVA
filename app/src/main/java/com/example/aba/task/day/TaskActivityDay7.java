@@ -3,6 +3,7 @@ package com.example.aba.task.day;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,13 +33,15 @@ public class TaskActivityDay7 extends AppCompatActivity implements View.OnClickL
     TaskFB task;
     int i = 0;
     ProgressBar pb1;
+    int incFuel = 0;
+    final String FUELBAR = "fuelBar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day7);
 
-        ref = db.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasksOfSunday");
+        ref = db.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfSunday");
 
         task = new TaskFB();
 
@@ -65,7 +68,8 @@ public class TaskActivityDay7 extends AppCompatActivity implements View.OnClickL
 
             }
         });
-
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
         if (preferences.contains("box1") && preferences.getBoolean("box1", false) == true) {
@@ -172,6 +176,27 @@ public class TaskActivityDay7 extends AppCompatActivity implements View.OnClickL
                 }
             }
         });
+    }
+
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPref.edit();
+        editor1.putInt(FUELBAR, pb1.getProgress());
+        editor1.commit();
+
+    }
+
+    public void onResume(){
+        super.onResume();
+        pb1 = (ProgressBar) findViewById(R.id.pb1);
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        incFuel = sharedPref.getInt(FUELBAR, 0);
+        pb1.setProgress(incFuel);
+    }
+
+    public void onStop(){
+        super.onStop();
     }
 
     @Override
