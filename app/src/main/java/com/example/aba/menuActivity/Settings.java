@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.aba.R;
 import com.example.aba.task.TaskActivity;
 import com.example.aba.kids.AddKid;
+import com.example.aba.users.Login;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.Users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,17 +34,30 @@ public class Settings extends AppCompatActivity
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
-      TextView  taskActivity = findViewById(R.id.personalData);
-        taskActivity.setOnClickListener(new View.OnClickListener() {
+
+        Button personalDataActivity = findViewById(R.id.personalData);
+        personalDataActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openTask();
+                openPersonalData();
+            }
+        });
+
+        Button exit = findViewById(R.id.exitFromAccount) ;
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exit();
             }
         });
 
     }
-    public void openTask() {
+    public void openPersonalData() {
         Intent intent = new Intent(this, UserPersonalData.class);
+        startActivity(intent);
+    }
+    public void exit() {
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 

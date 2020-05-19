@@ -62,5 +62,24 @@
     <string name="ua_friday">П\'ятниця</string>
     <string name="ua_saturday">Субота</string>
     <string name="ua_sunday">Неділя</string>
+    <string name="save">save</string>
+    <string name="ua_register">Зареєструватися</string>
+    <string name="eng_register">Register</string>
+    <string name="eng_email">Email</string>
+    <string name="ua_surname">По батькові</string>
+    <string name="eng_surname">Surname</string>
+    <string name="ua_last_name">Прізвище</string>
+    <string name="eng_last_name">Last name</string>
+    <string name="ua_name">І\'мя</string>
+    <string name="eng_name">Name</string>
+    <string name="ua_phone_number">Номер телефону</string>
+    <string name="eng_phone_number">Phone number</string>
+    <string name="reenter_password">Повторіть пароль</string>
+    <string name="eng_enter_password_again">Enter password again</string>
+    <string name="eng_kids">Kids</string>
+    <string name="eng_tasks">Tasks</string>
+    <string name="eng_messages">Messages</string>
+    <string name="eng_doctors">Doctors</string>
+    <string name="eng_settings">Settings</string>
 
 </resources>
