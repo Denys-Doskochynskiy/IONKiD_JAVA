@@ -12,67 +12,92 @@
         android:id="@+id/box21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="36dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/box22"
-        app:layout_constraintEnd_toEndOf="@+id/box22" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@+id/pb21"  />
 
     <CheckBox
         android:id="@+id/box22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="28dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/box23"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/box21"/>
 
     <CheckBox
         android:id="@+id/box23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/box24"
-        app:layout_constraintStart_toStartOf="@+id/box22" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/box22" />
 
     <CheckBox
         android:id="@+id/box24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:text="CheckBox"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/box25"
-        app:layout_constraintStart_toStartOf="@+id/box23" />
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/box23"  />
 
     <CheckBox
         android:id="@+id/box25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/save2"
-        app:layout_constraintStart_toStartOf="@+id/box24" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/box24"  />
 
     <ProgressBar
         android:id="@+id/pb21"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="167dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/box21"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="175dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@id/TopGuideline" />
 
     <Button
         android:id="@+id/save2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="97dp"
-        android:text="save"
+        android:layout_marginTop="80dp"
         android:background="#3282B8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintTop_toBottomOf="@+id/box25"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/TopGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="50dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

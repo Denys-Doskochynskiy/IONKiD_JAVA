@@ -62,5 +62,6 @@
     <string name="ua_friday">П\'ятниця</string>
     <string name="ua_saturday">Субота</string>
     <string name="ua_sunday">Неділя</string>
+    <string name="save">save</string>
 
 </resources>
