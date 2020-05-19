@@ -1,7 +1,85 @@
 <resources>
-    <string name="app_name">ABA</string>
+    <string name="app_name">IONKiD</string>
     <string name="success">Ви успішно авторизувались.</string>
     <string name="Save">Save</string>
     <string name="Next">Next</string>
     <string name="DB">Waiting Data Base</string>
+    <string name="title_activity_navdraw">NavdrawActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_chat">Chat</string>
+    <string name="title_activity_doctors">Doctors</string>
+    <string name="title_activity_kids">Kids</string>
+    <string name="title_activity_menu1">Menu</string>
+    <string name="title_activity_test_comment1">TestComment</string>
+    <string name="title_activity_add_kid1">AddKid</string>
+    <string name="title_activity_task1">TaskActivity</string>
+    <string name="title_activity_retrofit_test1">RetrofitTest</string>
+    <string name="login" />
+    <string name="enter_username" />
+    <string name="enter_password" />
+    <string name="click_here_to_register" />
+    <string name="write_a_message" />
+    <string name="register" />
+    <string name="click_here_to_login" />
+    <string name="no_users_found" />
+
+    <string name="eng_monday">Monday</string>
+    <string name="eng_tuesday">Tuesday</string>
+    <string name="eng_wednesday">Wednesday</string>
+    <string name="eng_thursday">Thursday</string>
+    <string name="eng_friday">Friday</string>
+    <string name="eng_saturday">Saturday</string>
+    <string name="eng_sunday">Sunday</string>
+
+    <string name="eng_email_address">Email address</string>
+    <string name="eng_password">Password</string>
+    <string name="eng_login_now">Login now</string>
+    <string name="eng_remember_password">Don\'t remember password?</string>
+    <string name="eng_do_not_have_an_account">Don\'t have an account</string>
+    <string name="eng_appearance">Appearance</string>
+    <string name="eng_personal_data">Personal data</string>
+    <string name="eng_exit">Log out</string>
+
+    <string name="ua_email_address">Пошта</string>
+    <string name="ua_password">Пароль</string>
+    <string name="ua_login_now">Увійти</string>
+    <string name="ua_remember_password">Не пам\'ятаю пароль</string>
+    <string name="ua_do_not_have_an_account">Немає аккаунту</string>
+    <string name="ua_appearance">Вигляд</string>
+    <string name="ua_personal_data">Персональні дані</string>
+    <string name="ua_exit">Вийти з аккаунту</string>
+
+    <string name="ua_monday">Понеділок</string>
+    <string name="ua_tuesday">Вівторок</string>
+    <string name="ua_wednesday">Середа</string>
+    <string name="ua_thursday">Четвер</string>
+    <string name="ua_friday">П\'ятниця</string>
+    <string name="ua_saturday">Субота</string>
+    <string name="ua_sunday">Неділя</string>
+    <string name="save">save</string>
+    <string name="ua_register">Зареєструватися</string>
+    <string name="eng_register">Register</string>
+    <string name="eng_email">Email</string>
+    <string name="ua_surname">По батькові</string>
+    <string name="eng_surname">Surname</string>
+    <string name="ua_last_name">Прізвище</string>
+    <string name="eng_last_name">Last name</string>
+    <string name="ua_name">І\'мя</string>
+    <string name="eng_name">Name</string>
+    <string name="ua_phone_number">Номер телефону</string>
+    <string name="eng_phone_number">Phone number</string>
+    <string name="reenter_password">Повторіть пароль</string>
+    <string name="eng_enter_password_again">Enter password again</string>
+    <string name="eng_kids">Kids</string>
+    <string name="eng_tasks">Tasks</string>
+    <string name="eng_messages">Messages</string>
+    <string name="eng_doctors">Doctors</string>
+    <string name="eng_settings">Settings</string>
+
 </resources>

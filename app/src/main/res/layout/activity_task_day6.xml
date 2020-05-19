@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BBE1FA"
+    tools:context=".task.day.TaskActivityDay6">
+
+
+    <CheckBox
+        android:id="@+id/box61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="36dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/box62"
+        app:layout_constraintEnd_toEndOf="@+id/box62" />
+
+    <CheckBox
+        android:id="@+id/box62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="28dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/box63"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/box63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/box64"
+        app:layout_constraintStart_toStartOf="@+id/box62" />
+
+    <CheckBox
+        android:id="@+id/box64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/box65"
+        app:layout_constraintStart_toStartOf="@+id/box63" />
+
+    <CheckBox
+        android:id="@+id/box65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/save6"
+        app:layout_constraintStart_toStartOf="@+id/box64" />
+
+    <ProgressBar
+        android:id="@+id/pb61"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="167dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/box61"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/save6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="97dp"
+        android:text="save"
+        android:background="#3282B8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
