@@ -20,7 +20,7 @@ public class TestComment2 extends AppCompatActivity {
 
     final String LOG_TAG = "myLogs";
 
-    Button btnAdd, btnMenu;
+    Button btnAdd;
     EditText editComment;
     DatabaseReference reff;
     Comment comment;
@@ -38,16 +38,11 @@ public class TestComment2 extends AppCompatActivity {
                 comment.setComment(editComment.getText().toString().trim());
                 reff.setValue(comment);
                 Toast.makeText(TestComment2.this,"comment was sent",Toast.LENGTH_LONG).show();
+                openMenu();
             }
 
         });
-        btnMenu = (Button) findViewById(R.id.btnBackMenu);
-        btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMenu();
-            }
-        });
+
 
 
         editComment = (EditText) findViewById(R.id.comment);
