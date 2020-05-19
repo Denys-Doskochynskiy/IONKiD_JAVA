@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="370dp"
-        android:layout_height="113dp"
+        android:layout_width="361dp"
+        android:layout_height="134dp"
         android:background="#3282B8"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
         android:id="@+id/imageView4"
         android:layout_width="21dp"
         android:layout_height="13dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="112dp"
         android:background="#003282B8"
         android:backgroundTint="#1B262C"
         android:clickable="true"
@@ -88,8 +88,8 @@
         android:id="@+id/ratingBar"
         android:layout_width="239dp"
         android:layout_height="40dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
