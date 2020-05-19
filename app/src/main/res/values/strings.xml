@@ -76,5 +76,10 @@
     <string name="eng_phone_number">Phone number</string>
     <string name="reenter_password">Повторіть пароль</string>
     <string name="eng_enter_password_again">Enter password again</string>
+    <string name="eng_kids">Kids</string>
+    <string name="eng_tasks">Tasks</string>
+    <string name="eng_messages">Messages</string>
+    <string name="eng_doctors">Doctors</string>
+    <string name="eng_settings">Settings</string>
 
 </resources>
