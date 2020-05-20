@@ -58,7 +58,7 @@ public class DayTaskActivity extends AppCompatActivity implements OnClickListene
         save1 = findViewById(R.id.save1);
         save1.setOnClickListener(this);
 
-        ref1.setValue(null);
+        //ref1.setValue(null);
         ref1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

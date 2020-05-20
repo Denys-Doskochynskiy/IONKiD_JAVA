@@ -10,6 +10,6 @@ public class TaskFB {
     }
 
     public void setTask(String task) {
-        Task = task;
+        this.Task = task;
     }
 }
