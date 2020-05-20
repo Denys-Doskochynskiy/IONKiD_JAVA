@@ -17,7 +17,7 @@ import com.example.aba.R;
 import com.example.aba.kids.AddKid;
 import com.example.aba.menuActivity.Doctors;
 import com.example.aba.menuActivity.Settings;
-import com.example.aba.task.day.TaskActivityDay;
+import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -152,7 +152,7 @@ public class RetrofitTest extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(RetrofitTest.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(RetrofitTest.this, TaskActivityDay.class));
+            startActivity(new Intent(RetrofitTest.this, DayTaskActivity.class));
 
         }
 
