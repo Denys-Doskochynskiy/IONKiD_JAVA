@@ -17,13 +17,8 @@ import com.example.aba.R;
 import com.example.aba.kids.Kids;
 import com.example.aba.menuActivity.Doctors;
 import com.example.aba.menuActivity.Settings;
-import com.example.aba.task.day.TaskActivityDay;
-import com.example.aba.task.day.TaskActivityDay2;
-import com.example.aba.task.day.TaskActivityDay3;
-import com.example.aba.task.day.TaskActivityDay4;
-import com.example.aba.task.day.TaskActivityDay5;
-import com.example.aba.task.day.TaskActivityDay6;
-import com.example.aba.task.day.TaskActivityDay7;
+import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.users.UserDetails;
 import com.example.aba.users.Users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -38,11 +33,13 @@ public class TaskActivity extends AppCompatActivity
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
+
         Button mondayBar = findViewById(R.id.mondayBar);
 
         mondayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="monday";
                 openMondayBar();
             }
         });
@@ -83,42 +80,49 @@ public class TaskActivity extends AppCompatActivity
         mondayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="monday";
                 openMondayBar();
             }
         });
         tuesdayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="tuesday";
                 openTuesdayBar();
             }
         });
         wednesdayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="wednesday";
                 openWednesdayBar();
             }
         });
         thursdayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="thursday";
                 openthursdayBar();
             }
         });
         fridayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="friday";
                 openFridayBar();
             }
         });
         saturdayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="saturday";
                 openSaturdayBar();
             }
         });
         sundayBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserDetails.numberOfDay="sunday";
                 openSundayBar();
             }
         });
@@ -134,37 +138,37 @@ public class TaskActivity extends AppCompatActivity
     }
 
     public void openMondayBar() {
-        Intent intent = new Intent(this, TaskActivityDay.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
     public void openTuesdayBar() {
-        Intent intent = new Intent(this, TaskActivityDay2.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
     public void openWednesdayBar() {
-        Intent intent = new Intent(this, TaskActivityDay3.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
     public void openthursdayBar() {
-        Intent intent = new Intent(this, TaskActivityDay4.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
     public void openFridayBar() {
-        Intent intent = new Intent(this, TaskActivityDay5.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
     public void openSaturdayBar() {
-        Intent intent = new Intent(this, TaskActivityDay6.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
     public void openSundayBar() {
-        Intent intent = new Intent(this, TaskActivityDay7.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 

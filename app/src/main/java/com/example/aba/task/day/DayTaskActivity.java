@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.example.aba.R;
-import com.example.aba.comment.days.TestComment4;
+import com.example.aba.comment.days.DayComment;
 import com.example.aba.task.TaskFB;
 import com.example.aba.users.UserDetails;
 import com.google.firebase.database.DataSnapshot;
@@ -26,39 +26,40 @@ import android.view.View.OnClickListener;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
-public class TaskActivityDay4 extends AppCompatActivity implements OnClickListener {
+public class DayTaskActivity extends AppCompatActivity implements OnClickListener {
 
 
-    CheckBox box41, box42, box43, box44, box45;
-    Button save4;
-    FirebaseDatabase db4;
-    DatabaseReference ref4;
+    CheckBox box11, box12, box13, box14, box15;
+    Button save1;
+    FirebaseDatabase db1;
+    DatabaseReference ref1;
     TaskFB task;
     int i = 0;
-    ProgressBar pb41;
+    ProgressBar pb11;
     int incFuel = 0;
     final String FUELBAR = "fuelBar";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_day4);
+        setContentView(R.layout.activity_task_day);
 
-        ref4 = db4.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfThursday");
+        ref1 = db1.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+UserDetails.numberOfDay);
 
         task = new TaskFB();
 
-        box41 = findViewById(R.id.box41);
-        box42 = findViewById(R.id.box42);
-        box43 = findViewById(R.id.box43);
-        box44 = findViewById(R.id.box44);
-        box45 = findViewById(R.id.box45);
-        pb41 = findViewById(R.id.pb41);
-        save4 = findViewById(R.id.save4);
-        save4.setOnClickListener(this);
+        box11 = findViewById(R.id.box11);
+        box12 = findViewById(R.id.box12);
+        box13 = findViewById(R.id.box13);
+        box14 = findViewById(R.id.box14);
+        box15 = findViewById(R.id.box15);
+        pb11 = findViewById(R.id.pb11);
+        save1 = findViewById(R.id.save1);
+        save1.setOnClickListener(this);
 
-        ref4.setValue(null);
-        ref4.addValueEventListener(new ValueEventListener() {
+        ref1.setValue(null);
+        ref1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
@@ -75,106 +76,106 @@ public class TaskActivityDay4 extends AppCompatActivity implements OnClickListen
         SharedPreferences.Editor editor1 = sharedPref.edit();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = preferences.edit();
-        if (preferences.contains("box41") && preferences.getBoolean("box41", false) == true) {
-            box41.setChecked(true);
+        if (preferences.contains("box11") && preferences.getBoolean("box11", false) == true) {
+            box11.setChecked(true);
         } else {
-            box41.setChecked(false);
+            box11.setChecked(false);
 
         }
-        box41.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        box11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (box41.isChecked()) {
-                    editor.putBoolean("box41", true);
-                    pb41.setProgress(pb41.getProgress()+20);
+                if (box11.isChecked()) {
+                    editor.putBoolean("box11", true);
+                    pb11.setProgress(pb11.getProgress()+20);
                     editor.apply();
                 } else {
-                    editor.putBoolean("box41", false);
-                    pb41.setProgress(pb41.getProgress()-20);
+                    editor.putBoolean("box11", false);
+                    pb11.setProgress(pb11.getProgress()-20);
                     editor.apply();
                 }
             }
         });
 
-        if (preferences.contains("box42") && preferences.getBoolean("box42", false) == true) {
-            box42.setChecked(true);
+        if (preferences.contains("box12") && preferences.getBoolean("box12", false) == true) {
+            box12.setChecked(true);
         } else {
-            box42.setChecked(false);
+            box12.setChecked(false);
 
         }
-        box42.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        box12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (box42.isChecked()) {
-                    editor.putBoolean("box42", true);
-                    pb41.setProgress(pb41.getProgress()+20);
+                if (box12.isChecked()) {
+                    editor.putBoolean("box12", true);
+                    pb11.setProgress(pb11.getProgress()+20);
                     editor.apply();
                 } else {
-                    editor.putBoolean("box42", false);
-                    pb41.setProgress(pb41.getProgress()-20);
+                    editor.putBoolean("box12", false);
+                    pb11.setProgress(pb11.getProgress()-20);
                     editor.apply();
                 }
             }
         });
 
-        if (preferences.contains("box43") && preferences.getBoolean("box43", false) == true) {
-            box43.setChecked(true);
+        if (preferences.contains("box13") && preferences.getBoolean("box13", false) == true) {
+            box13.setChecked(true);
         } else {
-            box43.setChecked(false);
+            box13.setChecked(false);
 
         }
-        box43.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        box13.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (box43.isChecked()) {
-                    editor.putBoolean("box43", true);
-                    pb41.setProgress(pb41.getProgress()+20);
+                if (box13.isChecked()) {
+                    editor.putBoolean("box13", true);
+                    pb11.setProgress(pb11.getProgress()+20);
                     editor.apply();
                 } else {
-                    editor.putBoolean("box43", false);
-                    pb41.setProgress(pb41.getProgress()-20);
+                    editor.putBoolean("box13", false);
+                    pb11.setProgress(pb11.getProgress()-20);
                     editor.apply();
                 }
             }
         });
 
-        if (preferences.contains("box44") && preferences.getBoolean("box44", false) == true) {
-            box44.setChecked(true);
+        if (preferences.contains("box14") && preferences.getBoolean("box14", false) == true) {
+            box14.setChecked(true);
         } else {
-            box44.setChecked(false);
+            box14.setChecked(false);
 
         }
-        box44.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        box14.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (box44.isChecked()) {
-                    editor.putBoolean("box44", true);
-                    pb41.setProgress(pb41.getProgress()+20);
+                if (box14.isChecked()) {
+                    editor.putBoolean("box14", true);
+                    pb11.setProgress(pb11.getProgress()+20);
                     editor.apply();
                 } else {
-                    editor.putBoolean("box44", false);
-                    pb41.setProgress(pb41.getProgress()-20);
+                    editor.putBoolean("box14", false);
+                    pb11.setProgress(pb11.getProgress()-20);
                     editor.apply();
                 }
             }
         });
 
-        if (preferences.contains("box45") && preferences.getBoolean("box45", false) == true) {
-            box45.setChecked(true);
+        if (preferences.contains("box15") && preferences.getBoolean("box15", false) == true) {
+            box15.setChecked(true);
         } else {
-            box45.setChecked(false);
+            box15.setChecked(false);
 
         }
-        box45.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        box15.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (box45.isChecked()) {
-                    editor.putBoolean("box45", true);
-                    pb41.setProgress(pb41.getProgress()+20);
+                if (box15.isChecked()) {
+                    editor.putBoolean("box15", true);
+                    pb11.setProgress(pb11.getProgress()+20);
                     editor.apply();
                 } else {
-                    editor.putBoolean("box45", false);
-                    pb41.setProgress(pb41.getProgress()-20);
+                    editor.putBoolean("box15", false);
+                    pb11.setProgress(pb11.getProgress()-20);
                     editor.apply();
                 }
             }
@@ -185,17 +186,17 @@ public class TaskActivityDay4 extends AppCompatActivity implements OnClickListen
         super.onPause();
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor1 = sharedPref.edit();
-        editor1.putInt(FUELBAR, pb41.getProgress());
+        editor1.putInt(FUELBAR, pb11.getProgress());
         editor1.commit();
 
     }
 
     public void onResume(){
         super.onResume();
-        pb41 = (ProgressBar) findViewById(R.id.pb41);
+        pb11 = (ProgressBar) findViewById(R.id.pb11);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         incFuel = sharedPref.getInt(FUELBAR, 0);
-        pb41.setProgress(incFuel);
+        pb11.setProgress(incFuel);
     }
 
     public void onStop(){
@@ -218,45 +219,45 @@ public class TaskActivityDay4 extends AppCompatActivity implements OnClickListen
         final String p5 = "Task5 is not checked";
 
         switch (v.getId()) {
-            case R.id.save4:
-                Intent intent = new Intent(this, TestComment4.class);
+            case R.id.save1:
+                Intent intent = new Intent(this, DayComment.class);
                 startActivity(intent);
         }
 
-        if (box41.isChecked()) {
+        if (box11.isChecked()) {
             task.setTask(s1);
-            ref4.child(String.valueOf(i + 1)).setValue(task);
+            ref1.child(String.valueOf(i + 1)).setValue(task);
         } else {
             task.setTask(p1);
-            ref4.child(String.valueOf(i + 1)).setValue(task);
+            ref1.child(String.valueOf(i + 1)).setValue(task);
         }
-        if (box42.isChecked()) {
+        if (box12.isChecked()) {
             task.setTask(s2);
-            ref4.child(String.valueOf(i + 2)).setValue(task);
+            ref1.child(String.valueOf(i + 2)).setValue(task);
         } else {
             task.setTask(p2);
-            ref4.child(String.valueOf(i + 2)).setValue(task);
+            ref1.child(String.valueOf(i + 2)).setValue(task);
         }
-        if (box43.isChecked()) {
+        if (box13.isChecked()) {
             task.setTask(s3);
-            ref4.child(String.valueOf(i + 3)).setValue(task);
+            ref1.child(String.valueOf(i + 3)).setValue(task);
         } else {
             task.setTask(p3);
-            ref4.child(String.valueOf(i + 3)).setValue(task);
+            ref1.child(String.valueOf(i + 3)).setValue(task);
         }
-        if (box44.isChecked()) {
+        if (box14.isChecked()) {
             task.setTask(s4);
-            ref4.child(String.valueOf(i + 4)).setValue(task);
+            ref1.child(String.valueOf(i + 4)).setValue(task);
         } else {
             task.setTask(p4);
-            ref4.child(String.valueOf(i + 4)).setValue(task);
+            ref1.child(String.valueOf(i + 4)).setValue(task);
         }
-        if (box45.isChecked()) {
+        if (box15.isChecked()) {
             task.setTask(s5);
-            ref4.child(String.valueOf(i + 5)).setValue(task);
+            ref1.child(String.valueOf(i + 5)).setValue(task);
         } else {
             task.setTask(p5);
-            ref4.child(String.valueOf(i + 5)).setValue(task);
+            ref1.child(String.valueOf(i + 5)).setValue(task);
         }
 
     }
