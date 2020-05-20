@@ -16,7 +16,7 @@ import com.example.aba.users.UserDetails;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class TestComment2 extends AppCompatActivity {
+public class DayComment extends AppCompatActivity {
 
     final String LOG_TAG = "myLogs";
 
@@ -28,24 +28,23 @@ public class TestComment2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_comment2);
-        btnAdd = (Button) findViewById(R.id.btnReadAndAdd);
-        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfTuesday/comment");
+        setContentView(R.layout.activity_test_comment1);
+        btnAdd = findViewById(R.id.btnReadAndAdd);
+        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+UserDetails.numberOfDay+"/comment");
         comment = new Comment();
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 comment.setComment(editComment.getText().toString().trim());
                 reff.setValue(comment);
-                Toast.makeText(TestComment2.this,"comment was sent",Toast.LENGTH_LONG).show();
+                Toast.makeText(DayComment.this,"comment was sent",Toast.LENGTH_LONG).show();
                 openMenu();
             }
 
         });
 
 
-
-        editComment = (EditText) findViewById(R.id.comment);
+        editComment = findViewById(R.id.comment);
     }
 
     public void openMenu() {

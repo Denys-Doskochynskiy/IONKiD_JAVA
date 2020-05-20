@@ -6,4 +6,5 @@ public class UserDetails {
    public static String chatWith = "";
    public static String kidName = "";
    public static String ratingDoc = "";
+   public static String numberOfDay ="";
 }
