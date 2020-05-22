@@ -48,20 +48,19 @@ public class AddKid extends Activity {
         Firebase.setAndroidContext(this);
         ArrayAdapter<String> adapterBlood = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataBlood);
         adapterBlood.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        final Spinner spinnerBlood = (Spinner) findViewById(R.id.spinnerBlood);
+        final Spinner spinnerBlood = findViewById(R.id.spinnerBlood);
         spinnerBlood.setAdapter(adapterBlood);
         spinnerBlood.setPrompt("Title");
-        // выделяем элемент
+
         spinnerBlood.setSelection(0);
-        // заголовок
 
 
-        // устанавливаем обработчик нажатия
+
+
         spinnerBlood.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int positionBlood, long id) {
-                // показываем позиция нажатого элемента
 
             }
 
@@ -72,16 +71,15 @@ public class AddKid extends Activity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner = findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
         spinner.setPrompt("Title");
-        // выделяем элемент
+
         spinner.setSelection(0);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                // показываем позиция нажатого элемента
             }
 
             @Override
@@ -157,7 +155,9 @@ public class AddKid extends Activity {
 
                                 reference.child(lastNameKid).child("country").setValue(countryKid);
                                 reference.child(lastNameKid).child("city").setValue(cityKid);
-                                UserDetails.kidName = lastNameKid;
+                                if (!UserDetails.registerCheck.equals("0")){
+                                    UserDetails.kidName = lastNameKid;
+                                    UserDetails.registerCheck = "0";}
                                 Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(AddKid.this, Menu.class));
                             } else {
@@ -180,7 +180,10 @@ public class AddKid extends Activity {
                                         reference.child(lastNameKid).child("country").setValue(countryKid);
                                         reference.child(lastNameKid).child("city").setValue(cityKid);
                                         Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                        if (!UserDetails.registerCheck.equals("0")){
                                         UserDetails.kidName = lastNameKid;
+                                        UserDetails.registerCheck = "0";}
+
                                         startActivity(new Intent(AddKid.this, Menu.class));
                                     } else {
                                         Toast.makeText(AddKid.this, "username already exists", Toast.LENGTH_LONG).show();
@@ -210,10 +213,7 @@ public class AddKid extends Activity {
         });
     }
 
-    public void spinGender() {
 
-
-    }
 
     public void findView() {
 
