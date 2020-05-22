@@ -16,6 +16,9 @@ import com.example.aba.users.UserDetails;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+
 public class DayComment extends AppCompatActivity {
 
     final String LOG_TAG = "myLogs";
@@ -30,7 +33,9 @@ public class DayComment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_comment1);
         btnAdd = findViewById(R.id.btnReadAndAdd);
-        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+UserDetails.numberOfDay+"/comment");
+        Calendar calendar =Calendar.getInstance();
+        String currentData = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+currentData+"/comment");
         comment = new Comment();
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -21,7 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
-import com.example.aba.kids.AddKidInRegistration;
+import com.example.aba.kids.AddKid;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
@@ -122,9 +122,10 @@ public class Register extends AppCompatActivity {
 
                                 reference.child(email).child("phoneNumber").setValue(phone);
                                 UserDetails.username = email;
+                                UserDetails.registerCheck = "0";
 
                                 Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(Register.this, AddKidInRegistration.class));
+                                startActivity(new Intent(Register.this, AddKid.class));
                             } else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
@@ -138,8 +139,9 @@ public class Register extends AppCompatActivity {
 
                                         reference.child(email).child("phoneNumber").setValue(phone);
                                         UserDetails.username = email;
+                                        UserDetails.registerCheck = "1";
                                         Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(Register.this, AddKidInRegistration.class));
+                                        startActivity(new Intent(Register.this, AddKid.class));
                                     } else {
                                         Toast.makeText(Register.this, "username already exists", Toast.LENGTH_LONG).show();
                                     }
