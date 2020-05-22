@@ -35,7 +35,7 @@ public class DayComment extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnReadAndAdd);
         Calendar calendar =Calendar.getInstance();
         String currentData = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
-        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+currentData+"/comment");
+        reff = FirebaseDatabase.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("comments/"+currentData+"/comment");
         comment = new Comment();
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override
