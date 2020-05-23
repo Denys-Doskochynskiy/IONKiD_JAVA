@@ -18,7 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
 import com.example.aba.kids.Kids;
-import com.example.aba.task.TaskActivity;
+import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -144,11 +144,11 @@ public class NavdrawActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(NavdrawActivity.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(NavdrawActivity.this, TaskActivity.class));
+            startActivity(new Intent(NavdrawActivity.this, DayTaskActivity.class));
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

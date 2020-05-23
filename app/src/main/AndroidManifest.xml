@@ -27,7 +27,6 @@
         <activity android:name=".task.day.DayTaskActivity" />
         <activity android:name=".users.Login" />
         <activity android:name=".users.Register" />
-        <activity android:name=".kids.AddKidInRegistration"/>
         <activity
             android:name=".menuActivity.NavdrawActivity"
             android:label="@string/title_activity_navdraw"
@@ -56,11 +55,7 @@
             android:name=".kids.AddKid"
             android:label="@string/title_activity_add_kid1"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".task.TaskActivity"
-            android:label="@string/title_activity_task1"
-            android:theme="@style/AppTheme.NoActionBar" />
-<!--        <activity-->
+        <!--        <activity-->
 <!--            android:name=".RetrofitTest"-->
 <!--            android:label="@string/title_activity_retrofit_test1"-->
 <!--            android:theme="@style/AppTheme.NoActionBar" />-->

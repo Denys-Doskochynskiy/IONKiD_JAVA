@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +14,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
-import com.example.aba.task.TaskActivity;
 import com.example.aba.kids.AddKid;
+import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Login;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.Users;
@@ -135,7 +134,7 @@ public class Settings extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Settings.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Settings.this, TaskActivity.class));
+            startActivity(new Intent(Settings.this, DayTaskActivity.class));
 
         }
 

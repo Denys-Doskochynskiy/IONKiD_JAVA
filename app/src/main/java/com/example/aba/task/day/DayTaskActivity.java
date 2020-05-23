@@ -26,6 +26,9 @@ import android.view.View.OnClickListener;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+
 public class DayTaskActivity extends AppCompatActivity implements OnClickListener {
 
 
@@ -44,8 +47,9 @@ public class DayTaskActivity extends AppCompatActivity implements OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day);
-
-        ref1 = db1.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+UserDetails.numberOfDay);
+        Calendar calendar =Calendar.getInstance();
+        String currentData = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        ref1 = db1.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+currentData);
 
         task = new TaskFB();
 
@@ -193,7 +197,7 @@ public class DayTaskActivity extends AppCompatActivity implements OnClickListene
 
     public void onResume(){
         super.onResume();
-        pb11 = (ProgressBar) findViewById(R.id.pb11);
+        pb11 = findViewById(R.id.pb11);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         incFuel = sharedPref.getInt(FUELBAR, 0);
         pb11.setProgress(incFuel);
