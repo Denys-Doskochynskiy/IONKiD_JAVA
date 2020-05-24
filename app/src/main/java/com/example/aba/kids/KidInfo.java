@@ -44,7 +44,6 @@ public class KidInfo extends AppCompatActivity {
                 String gender=dataSnapshot.child("Gender").getValue().toString();
                 String city=dataSnapshot.child("city").getValue().toString();
                 String  bloodType=dataSnapshot.child("Blood Type").getValue().toString();
-               // String  secondName=dataSnapshot.child("lastName").getValue().toString();
                 String  width=dataSnapshot.child("Width").getValue().toString();
                 String  date=dataSnapshot.child("date").getValue().toString();
                 String  diagnose=dataSnapshot.child("diagnose").getValue().toString();

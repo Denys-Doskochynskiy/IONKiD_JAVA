@@ -13,9 +13,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
-import com.example.aba.task.TaskActivity;
 import com.example.aba.kids.KidInfo;
 import com.example.aba.kids.Kids;
+import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Users;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -79,13 +79,6 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         });
 
 
-//        profil.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openRetrofitTest();
-//            }
-//        });
-
     }
 
     public void floatingActionButton() {
@@ -115,15 +108,11 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     public void openTask() {
-        Intent intent = new Intent(this, TaskActivity.class);
+        Intent intent = new Intent(this, DayTaskActivity.class);
         startActivity(intent);
     }
 
 
-//    public void openRetrofitTest() {
-//        Intent intent = new Intent(this, RetrofitTest.class);
-//        startActivity(intent);
-//    }
 
     public void openTaskSettings() {
         Intent intent = new Intent(this, Settings.class);
@@ -189,7 +178,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Menu.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Menu.this, TaskActivity.class));
+            startActivity(new Intent(Menu.this, DayTaskActivity.class));
 
         }
 

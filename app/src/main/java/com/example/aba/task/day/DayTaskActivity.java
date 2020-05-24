@@ -7,14 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.example.aba.R;
-import com.example.aba.comment.days.TestComment1;
+import com.example.aba.comment.days.DayComment;
 import com.example.aba.task.TaskFB;
 import com.example.aba.users.UserDetails;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +26,10 @@ import android.view.View.OnClickListener;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 
-public class TaskActivityDay extends AppCompatActivity implements OnClickListener {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class DayTaskActivity extends AppCompatActivity implements OnClickListener {
 
 
     CheckBox box11, box12, box13, box14, box15;
@@ -45,8 +47,9 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_day);
-
-        ref1 = db1.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/tasksOfMonday");
+        Calendar calendar =Calendar.getInstance();
+        String currentData = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        ref1 = db1.getInstance().getReference().child("users/"+ UserDetails.username+"/kids/").child(UserDetails.kidName).child("tasks/"+currentData);
 
         task = new TaskFB();
 
@@ -194,7 +197,7 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
 
     public void onResume(){
         super.onResume();
-        pb11 = (ProgressBar) findViewById(R.id.pb11);
+        pb11 = findViewById(R.id.pb11);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         incFuel = sharedPref.getInt(FUELBAR, 0);
         pb11.setProgress(incFuel);
@@ -221,7 +224,7 @@ public class TaskActivityDay extends AppCompatActivity implements OnClickListene
 
         switch (v.getId()) {
             case R.id.save1:
-                Intent intent = new Intent(this, TestComment1.class);
+                Intent intent = new Intent(this, DayComment.class);
                 startActivity(intent);
         }
 

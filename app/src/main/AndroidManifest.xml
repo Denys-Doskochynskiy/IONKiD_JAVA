@@ -11,19 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".comment.days.TestComment1" />
-        <activity android:name=".comment.days.TestComment7" />
-        <activity android:name=".comment.days.TestComment6" />
-        <activity android:name=".comment.days.TestComment5" />
-        <activity android:name=".comment.days.TestComment4" />
-        <activity android:name=".comment.days.TestComment3" />
-        <activity android:name=".comment.days.TestComment2" />
-        <activity android:name=".task.day.TaskActivityDay7" />
-        <activity android:name=".task.day.TaskActivityDay6" />
-        <activity android:name=".task.day.TaskActivityDay4" />
-        <activity android:name=".task.day.TaskActivityDay5" />
-        <activity android:name=".task.day.TaskActivityDay3" />
-        <activity android:name=".task.day.TaskActivityDay2" />
+        <activity android:name=".comment.days.DayComment" />
         <activity android:name=".users.Users" />
         <activity android:name=".menuActivity.MainActivity">
             <intent-filter>
@@ -36,10 +24,9 @@
         <activity android:name=".users.UserPersonalData" />
         <activity android:name=".unimplemented.ToConfirmReg" />
         <activity android:name=".kids.KidInfo" />
-        <activity android:name=".task.day.TaskActivityDay" />
+        <activity android:name=".task.day.DayTaskActivity" />
         <activity android:name=".users.Login" />
         <activity android:name=".users.Register" />
-        <activity android:name=".kids.AddKidInRegistration"/>
         <activity
             android:name=".menuActivity.NavdrawActivity"
             android:label="@string/title_activity_navdraw"
@@ -68,11 +55,7 @@
             android:name=".kids.AddKid"
             android:label="@string/title_activity_add_kid1"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".task.TaskActivity"
-            android:label="@string/title_activity_task1"
-            android:theme="@style/AppTheme.NoActionBar" />
-<!--        <activity-->
+        <!--        <activity-->
 <!--            android:name=".RetrofitTest"-->
 <!--            android:label="@string/title_activity_retrofit_test1"-->
 <!--            android:theme="@style/AppTheme.NoActionBar" />-->
