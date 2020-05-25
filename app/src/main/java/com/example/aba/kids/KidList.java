@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aba.comment.days.DayComment;
 import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
 import com.example.aba.users.UserDetails;
@@ -40,7 +42,7 @@ public class KidList extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chose_kids);
-
+        Toast.makeText(KidList.this,"Please select a child",Toast.LENGTH_LONG).show();
         usersList = findViewById(R.id.usersList);
         noUsersText = findViewById(R.id.noUsersText);
         ImageView addKid =  findViewById(R.id.addKid);

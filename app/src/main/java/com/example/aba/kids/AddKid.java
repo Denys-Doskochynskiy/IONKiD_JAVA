@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
+import com.example.aba.users.Login;
 import com.example.aba.users.UserDetails;
 import com.firebase.client.Firebase;
 
@@ -53,8 +54,6 @@ public class AddKid extends Activity {
         spinnerBlood.setPrompt("Title");
 
         spinnerBlood.setSelection(0);
-
-
 
 
         spinnerBlood.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -155,11 +154,15 @@ public class AddKid extends Activity {
 
                                 reference.child(lastNameKid).child("country").setValue(countryKid);
                                 reference.child(lastNameKid).child("city").setValue(cityKid);
-                                if (!UserDetails.registerCheck.equals("0")){
+                                if (!UserDetails.registerCheck.equals("0")) {
                                     UserDetails.kidName = lastNameKid;
-                                    UserDetails.registerCheck = "0";}
-                                Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(AddKid.this, Menu.class));
+                                    UserDetails.registerCheck = "0";
+                                    Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(AddKid.this, Login.class));
+                                } else {
+                                    Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(AddKid.this, Menu.class));
+                                }
                             } else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
@@ -180,9 +183,10 @@ public class AddKid extends Activity {
                                         reference.child(lastNameKid).child("country").setValue(countryKid);
                                         reference.child(lastNameKid).child("city").setValue(cityKid);
                                         Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                        if (!UserDetails.registerCheck.equals("0")){
-                                        UserDetails.kidName = lastNameKid;
-                                        UserDetails.registerCheck = "0";}
+                                        if (!UserDetails.registerCheck.equals("0")) {
+                                            UserDetails.kidName = lastNameKid;
+                                            UserDetails.registerCheck = "0";
+                                        }
 
                                         startActivity(new Intent(AddKid.this, Menu.class));
                                     } else {
@@ -212,7 +216,6 @@ public class AddKid extends Activity {
             }
         });
     }
-
 
 
     public void findView() {
