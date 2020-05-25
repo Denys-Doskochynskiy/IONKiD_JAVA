@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Users extends AppCompatActivity {
+public class UsersList extends AppCompatActivity {
     ListView usersList;
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Users extends AppCompatActivity {
         usersList = findViewById(R.id.usersList);
         noUsersText = findViewById(R.id.noUsersText);
 
-        pd = new ProgressDialog(Users.this);
+        pd = new ProgressDialog(UsersList.this);
         pd.setMessage("Loading...");
         pd.show();
 
@@ -59,14 +59,14 @@ public class Users extends AppCompatActivity {
             }
         });
 
-        RequestQueue rQueue = Volley.newRequestQueue(Users.this);
+        RequestQueue rQueue = Volley.newRequestQueue(UsersList.this);
         rQueue.add(request);
 
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserDetails.chatWith = al.get(position);
-                startActivity(new Intent(Users.this, Chat.class));
+                startActivity(new Intent(UsersList.this, Chat.class));
             }
         });
     }

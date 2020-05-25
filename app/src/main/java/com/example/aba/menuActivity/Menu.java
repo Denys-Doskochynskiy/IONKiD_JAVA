@@ -14,9 +14,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
 import com.example.aba.kids.KidInfo;
-import com.example.aba.kids.Kids;
+import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.users.Users;
+import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -125,7 +125,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Users.class);
+        Intent intent = new Intent(this, UsersList.class);
         startActivity(intent);
     }
 
@@ -172,9 +172,9 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Menu.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Menu.this, Kids.class));
+            startActivity(new Intent(Menu.this, KidList.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(Menu.this, Users.class));
+            startActivity(new Intent(Menu.this, UsersList.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Menu.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
