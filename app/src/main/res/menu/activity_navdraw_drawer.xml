@@ -7,19 +7,19 @@
         <item
             android:id="@+id/nav_doctor"
             android:icon="@drawable/ic_person_black_24dp"
-            android:title="doctor" />
+            android:title="Doctor" />
         <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_chat_black_24dp"
-            android:title="chat" />
+            android:title="Chat" />
         <item
             android:id="@+id/nav_kids"
             android:icon="@drawable/ic_people_outline_black_24dp"
-            android:title="kids" />
+            android:title="Kids" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings_black_24dp"
-            android:title="settings" />
+            android:title="Settings" />
     </group>
 
     <item android:title="Communicate">
@@ -27,7 +27,7 @@
             <item
                 android:id="@+id/nav_taskaktivityday"
                 android:icon="@drawable/ic_content_paste_black_24dp"
-                android:title="tasks" />
+                android:title="Tasks" />
         </menu>
     </item>
 
