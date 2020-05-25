@@ -28,7 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Kids extends AppCompatActivity
+public class KidList extends AppCompatActivity
        {
     ListView usersList;
     TextView noUsersText;
@@ -51,7 +51,7 @@ public class Kids extends AppCompatActivity
                 openMenu();
             }
                 });
-        pd = new ProgressDialog(Kids.this);
+        pd = new ProgressDialog(KidList.this);
         pd.setMessage("Loading...");
         pd.show();
 
@@ -69,7 +69,7 @@ public class Kids extends AppCompatActivity
             }
         });
 
-        RequestQueue rQueue = Volley.newRequestQueue(Kids.this);
+        RequestQueue rQueue = Volley.newRequestQueue(KidList.this);
         rQueue.add(request);
 
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,7 +77,7 @@ public class Kids extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserDetails.kidName = al.get(position);
 
-                startActivity(new Intent(Kids.this, Menu.class));
+                startActivity(new Intent(KidList.this, Menu.class));
             }
         });
     }

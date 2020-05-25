@@ -21,10 +21,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.aba.R;
-import com.example.aba.kids.Kids;
+import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.UserDetails;
-import com.example.aba.users.Users;
+import com.example.aba.users.UsersList;
 import com.firebase.client.Firebase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -42,7 +42,6 @@ public class Doctors extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
-
         drawerLayoutAndToolbar();
 
         floatingActionButton();
@@ -62,10 +61,10 @@ public class Doctors extends AppCompatActivity
             @Override
             public void onClick(View arg0) {
 
-                //Getting the rating and displaying it on the toast
+
                 rating = String.valueOf(ratingbar.getRating());
                 rating = rating.replace(".",",");
-                // addition firebase
+
                 final ProgressDialog pd = new ProgressDialog(Doctors.this);
                 pd.setMessage("Loading...");
                 pd.show();
@@ -139,7 +138,7 @@ public class Doctors extends AppCompatActivity
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Users.class);
+        Intent intent = new Intent(this, UsersList.class);
         startActivity(intent);
     }
 
@@ -179,9 +178,9 @@ public class Doctors extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Doctors.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Doctors.this, Kids.class));
+            startActivity(new Intent(Doctors.this, KidList.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(Doctors.this, Users.class));
+            startActivity(new Intent(Doctors.this, UsersList.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Doctors.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
