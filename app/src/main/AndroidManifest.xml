@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".comment.days.DayComment" />
-        <activity android:name=".users.Users" />
+        <activity android:name=".users.UsersList" />
         <activity android:name=".menuActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
             android:label="@string/title_activity_doctors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".kids.Kids"
+            android:name=".kids.KidList"
             android:label="@string/title_activity_kids"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

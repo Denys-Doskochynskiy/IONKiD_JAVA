@@ -17,9 +17,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
-import com.example.aba.kids.Kids;
+import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.users.Users;
+import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -138,9 +138,9 @@ public class NavdrawActivity extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(NavdrawActivity.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(NavdrawActivity.this, Kids.class));
+            startActivity(new Intent(NavdrawActivity.this, KidList.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(NavdrawActivity.this, Users.class));
+            startActivity(new Intent(NavdrawActivity.this, UsersList.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(NavdrawActivity.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {

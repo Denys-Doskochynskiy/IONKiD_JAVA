@@ -18,7 +18,7 @@ import com.example.aba.kids.AddKid;
 import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Login;
 import com.example.aba.users.UserPersonalData;
-import com.example.aba.users.Users;
+import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -86,7 +86,7 @@ public class Settings extends AppCompatActivity
     }
 
     public void openTaskMessage() {
-        Intent intent = new Intent(this, Users.class);
+        Intent intent = new Intent(this, UsersList.class);
         startActivity(intent);
     }
 
@@ -130,7 +130,7 @@ public class Settings extends AppCompatActivity
         } else if (id == R.id.nav_kids) {
             startActivity(new Intent(Settings.this, AddKid.class));
         } else if (id == R.id.nav_chat) {
-            startActivity(new Intent(Settings.this, Users.class));
+            startActivity(new Intent(Settings.this, UsersList.class));
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Settings.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
