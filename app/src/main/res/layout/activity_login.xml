@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BBE1FA">
@@ -51,6 +52,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/edit_text_background"
         android:hint="@string/eng_password"
+        android:inputType="textPassword"
         android:padding="8dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
@@ -103,6 +105,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/footer_line"
         android:focusable="true" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

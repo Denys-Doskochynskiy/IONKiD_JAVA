@@ -21,7 +21,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
-import com.example.aba.kids.Kids;
+import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.UserDetails;
 import com.firebase.client.ChildEventListener;
@@ -185,7 +185,7 @@ public class Chat extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Chat.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Chat.this, Kids.class));
+            startActivity(new Intent(Chat.this, KidList.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(Chat.this, Chat.class));
         } else if (id == R.id.nav_settings) {
