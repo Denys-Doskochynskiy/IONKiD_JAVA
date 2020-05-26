@@ -1,6 +1,7 @@
 package com.example.aba.menuActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import com.example.aba.R;
 import com.example.aba.kids.AddKid;
 import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Login;
+import com.example.aba.users.UserDetails;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,12 +26,12 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Settings extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        sp = getSharedPreferences("login", MODE_PRIVATE);
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
@@ -113,6 +115,11 @@ public class Settings extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            UserDetails.registerCheck="1";
+            UserDetails.kidName="";
+            sp.edit().putBoolean("loggeded",false).apply();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
             return true;
         }
 

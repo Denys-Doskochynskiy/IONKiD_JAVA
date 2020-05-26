@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#BBE1FA"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.aba.kids.AddKidInRegistration">
+    tools:context="com.example.aba.kids.AddKid">
 
     <EditText
         android:id="@+id/growth"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.478" />
 
-    <EditText
+    <TextView
         android:id="@+id/dateOfBirth"
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -64,7 +64,8 @@
         android:hint="Date of birth"
         android:background="@drawable/edit_text_background"
         android:gravity="center"
-        android:inputType="date"
+        android:clickable="true"
+        android:onClick="onclick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"

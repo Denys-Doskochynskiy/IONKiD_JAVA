@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,7 +41,7 @@ public class KidList extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chose_kids);
-
+        Toast.makeText(KidList.this,"Please select a child",Toast.LENGTH_LONG).show();
         usersList = findViewById(R.id.usersList);
         noUsersText = findViewById(R.id.noUsersText);
         ImageView addKid =  findViewById(R.id.addKid);
