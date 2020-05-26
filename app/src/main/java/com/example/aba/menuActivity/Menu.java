@@ -1,23 +1,21 @@
 package com.example.aba.menuActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import com.example.aba.R;
 import com.example.aba.kids.KidInfo;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.users.Login;
+import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -36,6 +34,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     }
+
 
     public void findViewAndClickListener() {
         Button taskActivity = findViewById(R.id.taskActivity);
@@ -160,6 +159,10 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
 
         if (id == R.id.action_settings) {
+            UserDetails.kidName="";
+            UserDetails.registerCheck="1";
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
             return true;
         }
 

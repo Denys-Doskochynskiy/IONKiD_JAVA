@@ -17,6 +17,7 @@ import com.example.aba.R;
 import com.example.aba.kids.AddKid;
 import com.example.aba.task.day.DayTaskActivity;
 import com.example.aba.users.Login;
+import com.example.aba.users.UserDetails;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -113,6 +114,10 @@ public class Settings extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            UserDetails.registerCheck="1";
+            UserDetails.kidName="";
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
             return true;
         }
 

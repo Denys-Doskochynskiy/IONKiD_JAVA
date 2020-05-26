@@ -122,7 +122,7 @@ public class Register extends AppCompatActivity {
 
                                 reference.child(email).child("phoneNumber").setValue(phone);
                                 UserDetails.username = email;
-                                UserDetails.registerCheck = "0";
+                                UserDetails.registerCheck = "1";
 
                                 Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(Register.this, AddKid.class));

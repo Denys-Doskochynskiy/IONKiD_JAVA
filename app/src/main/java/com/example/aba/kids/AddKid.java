@@ -1,6 +1,8 @@
 package com.example.aba.kids;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,6 +32,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AddKid extends Activity {
+    int DIALOG_DATE = 1;
+    int myYear = 2011;
+    int myMonth = 02;
+    int myDay = 03;
     Button addKid;
     String widthKid, lastNameKid;
     String cityKid, countryKid;
@@ -35,7 +43,8 @@ public class AddKid extends Activity {
     String firstNameKid;
     EditText width;
     EditText city, country;
-    EditText growth, diagnose, date;
+    TextView date;
+    EditText growth, diagnose;
     EditText first, lastKid, bloodType;
     String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
     String[] data = {"Select gender", "Male", "Female"};
@@ -45,6 +54,7 @@ public class AddKid extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition_kid);
+        date = findViewById(R.id.dateOfBirth);
         findView();
         Firebase.setAndroidContext(this);
         ArrayAdapter<String> adapterBlood = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataBlood);
@@ -98,7 +108,7 @@ public class AddKid extends Activity {
                 countryKid = country.getText().toString();
                 growthKid = growth.getText().toString();
                 diagnoseKid = diagnose.getText().toString();
-                dateKid = date.getText().toString();
+                dateKid=date.getText().toString();
 
 
                 if (firstNameKid.equals("")) {
@@ -113,12 +123,10 @@ public class AddKid extends Activity {
                 } else if (cityKid.equals("")) {
                     city.setError("can't be blank");
 
-
-                } else if (dateKid.equals("")) {
-                    date.setError("can't be blank");
-
                 } else if (widthKid.equals("")) {
                     width.setError("can't be blank");
+                } else if (dateKid.equals("")) {
+                    date.setError("can't be blank");
 
                 } else if (growthKid.equals("")) {
                     growth.setError("can't be blank");
@@ -155,11 +163,12 @@ public class AddKid extends Activity {
                                 reference.child(lastNameKid).child("country").setValue(countryKid);
                                 reference.child(lastNameKid).child("city").setValue(cityKid);
                                 if (!UserDetails.registerCheck.equals("0")) {
-                                    UserDetails.kidName = lastNameKid;
+
                                     UserDetails.registerCheck = "0";
                                     Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(AddKid.this, Login.class));
                                 } else {
+                                    UserDetails.kidName = lastNameKid;
                                     Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(AddKid.this, Menu.class));
                                 }
@@ -217,7 +226,29 @@ public class AddKid extends Activity {
         });
     }
 
+    public void onclick(View view) {
+        showDialog(DIALOG_DATE);
+    }
 
+
+    protected Dialog onCreateDialog(int id) {
+        if (id == DIALOG_DATE) {
+            DatePickerDialog tpd = new DatePickerDialog(this, myCallBack, myYear, myMonth, myDay);
+            return tpd;
+        }
+        return super.onCreateDialog(id);
+    }
+
+    DatePickerDialog.OnDateSetListener myCallBack = new DatePickerDialog.OnDateSetListener() {
+
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            myYear = year;
+            myMonth = monthOfYear;
+            myDay = dayOfMonth;
+            date.setText(myDay + "/" + myMonth + "/" + myYear);
+        }
+    };
     public void findView() {
 
         width = findViewById(R.id.weidth);
@@ -225,7 +256,7 @@ public class AddKid extends Activity {
         country = findViewById(R.id.country);
         growth = findViewById(R.id.growth);
         diagnose = findViewById(R.id.diagnose);
-        date = findViewById(R.id.dateOfBirth);
+
         first = findViewById(R.id.firstName);
         lastKid = findViewById(R.id.lastKidName);
 

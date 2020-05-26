@@ -23,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.users.Login;
 import com.example.aba.users.UserDetails;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -172,6 +173,10 @@ public class Chat extends AppCompatActivity
 
 
         if (id == R.id.action_settings) {
+            UserDetails.registerCheck="1";
+            UserDetails.kidName="";
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
             return true;
         }
 
