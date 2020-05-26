@@ -1,6 +1,7 @@
 package com.example.aba.menuActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -23,6 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.users.Login;
 import com.example.aba.users.UserDetails;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -41,12 +43,12 @@ public class Chat extends AppCompatActivity
         EditText messageArea;
         ScrollView scrollView;
         Firebase reference1, reference2;
-
+    SharedPreferences sp;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_chat);
-
+            sp = getSharedPreferences("login", MODE_PRIVATE);
             drawerLayoutAndToolbar();
             navigationView();
 
@@ -172,6 +174,11 @@ public class Chat extends AppCompatActivity
 
 
         if (id == R.id.action_settings) {
+            UserDetails.registerCheck="1";
+            UserDetails.kidName="";
+            sp.edit().putBoolean("loggeded",false).apply();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
             return true;
         }
 

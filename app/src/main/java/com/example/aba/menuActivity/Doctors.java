@@ -2,6 +2,7 @@ package com.example.aba.menuActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.users.Login;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
 import com.firebase.client.Firebase;
@@ -37,11 +39,12 @@ public class Doctors extends AppCompatActivity
     RatingBar ratingbar;
     Button submit;
     String rating;
-
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
+        sp = getSharedPreferences("login", MODE_PRIVATE);
         drawerLayoutAndToolbar();
 
         floatingActionButton();
@@ -164,6 +167,12 @@ public class Doctors extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            UserDetails.registerCheck="1";
+            UserDetails.kidName="";
+
+            sp.edit().putBoolean("loggeded",false).apply();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
             return true;
         }
 
