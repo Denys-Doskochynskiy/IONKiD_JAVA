@@ -2,6 +2,7 @@ package com.example.aba.menuActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +39,7 @@ public class Doctors extends AppCompatActivity
     RatingBar ratingbar;
     Button submit;
     String rating;
-
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,6 +168,8 @@ public class Doctors extends AppCompatActivity
         if (id == R.id.action_settings) {
             UserDetails.registerCheck="1";
             UserDetails.kidName="";
+
+            sp.edit().putBoolean("loggeded",false).apply();
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);
             return true;

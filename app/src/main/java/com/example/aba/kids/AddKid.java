@@ -48,6 +48,7 @@ public class AddKid extends Activity {
     EditText first, lastKid, bloodType;
     String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
     String[] data = {"Select gender", "Male", "Female"};
+    final String SAVED_TEXT = "test";
 
 
     @Override
@@ -108,7 +109,7 @@ public class AddKid extends Activity {
                 countryKid = country.getText().toString();
                 growthKid = growth.getText().toString();
                 diagnoseKid = diagnose.getText().toString();
-                dateKid=date.getText().toString();
+                dateKid = date.getText().toString();
 
 
                 if (firstNameKid.equals("")) {
@@ -249,6 +250,7 @@ public class AddKid extends Activity {
             date.setText(myDay + "/" + myMonth + "/" + myYear);
         }
     };
+
     public void findView() {
 
         width = findViewById(R.id.weidth);

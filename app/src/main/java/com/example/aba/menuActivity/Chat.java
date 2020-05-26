@@ -1,6 +1,7 @@
 package com.example.aba.menuActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -42,7 +43,7 @@ public class Chat extends AppCompatActivity
         EditText messageArea;
         ScrollView scrollView;
         Firebase reference1, reference2;
-
+    SharedPreferences sp;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -175,6 +176,7 @@ public class Chat extends AppCompatActivity
         if (id == R.id.action_settings) {
             UserDetails.registerCheck="1";
             UserDetails.kidName="";
+            sp.edit().putBoolean("loggeded",false).apply();
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);
             return true;

@@ -19,7 +19,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
+import com.example.aba.kids.AddKid;
 import com.example.aba.kids.KidList;
+import com.example.aba.menuActivity.Menu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,12 +32,20 @@ public class Login extends AppCompatActivity {
     EditText username, password;
     Button loginButton;
     String user, pass;
+    final String SAVED_TEXT = "test";
+
+    SharedPreferences sp, sharePrefEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+        if (sp.getBoolean("loggeded", false)) {
+            loadText();
+            goToKidList();
+        }
         findViewAndClickListener();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +78,9 @@ public class Login extends AppCompatActivity {
                                     } else if (obj.getJSONObject(user).getString("password").equals(pass)) {
                                         UserDetails.username = user;
                                         UserDetails.password = pass;
+                                        saveText();
                                         startActivity(new Intent(Login.this, KidList.class));
+                                        sp.edit().putBoolean("loggeded", true).apply();
                                     } else {
                                         Toast.makeText(Login.this, "incorrect password", Toast.LENGTH_LONG).show();
                                     }
@@ -95,6 +107,22 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    void saveText() {
+        sharePrefEmail = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharePrefEmail.edit();
+        edit.putString(SAVED_TEXT, UserDetails.username);
+        edit.commit();
+
+    }
+
+    public void loadText() {
+        sharePrefEmail = getPreferences(MODE_PRIVATE);
+        String savedText = sharePrefEmail.getString(SAVED_TEXT, "");
+        UserDetails.username = savedText;
+
+
+    }
+
     public void findViewAndClickListener() {
         registerUser = findViewById(R.id.register);
         username = findViewById(R.id.email);
@@ -107,5 +135,10 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(Login.this, Register.class));
             }
         });
+    }
+
+    public void goToKidList() {
+        Intent intent = new Intent(this, KidList.class);
+        startActivity(intent);
     }
 }

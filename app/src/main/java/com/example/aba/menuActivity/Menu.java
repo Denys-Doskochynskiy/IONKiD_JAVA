@@ -1,6 +1,7 @@
 package com.example.aba.menuActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,10 +23,13 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
@@ -161,6 +165,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         if (id == R.id.action_settings) {
             UserDetails.kidName="";
             UserDetails.registerCheck="1";
+            sp.edit().putBoolean("loggeded",false).apply();
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);
             return true;

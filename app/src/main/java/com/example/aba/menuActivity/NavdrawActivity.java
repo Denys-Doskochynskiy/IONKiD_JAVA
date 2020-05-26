@@ -2,6 +2,7 @@ package com.example.aba.menuActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,7 +32,7 @@ public class NavdrawActivity extends AppCompatActivity
 
     protected FrameLayout frameLayout;
 
-
+SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,6 +128,7 @@ public class NavdrawActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             UserDetails.registerCheck="1";
             UserDetails.kidName="";
+            sp.edit().putBoolean("loggeded",false).apply();
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);
             return true;
