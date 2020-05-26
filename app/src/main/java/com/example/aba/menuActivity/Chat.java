@@ -48,7 +48,7 @@ public class Chat extends AppCompatActivity
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_chat);
-
+            sp = getSharedPreferences("login", MODE_PRIVATE);
             drawerLayoutAndToolbar();
             navigationView();
 

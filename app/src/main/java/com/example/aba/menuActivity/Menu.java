@@ -29,7 +29,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        sp = getSharedPreferences("login", MODE_PRIVATE);
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();

@@ -37,6 +37,7 @@ SharedPreferences sp;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navdraw);
+        sp = getSharedPreferences("login", MODE_PRIVATE);
         floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();

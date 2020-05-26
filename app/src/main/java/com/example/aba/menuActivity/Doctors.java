@@ -44,6 +44,7 @@ public class Doctors extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
+        sp = getSharedPreferences("login", MODE_PRIVATE);
         drawerLayoutAndToolbar();
 
         floatingActionButton();
