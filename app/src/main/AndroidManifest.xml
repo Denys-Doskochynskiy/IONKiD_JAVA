@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".users.RecoverPassword"></activity>
         <activity android:name=".comment.days.DayComment" />
         <activity android:name=".users.UsersList" />
         <activity android:name=".menuActivity.MainActivity">
@@ -55,10 +56,6 @@
             android:name=".kids.AddKid"
             android:label="@string/title_activity_add_kid1"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--        <activity-->
-<!--            android:name=".RetrofitTest"-->
-<!--            android:label="@string/title_activity_retrofit_test1"-->
-<!--            android:theme="@style/AppTheme.NoActionBar" />-->
     </application>
 
 </manifest>
