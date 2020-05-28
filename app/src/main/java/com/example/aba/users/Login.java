@@ -28,7 +28,7 @@ import org.json.JSONObject;
 
 
 public class Login extends AppCompatActivity {
-    TextView registerUser;
+    TextView registerUser,recoverPassword;
     EditText username, password;
     Button loginButton;
     String user, pass;
@@ -128,7 +128,13 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.email);
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.login);
-
+        recoverPassword=findViewById(R.id.forgotPassword);
+        recoverPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, RecoverPassword.class));
+            }
+        });
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
