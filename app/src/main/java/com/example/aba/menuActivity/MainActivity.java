@@ -7,7 +7,8 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aba.R;
-import com.example.aba.users.Login;
+import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.users.LoginWithFBAuth;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH = 2800;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this, Login.class);
+                Intent homeIntent = new Intent(MainActivity.this, LoginWithFBAuth.class);
                 startActivity(homeIntent);
 
             }

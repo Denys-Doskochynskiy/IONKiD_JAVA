@@ -14,7 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
-import com.example.aba.kids.AddKid;
+import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
 import com.example.aba.menuActivity.Doctors;
 import com.example.aba.menuActivity.Settings;
 import com.example.aba.task.day.DayTaskActivity;
@@ -146,7 +146,7 @@ public class RetrofitTest extends AppCompatActivity
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(RetrofitTest.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(RetrofitTest.this, AddKid.class));
+            startActivity(new Intent(RetrofitTest.this, ThirdStepOfRegistrationAddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(RetrofitTest.this, UsersList.class));
         } else if (id == R.id.nav_settings) {

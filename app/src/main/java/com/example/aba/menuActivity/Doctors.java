@@ -24,7 +24,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.users.Login;
+import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
 import com.firebase.client.Firebase;
@@ -171,7 +172,7 @@ public class Doctors extends AppCompatActivity
             UserDetails.kidName="";
 
             sp.edit().putBoolean("loggeded",false).apply();
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
         }

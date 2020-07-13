@@ -1,4 +1,4 @@
-package com.example.aba.users;
+package com.example.aba.users.registration;
 
 
 import android.app.ProgressDialog;
@@ -21,23 +21,23 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
-import com.example.aba.kids.AddKid;
+import com.example.aba.users.UserDetails;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Register extends AppCompatActivity {
-    EditText emailUser, password, numberOfPhone;
-    EditText firstName, confirmPassword, surname, lastName;
+public class SecondStepOfRegistration extends AppCompatActivity {
+    EditText  numberOfPhone;
+    EditText firstName, surname, lastName;
     Button registerButton;
-    String email, pass, confirm;
+
     String phone, surnameUser, lastNameUser, firstNameUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.second_step_registration);
         findView();
         Firebase.setAndroidContext(this);
 
@@ -50,9 +50,7 @@ public class Register extends AppCompatActivity {
                 lastNameUser = lastName.getText().toString();
                 firstNameUser = firstName.getText().toString();
 
-                email = emailUser.getText().toString().replace(".", ",");
-                pass = password.getText().toString();
-                confirm = confirmPassword.getText().toString();
+
                 if (lastNameUser.equals("")) {
                     lastName.setError("can't be blank");
 
@@ -62,15 +60,7 @@ public class Register extends AppCompatActivity {
                 } else if (surnameUser.equals("")) {
                     surname.setError("can't be blank");
 
-                } else if (email.equals("")) {
-                    emailUser.setError("can't be blank");
 
-
-                } else if (pass.equals("")) {
-                    password.setError("can't be blank");
-
-                } else if (confirm.equals("")) {
-                    confirmPassword.setError("can't be blank");
 
                 } else if (phone.equals("")) {
                     numberOfPhone.setError("can't be blank");
@@ -87,20 +77,12 @@ public class Register extends AppCompatActivity {
               /*  } else if (!email.matches("^[a-z0-9](\\.?[a-z0-9]){5,29}@gmail\\    .com$")) {
                     emailUser.setError(
                             "Please don't use only corect email");*/
-                } else if (email.length() < 13) {
-                    emailUser.setError("at least 5 characters long");
-                } else if (!pass.matches("[A-Za-z0-9]+")) {
-                    password.setError("only alphabet or number allowed");
-                } else if (pass.length() < 5) {
-                    password.setError("at least 5 characters long");
 
-                } else if (!pass.equals(confirm)) {
-                    confirmPassword.setError("password does not match");
                 } else if (!phone.matches("[0-9]+")) {
                     numberOfPhone.setError("Use only number");
 
                 } else {
-                    final ProgressDialog pd = new ProgressDialog(Register.this);
+                    final ProgressDialog pd = new ProgressDialog(SecondStepOfRegistration.this);
                     pd.setMessage("Loading...");
                     pd.show();
 
@@ -114,36 +96,30 @@ public class Register extends AppCompatActivity {
                             if (s.equals("null")) {
 
 
-                                reference.child(email).child("firstName").setValue(firstNameUser);
-                                reference.child(email).child("lastName").setValue(lastNameUser);
-                                reference.child(email).child("surname").setValue(surnameUser);
-
-                                reference.child(email).child("password").setValue(pass);
-
-                                reference.child(email).child("phoneNumber").setValue(phone);
-                                UserDetails.username = email;
+                                reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
+                                reference.child(UserDetails.username).child("lastName").setValue(lastNameUser);
+                                reference.child(UserDetails.username).child("surname").setValue(surnameUser);
+                                reference.child(UserDetails.username).child("phoneNumber").setValue(phone);
                                 UserDetails.registerCheck = "1";
 
-                                Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(Register.this, AddKid.class));
+                                Toast.makeText(SecondStepOfRegistration.this, "registration successful", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(SecondStepOfRegistration.this, ThirdStepOfRegistrationAddKid.class));
                             } else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
 
-                                    if (!obj.has(email)) {
-                                        reference.child(email).child("firstName").setValue(firstNameUser);
-                                        reference.child(email).child("lastName").setValue(lastNameUser);
-                                        reference.child(email).child("surname").setValue(surnameUser);
+                                    if (!obj.has(UserDetails.username)) {
+                                        reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
+                                        reference.child(UserDetails.username).child("lastName").setValue(lastNameUser);
+                                        reference.child(UserDetails.username).child("surname").setValue(surnameUser);
 
-                                        reference.child(email).child("password").setValue(pass);
+                                        reference.child(UserDetails.username).child("phoneNumber").setValue(phone);
 
-                                        reference.child(email).child("phoneNumber").setValue(phone);
-                                        UserDetails.username = email;
                                         UserDetails.registerCheck = "1";
-                                        Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(Register.this, AddKid.class));
+                                        Toast.makeText(SecondStepOfRegistration.this, "registration successful", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(SecondStepOfRegistration.this, ThirdStepOfRegistrationAddKid.class));
                                     } else {
-                                        Toast.makeText(Register.this, "username already exists", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SecondStepOfRegistration.this, "username already exists", Toast.LENGTH_LONG).show();
                                     }
 
                                 } catch (JSONException e) {
@@ -162,7 +138,7 @@ public class Register extends AppCompatActivity {
                         }
                     });
 
-                    RequestQueue rQueue = Volley.newRequestQueue(Register.this);
+                    RequestQueue rQueue = Volley.newRequestQueue(SecondStepOfRegistration.this);
                     rQueue.add(request);
                 }
 
@@ -172,9 +148,7 @@ public class Register extends AppCompatActivity {
 
     public void findView() {
 
-        confirmPassword = findViewById(R.id.confirmPassword);
-        emailUser = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+
         registerButton = findViewById(R.id.registerButton);
         numberOfPhone = findViewById(R.id.numberOfPhone);
         firstName = findViewById(R.id.firstName);

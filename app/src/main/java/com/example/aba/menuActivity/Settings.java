@@ -15,9 +15,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
-import com.example.aba.kids.AddKid;
+import com.example.aba.users.LoginWithFBAuth;
+import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
 import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.users.Login;
+import com.example.aba.unimplementedORunused.Login;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.UsersList;
@@ -118,7 +119,7 @@ SharedPreferences sp;
             UserDetails.registerCheck="1";
             UserDetails.kidName="";
             sp.edit().putBoolean("loggeded",false).apply();
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
         }
@@ -135,7 +136,7 @@ SharedPreferences sp;
         if (id == R.id.nav_doctor) {
             startActivity(new Intent(Settings.this, Doctors.class));
         } else if (id == R.id.nav_kids) {
-            startActivity(new Intent(Settings.this, AddKid.class));
+            startActivity(new Intent(Settings.this, ThirdStepOfRegistrationAddKid.class));
         } else if (id == R.id.nav_chat) {
             startActivity(new Intent(Settings.this, UsersList.class));
         } else if (id == R.id.nav_settings) {

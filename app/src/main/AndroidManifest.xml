@@ -5,15 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".users.RecoverPassword"></activity>
-        <activity android:name=".comment.days.DayComment" />
-        <activity android:name=".users.UsersList" />
+
         <activity android:name=".menuActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +20,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".unimplemented.Test3" />
+
+        <activity android:name=".users.LoginWithFBAuth"/>
+        <activity android:name=".users.RecoverPassword"/>
+        <activity android:name=".comment.days.DayComment" />
+        <activity android:name=".users.registration.FirstStepOfRegistrationWithOAuth" />
+        <activity android:name=".users.UsersList" />
+        <activity android:name=".unimplementedORunused.Test3" />
         <activity android:name=".users.UserPersonalData" />
-        <activity android:name=".unimplemented.ToConfirmReg" />
+        <activity android:name=".unimplementedORunused.ToConfirmReg" />
         <activity android:name=".kids.KidInfo" />
         <activity android:name=".task.day.DayTaskActivity" />
-        <activity android:name=".users.Login" />
-        <activity android:name=".users.Register" />
+        <activity android:name=".unimplementedORunused.Login" />
+        <activity android:name=".users.registration.SecondStepOfRegistration" />
         <activity
             android:name=".menuActivity.NavdrawActivity"
             android:label="@string/title_activity_navdraw"
@@ -53,7 +58,7 @@
             android:label="@string/title_activity_menu1"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".kids.AddKid"
+            android:name=".users.registration.ThirdStepOfRegistrationAddKid"
             android:label="@string/title_activity_add_kid1"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

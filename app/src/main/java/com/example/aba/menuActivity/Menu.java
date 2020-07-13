@@ -15,7 +15,7 @@ import com.example.aba.R;
 import com.example.aba.kids.KidInfo;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.users.Login;
+import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -166,7 +166,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             UserDetails.kidName="";
             UserDetails.registerCheck="1";
             sp.edit().putBoolean("loggeded",false).apply();
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
         }

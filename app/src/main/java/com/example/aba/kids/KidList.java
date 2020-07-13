@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
 import com.example.aba.users.UserDetails;
+import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,7 +86,7 @@ public class KidList extends AppCompatActivity
 
     public void openMenu(){
 
-        Intent intent = new Intent(this, AddKid.class);
+        Intent intent = new Intent(this, ThirdStepOfRegistrationAddKid.class);
         startActivity(intent);
     }
 

@@ -1,4 +1,4 @@
-package com.example.aba.users;
+package com.example.aba.unimplementedORunused;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,9 +19,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
-import com.example.aba.kids.AddKid;
 import com.example.aba.kids.KidList;
-import com.example.aba.menuActivity.Menu;
+import com.example.aba.users.RecoverPassword;
+import com.example.aba.users.registration.SecondStepOfRegistration;
+import com.example.aba.users.UserDetails;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -124,10 +125,11 @@ public class Login extends AppCompatActivity {
     }
 
     public void findViewAndClickListener() {
-        registerUser = findViewById(R.id.register);
+
         username = findViewById(R.id.email);
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.login);
+        registerUser = findViewById(R.id.register);
         recoverPassword=findViewById(R.id.forgotPassword);
         recoverPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +140,7 @@ public class Login extends AppCompatActivity {
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
+                startActivity(new Intent(Login.this, SecondStepOfRegistration.class));
             }
         });
     }

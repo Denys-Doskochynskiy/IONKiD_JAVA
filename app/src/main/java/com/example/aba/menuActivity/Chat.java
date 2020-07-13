@@ -24,7 +24,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.users.Login;
+import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -177,7 +178,7 @@ public class Chat extends AppCompatActivity
             UserDetails.registerCheck="1";
             UserDetails.kidName="";
             sp.edit().putBoolean("loggeded",false).apply();
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
         }

@@ -1,4 +1,4 @@
-package com.example.aba.kids;
+package com.example.aba.users.registration;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -24,14 +24,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
-import com.example.aba.users.Login;
+import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class AddKid extends Activity {
+public class ThirdStepOfRegistrationAddKid extends Activity {
     int DIALOG_DATE = 1;
     int myYear = 2011;
     int myMonth = 02;
@@ -135,7 +135,7 @@ public class AddKid extends Activity {
                 } else if (diagnoseKid.equals("")) {
                     diagnose.setError("can't be blank");
                 } else {
-                    final ProgressDialog pd = new ProgressDialog(AddKid.this);
+                    final ProgressDialog pd = new ProgressDialog(ThirdStepOfRegistrationAddKid.this);
                     pd.setMessage("Loading...");
                     pd.show();
 
@@ -166,12 +166,12 @@ public class AddKid extends Activity {
                                 if (!UserDetails.registerCheck.equals("0")) {
 
                                     UserDetails.registerCheck = "0";
-                                    Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(AddKid.this, Login.class));
+                                    Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, LoginWithFBAuth.class));
                                 } else {
                                     UserDetails.kidName = lastNameKid;
-                                    Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(AddKid.this, Menu.class));
+                                    Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, Menu.class));
                                 }
                             } else {
                                 try {
@@ -192,15 +192,15 @@ public class AddKid extends Activity {
 
                                         reference.child(lastNameKid).child("country").setValue(countryKid);
                                         reference.child(lastNameKid).child("city").setValue(cityKid);
-                                        Toast.makeText(AddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
                                         if (!UserDetails.registerCheck.equals("0")) {
                                             UserDetails.kidName = lastNameKid;
                                             UserDetails.registerCheck = "0";
                                         }
 
-                                        startActivity(new Intent(AddKid.this, Menu.class));
+                                        startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, Menu.class));
                                     } else {
-                                        Toast.makeText(AddKid.this, "username already exists", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ThirdStepOfRegistrationAddKid.this, "username already exists", Toast.LENGTH_LONG).show();
                                     }
 
                                 } catch (JSONException e) {
@@ -219,7 +219,7 @@ public class AddKid extends Activity {
                         }
                     });
 
-                    RequestQueue rQueue = Volley.newRequestQueue(AddKid.this);
+                    RequestQueue rQueue = Volley.newRequestQueue(ThirdStepOfRegistrationAddKid.this);
                     rQueue.add(request);
                 }
 
