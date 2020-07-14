@@ -20,7 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
-import com.example.aba.users.RecoverPassword;
+import com.example.aba.users.RecoverPasswordWithFBAuth;
 import com.example.aba.users.registration.SecondStepOfRegistration;
 import com.example.aba.users.UserDetails;
 
@@ -134,7 +134,7 @@ public class Login extends AppCompatActivity {
         recoverPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, RecoverPassword.class));
+                startActivity(new Intent(Login.this, RecoverPasswordWithFBAuth.class));
             }
         });
         registerUser.setOnClickListener(new View.OnClickListener() {

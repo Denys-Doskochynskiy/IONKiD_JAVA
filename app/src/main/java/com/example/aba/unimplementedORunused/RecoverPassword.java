@@ -1,5 +1,5 @@
-package com.example.aba.users;
-
+package com.example.aba.unimplementedORunused;
+/*
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -17,7 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
-import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.users.UserDetails;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
@@ -32,7 +32,7 @@ public class RecoverPassword extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recover_password);
+        setContentView(R.layout.activity_recover_password_with_f_b_auth);
         findView();
         Firebase.setAndroidContext(this);
         recover.setOnClickListener(new View.OnClickListener() {
@@ -113,4 +113,4 @@ public class RecoverPassword extends AppCompatActivity {
     }
 
 }
-
+*/
