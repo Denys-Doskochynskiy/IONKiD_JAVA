@@ -17,7 +17,7 @@ import com.example.aba.R;
 import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
 import com.example.aba.menuActivity.Doctors;
 import com.example.aba.menuActivity.Settings;
-import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.unimplementedOrUnused.DayTaskActivity;
 import com.example.aba.users.UsersList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;

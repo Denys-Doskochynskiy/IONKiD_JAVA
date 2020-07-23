@@ -23,8 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
-import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.task.TaskList;
 import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
@@ -194,7 +193,7 @@ public class Doctors extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Doctors.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Doctors.this, DayTaskActivity.class));
+            startActivity(new Intent(Doctors.this, TaskList.class));
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

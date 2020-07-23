@@ -14,7 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.aba.R;
 import com.example.aba.kids.KidInfo;
 import com.example.aba.kids.KidList;
-import com.example.aba.task.day.DayTaskActivity;
+import com.example.aba.task.TaskList;
 import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
@@ -113,7 +113,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     public void openTask() {
-        Intent intent = new Intent(this, DayTaskActivity.class);
+        Intent intent = new Intent(this, TaskList.class);
         startActivity(intent);
     }
 
@@ -188,7 +188,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Menu.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Menu.this, DayTaskActivity.class));
+            startActivity(new Intent(Menu.this, TaskList.class));
 
         }
 

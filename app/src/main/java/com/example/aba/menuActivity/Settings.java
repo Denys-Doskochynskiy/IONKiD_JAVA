@@ -15,10 +15,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.aba.R;
+import com.example.aba.task.TaskList;
 import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
-import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.unimplementedOrUnused.Login;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.UsersList;
@@ -142,7 +142,7 @@ SharedPreferences sp;
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Settings.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Settings.this, DayTaskActivity.class));
+            startActivity(new Intent(Settings.this, TaskList.class));
 
         }
 
