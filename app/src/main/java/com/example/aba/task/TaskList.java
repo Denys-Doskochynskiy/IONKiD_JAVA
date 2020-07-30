@@ -73,7 +73,7 @@ public class TaskList extends AppCompatActivity {
         pd.setMessage("Loading...");
         pd.show();
 
-        String url = "https://ionkid-abd2f.firebaseio.com/users.json";
+        String url = "https://ionkid-abd2f.firebaseio.com/Tasks.json";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -98,11 +98,13 @@ public class TaskList extends AppCompatActivity {
                idSelected= String.valueOf(get(position)+1);
                if(selectedItems.contains(selectedItem)){
                    selectedItems.remove(selectedItem);
+
                    reff.child("kids/").child(UserDetails.kidName).child("tasks/"+currentData).child("status").child(String.valueOf(get(position+1))).setValue("unchecked");
                    Toast.makeText(TaskList.this,idSelected,Toast.LENGTH_LONG).show();
 
                }else {
                    selectedItems.add(selectedItem);
+
                    reff.child("kids/").child(UserDetails.kidName).child("tasks/"+currentData).child("status").child(String.valueOf(get(position+1))).setValue("checked");
                    Toast.makeText(TaskList.this,idSelected,Toast.LENGTH_LONG).show();
                }
@@ -131,6 +133,7 @@ public class TaskList extends AppCompatActivity {
 
                 if (!key.equals(UserDetails.username)) {
                     allTask.add(key);
+
                 }
 
                 totalUsers++;

@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".working_and_test.StepCounter"></activity>
+        <activity android:name=".menuActivity.MainActivity"></activity>
+        <activity android:name=".working_and_test.StepCounter" />
         <activity android:name=".task.TaskList" />
         <activity android:name=".users.RecoverPasswordWithFBAuth" />
-        <activity android:name=".menuActivity.MainActivity">
+        <activity android:name=".working_and_test.EncryptAndDecryptData">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
