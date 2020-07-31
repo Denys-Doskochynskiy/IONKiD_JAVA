@@ -1,6 +1,7 @@
 package com.example.aba.users;
 
 public class UserDetails {
+    public static String SECRET_KEY="";
     public static String username = "";
     public static String password = "";
     public static String chatWith = "";

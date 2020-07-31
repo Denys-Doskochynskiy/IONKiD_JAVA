@@ -26,6 +26,7 @@ import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
 import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
+import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
@@ -45,6 +46,7 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
     EditText city, country;
     TextView date;
     EditText growth, diagnose;
+    String decryptNameKid;
     EditText first, lastKid, bloodType;
     String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
     String[] data = {"Select gender", "Male", "Female"};
@@ -152,8 +154,13 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
                                 reference.child(lastNameKid).child("Blood Type").setValue("'Blood type is: " + spinnerBlood.getSelectedItemPosition());
                                 reference.child(lastNameKid).child("Gender").setValue("'Value is: " + spinner.getSelectedItemPosition() + " '" + "if 1 it's Boy,if 2 it's Girl");
                                 reference.child(lastNameKid).child("Width").setValue(widthKid);
-
-                                reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
+                                try {
+                                    decryptNameKid = EncryptAndDecryptData.encrypt(firstNameKid,UserDetails.SECRET_KEY);
+                                    reference.child(lastNameKid).child("firstNameKid").setValue(decryptNameKid);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                               // reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
                                 reference.child(lastNameKid).child("width").setValue(widthKid);
 
                                 reference.child(lastNameKid).child("date").setValue(dateKid);

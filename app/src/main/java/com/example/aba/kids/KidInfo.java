@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aba.R;
 import com.example.aba.users.UserDetails;
+import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 public class KidInfo extends AppCompatActivity {
     TextView first, second, cityKid, countryKid, genderKid, blood, diagnoseKid, dateKid, growthKid, widthKid;
     DatabaseReference reff;
+    String outString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,13 @@ public class KidInfo extends AppCompatActivity {
                 String diagnose = dataSnapshot.child("diagnose").getValue().toString();
                 String growth = dataSnapshot.child("growth").getValue().toString();
                 String country = dataSnapshot.child("country").getValue().toString();
-
-                first.setText(name);
+                try {
+                    outString= EncryptAndDecryptData.decrypt(name,UserDetails.SECRET_KEY);
+                    first.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //first.setText(name);
                 second.setText(UserDetails.kidName);
                 genderKid.setText(gender);
                 countryKid.setText(country);
