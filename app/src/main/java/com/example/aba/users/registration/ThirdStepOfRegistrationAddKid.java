@@ -104,14 +104,14 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
             @Override
             public void onClick(View v) {
 
-                widthKid = width.getText().toString();
+                widthKid = width.getText().toString();//
                 lastNameKid = lastKid.getText().toString();
-                firstNameKid = first.getText().toString();
-                cityKid = city.getText().toString();
-                countryKid = country.getText().toString();
-                growthKid = growth.getText().toString();
-                diagnoseKid = diagnose.getText().toString();
-                dateKid = date.getText().toString();
+                firstNameKid = first.getText().toString();//
+                cityKid = city.getText().toString();//
+                countryKid = country.getText().toString();//
+                growthKid = growth.getText().toString();//
+                diagnoseKid = diagnose.getText().toString();//
+                dateKid = date.getText().toString();//
 
 
                 if (firstNameKid.equals("")) {
@@ -156,10 +156,11 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
                                 reference.child(lastNameKid).child("Width").setValue(widthKid);
                                 try {
                                     decryptNameKid = EncryptAndDecryptData.encrypt(firstNameKid,UserDetails.SECRET_KEY);
-                                    reference.child(lastNameKid).child("firstNameKid").setValue(decryptNameKid);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
+                                reference.child(lastNameKid).child("firstNameKid").setValue(decryptNameKid);
+
                                // reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
                                 reference.child(lastNameKid).child("width").setValue(widthKid);
 

@@ -47,15 +47,16 @@ public class KidInfo extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //first.setText(name);
-                second.setText(UserDetails.kidName);
-                genderKid.setText(gender);
-                countryKid.setText(country);
-                cityKid.setText(city);
-                blood.setText(bloodType);
-                widthKid.setText(width);
-                dateKid.setText(date);
-                diagnoseKid.setText(diagnose);
-                growthKid.setText(growth);
+                second.setText(UserDetails.kidName);//
+                genderKid.setText(gender);//
+                countryKid.setText(country);//
+                cityKid.setText(city);//
+                blood.setText(bloodType);//
+                widthKid.setText(width);//
+                dateKid.setText(date);//
+                diagnoseKid.setText(diagnose);//
+                growthKid.setText(growth);//
+
             }
 
             @Override
