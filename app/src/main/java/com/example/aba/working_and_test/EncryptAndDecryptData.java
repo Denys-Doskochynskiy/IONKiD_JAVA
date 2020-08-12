@@ -28,7 +28,7 @@ public class EncryptAndDecryptData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encrypt_and_decrypt_data);
         findViewAndName();
-        encBtn.setOnClickListener(new View.OnClickListener() {
+        /*encBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -50,7 +50,7 @@ public class EncryptAndDecryptData extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
     }
 public  static String decrypt(String outString,String password) throws Exception{
     SecretKeySpec key = generateKey(password);
