@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
 import com.example.aba.users.LoginWithFBAuth;
+import com.example.aba.users.User;
 import com.example.aba.users.UserDetails;
 import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.firebase.client.Firebase;
@@ -46,7 +47,7 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
     EditText city, country;
     TextView date;
     EditText growth, diagnose;
-    String decryptNameKid;
+    String decryptNameKid,decryptWidth,decryptBlood;
     EditText first, lastKid, bloodType;
     String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
     String[] data = {"Select gender", "Male", "Female"};
@@ -150,10 +151,20 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
 
 
                             if (s.equals("null")) {
-
+                                try {
+                                    decryptBlood=EncryptAndDecryptData.encrypt(String.valueOf(spinnerBlood.getSelectedItemPosition()),UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 reference.child(lastNameKid).child("Blood Type").setValue("'Blood type is: " + spinnerBlood.getSelectedItemPosition());
                                 reference.child(lastNameKid).child("Gender").setValue("'Value is: " + spinner.getSelectedItemPosition() + " '" + "if 1 it's Boy,if 2 it's Girl");
-                                reference.child(lastNameKid).child("Width").setValue(widthKid);
+
+                                try {
+                                    decryptWidth=EncryptAndDecryptData.encrypt(widthKid, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                reference.child(lastNameKid).child("Width").setValue(decryptWidth);
                                 try {
                                     decryptNameKid = EncryptAndDecryptData.encrypt(firstNameKid,UserDetails.SECRET_KEY);
                                 } catch (Exception e) {
