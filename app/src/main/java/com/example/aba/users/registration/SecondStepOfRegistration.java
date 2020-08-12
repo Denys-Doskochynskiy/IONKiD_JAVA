@@ -45,10 +45,10 @@ public class SecondStepOfRegistration extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phone = numberOfPhone.getText().toString();
-                surnameUser = surname.getText().toString();
-                lastNameUser = lastName.getText().toString();
-                firstNameUser = firstName.getText().toString();
+                phone = numberOfPhone.getText().toString();//
+                surnameUser = surname.getText().toString();//
+                lastNameUser = lastName.getText().toString();//
+                firstNameUser = firstName.getText().toString();//
 
 
                 if (lastNameUser.equals("")) {

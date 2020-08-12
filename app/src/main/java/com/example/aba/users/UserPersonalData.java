@@ -37,10 +37,10 @@ DatabaseReference reff;
                 String nextName=dataSnapshot.child("lastName").getValue().toString();
                 String  phone=dataSnapshot.child("phoneNumber").getValue().toString();
 
-                first.setText(name);
-                second.setText(nextName);
-                surName.setText(sur);
-                number.setText(phone);
+                first.setText(name);//
+                second.setText(nextName);//
+                surName.setText(sur);//
+                number.setText(phone);//
             }
 
             @Override
