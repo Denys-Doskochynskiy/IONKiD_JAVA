@@ -1,5 +1,6 @@
 package com.example.aba.menuActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 import com.example.aba.task.TaskList;
@@ -31,6 +39,9 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.google.android.material.navigation.NavigationView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -177,6 +188,61 @@ public class Chat extends AppCompatActivity
             UserDetails.registerCheck="1";
             UserDetails.kidName="";
             sp.edit().putBoolean("loggeded",false).apply();
+            final ProgressDialog pd = new ProgressDialog(Chat.this);
+            pd.setMessage("Loading...");
+            pd.show();
+
+            String url = "https://ionkid-abd2f.firebaseio.com/Arduino/ActivateCode.json";
+
+            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
+                    Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/Arduino/ActivateCode");
+
+                    if (s.equals("null")) {
+
+                        reference.child("Activate").setValue("0");
+                        reference.child("User").setValue("");
+
+
+                        Toast.makeText(Chat.this, "Device is deactivated", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        try {
+                            JSONObject obj = new JSONObject(s);
+
+                            if (!obj.has(UserDetails.username)) {
+
+                                reference.child("Activate").setValue("0");
+                                reference.child("User").setValue("");
+
+
+                                Toast.makeText(Chat.this, "Device is deactivated", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                reference.child("Activate").setValue("0");
+
+                                Toast.makeText(Chat.this, "device is deactivated", Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    pd.dismiss();
+                }
+
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    System.out.println("" + volleyError);
+                    pd.dismiss();
+                }
+            });
+
+            RequestQueue rQueue = Volley.newRequestQueue(Chat.this);
+            rQueue.add(request);
             Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
