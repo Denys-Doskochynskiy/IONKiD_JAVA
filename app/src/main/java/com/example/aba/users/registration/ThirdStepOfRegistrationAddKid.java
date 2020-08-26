@@ -47,7 +47,8 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
     EditText city, country;
     TextView date;
     EditText growth, diagnose;
-    String decryptNameKid,decryptWidth,decryptBlood;
+    String decryptNameKid,decryptWidth,decryptBlood, decryptNameKidSecond, decryptCity,
+            decryptCountry, decryptGrowth, decryptDiagnose, decryptDate;
     EditText first, lastKid, bloodType;
     String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
     String[] data = {"Select gender", "Male", "Female"};
@@ -105,7 +106,7 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
             @Override
             public void onClick(View v) {
 
-                widthKid = width.getText().toString();//
+                widthKid = width.getText().toString();//+
                 lastNameKid = lastKid.getText().toString();
                 firstNameKid = first.getText().toString();//
                 cityKid = city.getText().toString();//
@@ -159,29 +160,69 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
                                 reference.child(lastNameKid).child("Blood Type").setValue("'Blood type is: " + spinnerBlood.getSelectedItemPosition());
                                 reference.child(lastNameKid).child("Gender").setValue("'Value is: " + spinner.getSelectedItemPosition() + " '" + "if 1 it's Boy,if 2 it's Girl");
 
+                              /*  try {
+                                    decryptDate=EncryptAndDecryptData.encrypt(date, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                reference.child(lastNameKid).child("date").setValue(decryptDate);
+                                */
+                                try {
+                                    decryptDiagnose=EncryptAndDecryptData.encrypt(diagnoseKid, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                reference.child(lastNameKid).child("diagnose").setValue(decryptDiagnose);
+
+                                try {
+                                    decryptGrowth=EncryptAndDecryptData.encrypt(growthKid, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                reference.child(lastNameKid).child("growth").setValue(decryptGrowth);
+
                                 try {
                                     decryptWidth=EncryptAndDecryptData.encrypt(widthKid, UserDetails.SECRET_KEY);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
+
                                 reference.child(lastNameKid).child("Width").setValue(decryptWidth);
+
+                                try {
+                                    decryptCity = EncryptAndDecryptData.encrypt(cityKid ,UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                reference.child(lastNameKid).child("CityKid").setValue(decryptCity);
+
+                                try {
+                                    decryptCountry = EncryptAndDecryptData.encrypt(countryKid, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                reference.child(lastNameKid).child("Country").setValue(decryptCountry);
+
+//
                                 try {
                                     decryptNameKid = EncryptAndDecryptData.encrypt(firstNameKid,UserDetails.SECRET_KEY);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                                 reference.child(lastNameKid).child("firstNameKid").setValue(decryptNameKid);
-
+//
                                // reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
-                                reference.child(lastNameKid).child("width").setValue(widthKid);
-
+                               // reference.child(lastNameKid).child("width").setValue(widthKid);
+                               // reference.child(lastNameKid).child("Country").setValue(countryKid);
                                 reference.child(lastNameKid).child("date").setValue(dateKid);
-                                reference.child(lastNameKid).child("diagnose").setValue(diagnoseKid);
+                                //reference.child(lastNameKid).child("diagnose").setValue(diagnoseKid);
 
-                                reference.child(lastNameKid).child("growth").setValue(growthKid);
+                                //reference.child(lastNameKid).child("growth").setValue(growthKid);
 
-                                reference.child(lastNameKid).child("country").setValue(countryKid);
-                                reference.child(lastNameKid).child("city").setValue(cityKid);
+                               // reference.child(lastNameKid).child("country").setValue(countryKid);
+                              //  reference.child(lastNameKid).child("city").setValue(cityKid);
                                 if (!UserDetails.registerCheck.equals("0")) {
 
                                     UserDetails.registerCheck = "0";
@@ -201,6 +242,7 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
 
                                         reference.child(lastNameKid).child("Gender").setValue("'Value is: " + spinner.getSelectedItemPosition() + " '" + "if 1 it's Boy,if 2 it's Girl");
                                         reference.child(lastNameKid).child("Width").setValue(widthKid);
+                                        reference.child(lastNameKid).child("CityKid").setValue(cityKid);
                                         reference.child(lastNameKid).child("firstNameKid").setValue(firstNameKid);
                                         reference.child(lastNameKid).child("width").setValue(widthKid);
                                         reference.child(lastNameKid).child("Blood Type").setValue("'Blood type is: " + spinnerBlood.getSelectedItemPosition());

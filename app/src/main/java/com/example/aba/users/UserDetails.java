@@ -8,4 +8,5 @@ public class UserDetails {
     public static String kidName = "";
     public static String ratingDoc = "";
     public static String registerCheck = "";
+    public static String KidCity = "";
 }

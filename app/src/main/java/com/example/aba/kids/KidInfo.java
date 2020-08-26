@@ -33,29 +33,74 @@ public class KidInfo extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("firstNameKid").getValue().toString();
                 String gender = dataSnapshot.child("Gender").getValue().toString();
-                String city = dataSnapshot.child("city").getValue().toString();
+                String city = dataSnapshot.child("CityKid").getValue().toString();
                 String bloodType = dataSnapshot.child("Blood Type").getValue().toString();
                 String width = dataSnapshot.child("Width").getValue().toString();
                 String date = dataSnapshot.child("date").getValue().toString();
                 String diagnose = dataSnapshot.child("diagnose").getValue().toString();
                 String growth = dataSnapshot.child("growth").getValue().toString();
-                String country = dataSnapshot.child("country").getValue().toString();
+                String country = dataSnapshot.child("Country").getValue().toString();
                 try {
                     outString= EncryptAndDecryptData.decrypt(name,UserDetails.SECRET_KEY);
                     first.setText(outString);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                try {
+                    outString= EncryptAndDecryptData.decrypt(date,UserDetails.SECRET_KEY);
+                    dateKid.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    outString= EncryptAndDecryptData.decrypt(diagnose,UserDetails.SECRET_KEY);
+                    diagnoseKid.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                try {
+                    outString= EncryptAndDecryptData.decrypt(growth,UserDetails.SECRET_KEY);
+                    growthKid.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    outString= EncryptAndDecryptData.decrypt(city,UserDetails.SECRET_KEY);
+                    cityKid.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
+                    outString= EncryptAndDecryptData.decrypt(country,UserDetails.SECRET_KEY);
+                    countryKid.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    outString= EncryptAndDecryptData.decrypt(width,UserDetails.SECRET_KEY);
+                    widthKid.setText(outString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
                 //first.setText(name);
-                second.setText(UserDetails.kidName);//
+               // second.setText(UserDetails.kidName);//
                 genderKid.setText(gender);//
-                countryKid.setText(country);//
-                cityKid.setText(city);//
+               // countryKid.setText(country);//
+                //cityKid.setText(UserDetails.KidCity);//
                 blood.setText(bloodType);//
-                widthKid.setText(width);//
-                dateKid.setText(date);//
-                diagnoseKid.setText(diagnose);//
-                growthKid.setText(growth);//
+                //widthKid.setText(width);//
+               dateKid.setText(date);//
+               // diagnoseKid.setText(diagnose);//
+                //growthKid.setText(growth);//
 
             }
 
