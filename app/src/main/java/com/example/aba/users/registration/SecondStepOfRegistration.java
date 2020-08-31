@@ -95,13 +95,19 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                             Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/users");
 
                             if (s.equals("null")) {
-
                                 try {
-                                    decryptPhone= EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
+                                    decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                                reference.child(UserDetails.username).child("phoneNumber").setValue(decryptPhone);
+                                try {
+                                    decryptPhone= EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
+                                    reference.child(UserDetails.username).child("phoneNumber").setValue(decryptPhone);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
 
                                 try {
                                     decryptSurnameUser= EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
@@ -111,11 +117,12 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                 reference.child(UserDetails.username).child("surname").setValue(decryptSurnameUser);
 
                                 try {
-                                    lastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                                reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
+
 
                                 try {
                                     decryptFirstNameUser= EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
@@ -123,11 +130,6 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 reference.child(UserDetails.username).child("firstName").setValue(decryptFirstNameUser);
-
-                               /* reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
-                                reference.child(UserDetails.username).child("lastName").setValue(lastNameUser);
-                                reference.child(UserDetails.username).child("surname").setValue(surnameUser);
-                                reference.child(UserDetails.username).child("phoneNumber").setValue(phone);*/
 
 
                                 UserDetails.registerCheck = "1";
@@ -162,7 +164,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                         reference.child(UserDetails.username).child("surname").setValue(decryptSurnameUser);
 
                                         try {
-                                            lastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                            decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }

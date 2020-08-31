@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".menuActivity.SensorKit"></activity>
         <activity android:name=".working_and_test.EncryptAndDecryptData" />
         <activity android:name=".working_and_test.StepCounter" />
         <activity android:name=".task.TaskList" />
