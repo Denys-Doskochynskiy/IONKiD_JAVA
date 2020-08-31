@@ -180,61 +180,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             UserDetails.kidName="";
             UserDetails.registerCheck="1";
             sp.edit().putBoolean("loggeded",false).apply();
-            final ProgressDialog pd = new ProgressDialog(Menu.this);
-            pd.setMessage("Loading...");
-            pd.show();
 
-            String url = "https://ionkid-abd2f.firebaseio.com/Arduino/ActivateCode.json";
-
-            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String s) {
-                    Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/Arduino/ActivateCode");
-
-                    if (s.equals("null")) {
-
-                        reference.child("Activate").setValue("0");
-                        reference.child("User").setValue("");
-
-
-                        Toast.makeText(Menu.this, "Device is deactivated", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        try {
-                            JSONObject obj = new JSONObject(s);
-
-                            if (!obj.has(UserDetails.username)) {
-
-                                reference.child("Activate").setValue("0");
-                                reference.child("User").setValue("");
-
-
-                                Toast.makeText(Menu.this, "Device is deactivated", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                reference.child("Activate").setValue("0");
-
-                                Toast.makeText(Menu.this, "device is deactivated", Toast.LENGTH_LONG).show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    pd.dismiss();
-                }
-
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    System.out.println("" + volleyError);
-                    pd.dismiss();
-                }
-            });
-
-            RequestQueue rQueue = Volley.newRequestQueue(Menu.this);
-            rQueue.add(request);
             Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
