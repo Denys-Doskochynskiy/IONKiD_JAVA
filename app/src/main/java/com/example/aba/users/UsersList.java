@@ -32,16 +32,17 @@ public class UsersList extends AppCompatActivity {
     ArrayList<String> al = new ArrayList<>();
     int totalUsers = 0;
     ProgressDialog pd;
-
-    @Override
+  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
         usersList = findViewById(R.id.usersList);
         noUsersText = findViewById(R.id.noUsersText);
+      ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.checkbox_listview,R.id.usersList);
+usersList.setAdapter(adapter);
 
-        pd = new ProgressDialog(UsersList.this);
+      pd = new ProgressDialog(UsersList.this);
         pd.setMessage("Loading...");
         pd.show();
 

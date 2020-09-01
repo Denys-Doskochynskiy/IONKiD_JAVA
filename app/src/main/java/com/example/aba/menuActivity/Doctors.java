@@ -18,13 +18,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
-import com.example.aba.task.day.DayTaskActivity;
-import com.example.aba.unimplementedORunused.Login;
+import com.example.aba.task.TaskList;
 import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UsersList;
@@ -172,6 +173,61 @@ public class Doctors extends AppCompatActivity
             UserDetails.kidName="";
 
             sp.edit().putBoolean("loggeded",false).apply();
+            final ProgressDialog pd = new ProgressDialog(Doctors.this);
+            pd.setMessage("Loading...");
+            pd.show();
+
+            String url = "https://ionkid-abd2f.firebaseio.com/Arduino/ActivateCode.json";
+
+            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
+                    Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/Arduino/ActivateCode");
+
+                    if (s.equals("null")) {
+
+                        reference.child("Activate").setValue("0");
+                        reference.child("User").setValue("");
+
+
+                        Toast.makeText(Doctors.this, "Device is deactivated", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        try {
+                            JSONObject obj = new JSONObject(s);
+
+                            if (!obj.has(UserDetails.username)) {
+
+                                reference.child("Activate").setValue("0");
+                                reference.child("User").setValue("");
+
+
+                                Toast.makeText(Doctors.this, "Device is deactivated", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                reference.child("Activate").setValue("0");
+
+                                Toast.makeText(Doctors.this, "device is deactivated", Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    pd.dismiss();
+                }
+
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    System.out.println("" + volleyError);
+                    pd.dismiss();
+                }
+            });
+
+            RequestQueue rQueue = Volley.newRequestQueue(Doctors.this);
+            rQueue.add(request);
             Intent intent = new Intent(this, LoginWithFBAuth.class);
             startActivity(intent);
             return true;
@@ -194,7 +250,7 @@ public class Doctors extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(Doctors.this, Settings.class));
         } else if (id == R.id.nav_taskaktivityday) {
-            startActivity(new Intent(Doctors.this, DayTaskActivity.class));
+            startActivity(new Intent(Doctors.this, TaskList.class));
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

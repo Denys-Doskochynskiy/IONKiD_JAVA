@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
 import com.example.aba.users.UserDetails;
+import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.firebase.client.Firebase;
 
 import org.json.JSONException;
@@ -31,7 +32,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
     EditText  numberOfPhone;
     EditText firstName, surname, lastName;
     Button registerButton;
-
+    String decryptPhone, decryptSurnameUser, decryptLastNameUser, decryptFirstNameUser;
     String phone, surnameUser, lastNameUser, firstNameUser;
 
     @Override
@@ -45,10 +46,10 @@ public class SecondStepOfRegistration extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phone = numberOfPhone.getText().toString();
-                surnameUser = surname.getText().toString();
-                lastNameUser = lastName.getText().toString();
-                firstNameUser = firstName.getText().toString();
+                phone = numberOfPhone.getText().toString();//
+                surnameUser = surname.getText().toString();//
+                lastNameUser = lastName.getText().toString();//
+                firstNameUser = firstName.getText().toString();//
 
 
                 if (lastNameUser.equals("")) {
@@ -94,12 +95,43 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                             Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/users");
 
                             if (s.equals("null")) {
+                                try {
+                                    decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                try {
+                                    decryptPhone= EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
+                                    reference.child(UserDetails.username).child("phoneNumber").setValue(decryptPhone);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
 
 
-                                reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
-                                reference.child(UserDetails.username).child("lastName").setValue(lastNameUser);
-                                reference.child(UserDetails.username).child("surname").setValue(surnameUser);
-                                reference.child(UserDetails.username).child("phoneNumber").setValue(phone);
+                                try {
+                                    decryptSurnameUser= EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                reference.child(UserDetails.username).child("surname").setValue(decryptSurnameUser);
+
+                                try {
+                                    decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                try {
+                                    decryptFirstNameUser= EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                reference.child(UserDetails.username).child("firstName").setValue(decryptFirstNameUser);
+
+
                                 UserDetails.registerCheck = "1";
 
                                 Toast.makeText(SecondStepOfRegistration.this, "registration successful", Toast.LENGTH_LONG).show();
@@ -109,11 +141,43 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                     JSONObject obj = new JSONObject(s);
 
                                     if (!obj.has(UserDetails.username)) {
-                                        reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
+                                        /*reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
                                         reference.child(UserDetails.username).child("lastName").setValue(lastNameUser);
                                         reference.child(UserDetails.username).child("surname").setValue(surnameUser);
 
+                                        reference.child(UserDetails.username).child("phoneNumber").setValue(phone);*/
+
+                                        try {
+                                            decryptPhone= EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+
                                         reference.child(UserDetails.username).child("phoneNumber").setValue(phone);
+
+                                        try {
+                                            decryptSurnameUser= EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        reference.child(UserDetails.username).child("surname").setValue(decryptSurnameUser);
+
+                                        try {
+                                            decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
+
+                                        try {
+                                            decryptFirstNameUser= EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        reference.child(UserDetails.username).child("firstName").setValue(decryptFirstNameUser);
 
                                         UserDetails.registerCheck = "1";
                                         Toast.makeText(SecondStepOfRegistration.this, "registration successful", Toast.LENGTH_LONG).show();

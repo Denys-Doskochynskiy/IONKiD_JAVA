@@ -88,20 +88,5 @@
         app:layout_constraintTop_toBottomOf="@+id/doctorsActivity"
         app:layout_constraintVertical_bias="0.025" />
 
-<!--    <Button-->
-<!--        android:id="@+id/profil"-->
-<!--        android:layout_width="323dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginBottom="32dp"-->
-<!--        android:background="@drawable/button_background"-->
-<!--        android:text="Retrofit test"-->
-<!--        android:textColor="#1B262C"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.513"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/settingsActivity"-->
-<!--        app:layout_constraintVertical_bias="0.937" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

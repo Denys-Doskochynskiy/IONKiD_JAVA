@@ -3,6 +3,7 @@
     package="com.example.aba">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".users.RecoverPasswordWithFBAuth"></activity>
+        <activity android:name=".menuActivity.SensorKit"></activity>
+        <activity android:name=".working_and_test.EncryptAndDecryptData" />
+        <activity android:name=".working_and_test.StepCounter" />
+        <activity android:name=".task.TaskList" />
+        <activity android:name=".users.RecoverPasswordWithFBAuth" />
         <activity android:name=".menuActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +25,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".users.LoginWithFBAuth" />
-        <activity android:name=".unimplementedORunused.RecoverPassword" />
         <activity android:name=".comment.days.DayComment" />
         <activity android:name=".users.registration.FirstStepOfRegistrationWithOAuth" />
         <activity android:name=".users.UsersList" />
-        <activity android:name=".unimplementedORunused.Test3" />
+        <activity android:name=".unimplementedOrUnused.Test3" />
         <activity android:name=".users.UserPersonalData" />
-        <activity android:name=".unimplementedORunused.ToConfirmReg" />
+        <activity android:name=".unimplementedOrUnused.ToConfirmReg" />
         <activity android:name=".kids.KidInfo" />
-        <activity android:name=".task.day.DayTaskActivity" />
-        <activity android:name=".unimplementedORunused.Login" />
+        <activity android:name=".unimplementedOrUnused.DayTaskActivity" />
+        <activity android:name=".unimplementedOrUnused.Login" />
         <activity android:name=".users.registration.SecondStepOfRegistration" />
         <activity
             android:name=".menuActivity.NavdrawActivity"

@@ -1,4 +1,4 @@
-package com.example.aba.unimplementedORunused;
+package com.example.aba.unimplementedOrUnused;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import com.example.aba.kids.KidList;
 import com.example.aba.users.RecoverPasswordWithFBAuth;
 import com.example.aba.users.registration.SecondStepOfRegistration;
 import com.example.aba.users.UserDetails;
+import com.example.aba.working_and_test.EncryptAndDecryptData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,6 +53,8 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 user = username.getText().toString().replace(".", ",");
                 pass = password.getText().toString();
 

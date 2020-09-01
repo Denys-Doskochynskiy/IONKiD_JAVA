@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aba.R;
 import com.example.aba.users.LoginWithFBAuth;
+import com.example.aba.users.UserDetails;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -47,7 +48,8 @@ if (task.isSuccessful()){
                 public void onComplete(@NonNull Task<Void> task) {
                     Toast.makeText(FirstStepOfRegistrationWithOAuth.this,"reg is success,pleas check your email to verification",
                             Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(FirstStepOfRegistrationWithOAuth.this, LoginWithFBAuth.class));
+                    UserDetails.username=emailUser.getText().toString().replace(".",",");
+                    startActivity(new Intent(FirstStepOfRegistrationWithOAuth.this, SecondStepOfRegistration.class));
                 }
             });
 

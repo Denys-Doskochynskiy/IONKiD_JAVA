@@ -4,6 +4,7 @@
     <string name="Save">Save</string>
     <string name="Next">Next</string>
     <string name="DB">Waiting Data Base</string>
+    <string name="device_info">Device info</string>
     <string name="title_activity_navdraw">NavdrawActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
