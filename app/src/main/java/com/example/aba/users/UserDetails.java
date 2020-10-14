@@ -9,4 +9,6 @@ public class UserDetails {
     public static String ratingDoc = "";
     public static String registerCheck = "";
     public static String KidCity = "";
+    public static String logDetails = "";
+    public static String statusDetails = "";
 }
