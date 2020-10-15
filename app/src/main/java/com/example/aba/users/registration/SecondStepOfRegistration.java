@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -24,32 +26,50 @@ import com.example.aba.R;
 import com.example.aba.users.UserDetails;
 import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SecondStepOfRegistration extends AppCompatActivity {
-    EditText  numberOfPhone;
+    EditText numberOfPhone;
     EditText firstName, surname, lastName;
     Button registerButton;
     String decryptPhone, decryptSurnameUser, decryptLastNameUser, decryptFirstNameUser;
     String phone, surnameUser, lastNameUser, firstNameUser;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference user = db.collection("usersInfo");
+    public static final String TAG = "TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_step_registration);
-        findView();
+        /*findView();*/
         Firebase.setAndroidContext(this);
+
+        db = FirebaseFirestore.getInstance();
+        registerButton = findViewById(R.id.registerButton);
+        numberOfPhone = findViewById(R.id.numberOfPhone);
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
+        surname = findViewById(R.id.surname);
 
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phone = numberOfPhone.getText().toString();//
-                surnameUser = surname.getText().toString();//
-                lastNameUser = lastName.getText().toString();//
-                firstNameUser = firstName.getText().toString();//
+                final String phone = numberOfPhone.getText().toString().trim();//
+                final String surnameUser = surname.getText().toString().trim();//
+                final String lastNameUser = lastName.getText().toString().trim();//
+                final String firstNameUser = firstName.getText().toString().trim();//
 
 
                 if (lastNameUser.equals("")) {
@@ -60,7 +80,6 @@ public class SecondStepOfRegistration extends AppCompatActivity {
 
                 } else if (surnameUser.equals("")) {
                     surname.setError("can't be blank");
-
 
 
                 } else if (phone.equals("")) {
@@ -87,7 +106,29 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                     pd.setMessage("Loading...");
                     pd.show();
 
-                    String url = "https://ionkid-abd2f.firebaseio.com/users.json";
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("First Name", firstNameUser);
+                    user.put("Surname", surnameUser);
+                    user.put("Last name", lastNameUser);
+                    user.put("Phone", phone);
+
+                    db.collection("UserInfo").document(UserDetails.username)
+                            .set(user)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "User Info added");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    String error = e.getMessage();
+                                    Toast.makeText(SecondStepOfRegistration.this, "Error " + error, Toast.LENGTH_LONG);
+                                }
+                            });
+
+                  /*  String url = "https://ionkid-abd2f.firebaseio.com/users.json";
 
                     StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                         @Override
@@ -96,13 +137,13 @@ public class SecondStepOfRegistration extends AppCompatActivity {
 
                             if (s.equals("null")) {
                                 try {
-                                    decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    decryptLastNameUser = EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
                                     reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                                 try {
-                                    decryptPhone= EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
+                                    decryptPhone = EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
                                     reference.child(UserDetails.username).child("phoneNumber").setValue(decryptPhone);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -110,14 +151,14 @@ public class SecondStepOfRegistration extends AppCompatActivity {
 
 
                                 try {
-                                    decryptSurnameUser= EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
+                                    decryptSurnameUser = EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                                 reference.child(UserDetails.username).child("surname").setValue(decryptSurnameUser);
 
                                 try {
-                                    decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                    decryptLastNameUser = EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
                                     reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -125,30 +166,29 @@ public class SecondStepOfRegistration extends AppCompatActivity {
 
 
                                 try {
-                                    decryptFirstNameUser= EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
+                                    decryptFirstNameUser = EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                                 reference.child(UserDetails.username).child("firstName").setValue(decryptFirstNameUser);
 
 
-                                UserDetails.registerCheck = "1";
+                                UserDetails.registerCheck = "1";*/
 
                                 Toast.makeText(SecondStepOfRegistration.this, "registration successful", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(SecondStepOfRegistration.this, ThirdStepOfRegistrationAddKid.class));
+                                startActivity(new Intent(SecondStepOfRegistration.this, ThirdStepOfRegistrationAddKid.class));/*
                             } else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
 
                                     if (!obj.has(UserDetails.username)) {
-                                        /*reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
+                                        reference.child(UserDetails.username).child("firstName").setValue(firstNameUser);
                                         reference.child(UserDetails.username).child("lastName").setValue(lastNameUser);
                                         reference.child(UserDetails.username).child("surname").setValue(surnameUser);
-
-                                        reference.child(UserDetails.username).child("phoneNumber").setValue(phone);*/
+                                        reference.child(UserDetails.username).child("phoneNumber").setValue(phone);
 
                                         try {
-                                            decryptPhone= EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
+                                            decryptPhone = EncryptAndDecryptData.encrypt(phone, UserDetails.SECRET_KEY);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -156,7 +196,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                         reference.child(UserDetails.username).child("phoneNumber").setValue(phone);
 
                                         try {
-                                            decryptSurnameUser= EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
+                                            decryptSurnameUser = EncryptAndDecryptData.encrypt(surnameUser, UserDetails.SECRET_KEY);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -164,7 +204,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                         reference.child(UserDetails.username).child("surname").setValue(decryptSurnameUser);
 
                                         try {
-                                            decryptLastNameUser= EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
+                                            decryptLastNameUser = EncryptAndDecryptData.encrypt(lastNameUser, UserDetails.SECRET_KEY);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -172,7 +212,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                                         reference.child(UserDetails.username).child("lastName").setValue(decryptLastNameUser);
 
                                         try {
-                                            decryptFirstNameUser= EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
+                                            decryptFirstNameUser = EncryptAndDecryptData.encrypt(firstNameUser, UserDetails.SECRET_KEY);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -203,25 +243,28 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                     });
 
                     RequestQueue rQueue = Volley.newRequestQueue(SecondStepOfRegistration.this);
-                    rQueue.add(request);
+                    rQueue.add(request);*/
                 }
 
             }
         });
     }
 
-    public void findView() {
 
 
-        registerButton = findViewById(R.id.registerButton);
+
+   /* public void findView() {
+
+
+
         numberOfPhone = findViewById(R.id.numberOfPhone);
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
         surname = findViewById(R.id.surname);
-    }
+    }*/
 
 
-    static class DBHelper extends SQLiteOpenHelper {
+    /*static class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context) {
             super(context, "myDBIONKidV1", null, 1);
@@ -250,7 +293,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         }
-    }
-
+    }*/
 
 }
+

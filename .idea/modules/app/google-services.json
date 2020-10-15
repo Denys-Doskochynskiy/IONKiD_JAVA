@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "896221165145",
+    "firebase_url": "https://abafirebaseproject-5e84b.firebaseio.com",
+    "project_id": "abafirebaseproject-5e84b",
+    "storage_bucket": "abafirebaseproject-5e84b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896221165145:android:61e12e4e1c6a283591a348",
+        "android_client_info": {
+          "package_name": "com.example.aba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896221165145-853l3borbnr67ei0d4lihc1224r08fjp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aba",
+            "certificate_hash": "70db6b64f8dd6f5fb7d1a43d608f411d81a4503d"
+          }
+        },
+        {
+          "client_id": "896221165145-38itp7offrchuk03cb6oi8j3kreads80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFkhJoFgiAvXWiuUSUVra1TCviOjp1PII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896221165145-38itp7offrchuk03cb6oi8j3kreads80.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

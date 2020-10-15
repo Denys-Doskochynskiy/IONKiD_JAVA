@@ -20,11 +20,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class FirstStepOfRegistrationWithOAuth extends AppCompatActivity {
-EditText emailUser;
-EditText passwordUser;
-Button registerButton;
-ProgressBar progressBar;
-FirebaseAuth firebaseAuth;
+    EditText emailUser;
+    EditText passwordUser;
+    Button registerButton;
+    ProgressBar progressBar;
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,24 +41,24 @@ FirebaseAuth firebaseAuth;
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressBar.setVisibility(View.GONE);
-if (task.isSuccessful()){
-    firebaseAuth.getCurrentUser().sendEmailVerification()
-            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(FirstStepOfRegistrationWithOAuth.this,"reg is success,pleas check your email to verification",
-                            Toast.LENGTH_LONG).show();
-                    UserDetails.username=emailUser.getText().toString().replace(".",",");
-                    startActivity(new Intent(FirstStepOfRegistrationWithOAuth.this, SecondStepOfRegistration.class));
-                }
-            });
+                        if (task.isSuccessful()){
+                            firebaseAuth.getCurrentUser().sendEmailVerification()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(FirstStepOfRegistrationWithOAuth.this,"reg is success,pleas check your email to verification",
+                                                    Toast.LENGTH_LONG).show();
+                                            UserDetails.username=emailUser.getText().toString().replace(".",",");
+                                            startActivity(new Intent(FirstStepOfRegistrationWithOAuth.this, SecondStepOfRegistration.class));
+                                        }
+                                    });
 
 
-}else{
-    Toast.makeText(FirstStepOfRegistrationWithOAuth.this,task.getException().getMessage(),
-            Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(FirstStepOfRegistrationWithOAuth.this,task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
 
-}
+                        }
                     }
                 });
             }
