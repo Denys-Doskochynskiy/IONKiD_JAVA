@@ -1,3 +1,18 @@
+/*
+ *
+ *   Created Your Name on 16.10.20 16:37
+ *   Copyright Ⓒ 2020. All rights reserved Ⓒ 2020 http://freefuninfo.com/
+ *   Last modified: 16.10.20 16:36
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+ *   except in compliance with the License. You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ *    either express or implied. See the License for the specific language governing permissions and
+ *    limitations under the License.
+ * /
+ */
+
 package com.example.aba.users;
 
 import android.content.Intent;
@@ -16,6 +31,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.aba.R;
 import com.example.aba.kids.KidList;
 
+import com.example.aba.menuActivity.Menu;
 import com.example.aba.users.registration.FirstStepOfRegistrationWithOAuth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -79,7 +95,7 @@ progressBar=findViewById(R.id.progressBar);
 
                                UserDetails.username = userEmail.getText().toString().replace(".", ",");
                                saveText();
-                               startActivity(new Intent(LoginWithFBAuth.this, KidList.class));
+                               startActivity(new Intent(LoginWithFBAuth.this, Menu.class));
                                sp.edit().putBoolean("loggeded", true).apply();
 
 

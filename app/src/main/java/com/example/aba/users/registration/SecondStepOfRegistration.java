@@ -1,3 +1,18 @@
+/*
+ *
+ *   Created Your Name on 16.10.20 16:37
+ *   Copyright Ⓒ 2020. All rights reserved Ⓒ 2020 http://freefuninfo.com/
+ *   Last modified: 16.10.20 16:28
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+ *   except in compliance with the License. You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ *    either express or implied. See the License for the specific language governing permissions and
+ *    limitations under the License.
+ * /
+ */
+
 package com.example.aba.users.registration;
 
 
@@ -23,11 +38,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
+import com.example.aba.kids.KidList;
+import com.example.aba.menuActivity.Menu;
+import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.UserDetails;
 import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -42,6 +64,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
     EditText numberOfPhone;
     EditText firstName, surname, lastName;
     Button registerButton;
+    FirebaseAuth firebaseAuth;
     String decryptPhone, decryptSurnameUser, decryptLastNameUser, decryptFirstNameUser;
     String phone, surnameUser, lastNameUser, firstNameUser;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -54,7 +77,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
         setContentView(R.layout.second_step_registration);
         /*findView();*/
         Firebase.setAndroidContext(this);
-
+        firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         registerButton = findViewById(R.id.registerButton);
         numberOfPhone = findViewById(R.id.numberOfPhone);
@@ -106,27 +129,55 @@ public class SecondStepOfRegistration extends AppCompatActivity {
                     pd.setMessage("Loading...");
                     pd.show();
 
-                    Map<String, Object> user = new HashMap<>();
+                    final Map<String, Object> user = new HashMap<>();
                     user.put("First Name", firstNameUser);
                     user.put("Surname", surnameUser);
                     user.put("Last name", lastNameUser);
                     user.put("Phone", phone);
+                    firebaseAuth.signInWithEmailAndPassword(UserDetails.secretKey_1,
+                            UserDetails.secretKey_2)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    db.collection("UserInfo").document(UserDetails.username)
-                            .set(user)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "User Info added");
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    String error = e.getMessage();
-                                    Toast.makeText(SecondStepOfRegistration.this, "Error " + error, Toast.LENGTH_LONG);
+                                    if (task.isSuccessful()) {
+                                        if (firebaseAuth.getCurrentUser().isEmailVerified()) {
+                                            db.collection("UserInfo").document(UserDetails.username)
+                                                    .set(user)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Log.d(TAG, "User Info added");
+                                                            startActivity(new Intent(SecondStepOfRegistration.this, ThirdStepOfRegistrationAddKid.class));
+                                                        }
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            String error = e.getMessage();
+                                                            Toast.makeText(SecondStepOfRegistration.this, "Error " + error, Toast.LENGTH_LONG);
+                                                        }
+                                                    });
+
+                                        } else {
+                                            Toast.makeText(SecondStepOfRegistration.this, "Please verify your email"
+                                                    , Toast.LENGTH_LONG).show();
+                                        }
+                                    } else {
+                                        Toast.makeText(SecondStepOfRegistration.this, task.getException().getMessage()
+                                                , Toast.LENGTH_LONG).show();
+                                    }
+
                                 }
                             });
+
+                }
+
+
+            }
+        });
+    }}
+
 
                   /*  String url = "https://ionkid-abd2f.firebaseio.com/users.json";
 
@@ -175,8 +226,7 @@ public class SecondStepOfRegistration extends AppCompatActivity {
 
                                 UserDetails.registerCheck = "1";*/
 
-                                Toast.makeText(SecondStepOfRegistration.this, "registration successful", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(SecondStepOfRegistration.this, ThirdStepOfRegistrationAddKid.class));/*
+                                /*
                             } else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
@@ -244,11 +294,6 @@ public class SecondStepOfRegistration extends AppCompatActivity {
 
                     RequestQueue rQueue = Volley.newRequestQueue(SecondStepOfRegistration.this);
                     rQueue.add(request);*/
-                }
-
-            }
-        });
-    }
 
 
 
@@ -295,5 +340,4 @@ public class SecondStepOfRegistration extends AppCompatActivity {
         }
     }*/
 
-}
 
