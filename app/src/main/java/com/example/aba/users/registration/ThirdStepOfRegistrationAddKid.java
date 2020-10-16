@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,12 +17,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.aba.kids.KidInfo;
 import com.example.aba.menuActivity.Menu;
 import com.example.aba.R;
 import com.example.aba.users.LoginWithFBAuth;
@@ -29,9 +33,16 @@ import com.example.aba.users.User;
 import com.example.aba.users.UserDetails;
 import com.example.aba.working_and_test.EncryptAndDecryptData;
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ThirdStepOfRegistrationAddKid extends Activity {
     int DIALOG_DATE = 1;
@@ -47,12 +58,15 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
     EditText city, country;
     TextView date;
     EditText growth, diagnose;
-    String decryptNameKid,decryptWidth,decryptBlood, decryptNameKidSecond, decryptCity,
+    String decryptNameKid, decryptWidth, decryptBlood, decryptNameKidSecond, decryptCity,
             decryptCountry, decryptGrowth, decryptDiagnose, decryptDate;
     EditText first, lastKid, bloodType;
     String[] dataBlood = {"Select blood type", "|", "||", "|||", "|V"};
     String[] data = {"Select gender", "Male", "Female"};
     final String SAVED_TEXT = "test";
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference user = db.collection("usersInfo");
+    public static final String TAG = "TAG";
 
 
     @Override
@@ -60,7 +74,6 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition_kid);
         date = findViewById(R.id.dateOfBirth);
-        findView();
         Firebase.setAndroidContext(this);
         ArrayAdapter<String> adapterBlood = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dataBlood);
         adapterBlood.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -68,7 +81,19 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
         spinnerBlood.setAdapter(adapterBlood);
         spinnerBlood.setPrompt("Title");
 
+        db = FirebaseFirestore.getInstance();
+
         spinnerBlood.setSelection(0);
+        width = findViewById(R.id.weidth);
+        city = findViewById(R.id.city);
+        country = findViewById(R.id.country);
+        growth = findViewById(R.id.growth);
+        diagnose = findViewById(R.id.diagnose);
+
+        first = findViewById(R.id.firstName);
+        lastKid = findViewById(R.id.lastKidName);
+
+        addKid = findViewById(R.id.addKid);
 
 
         spinnerBlood.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -106,14 +131,14 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
             @Override
             public void onClick(View v) {
 
-                widthKid = width.getText().toString();//+
-                lastNameKid = lastKid.getText().toString();
-                firstNameKid = first.getText().toString();//
-                cityKid = city.getText().toString();//
-                countryKid = country.getText().toString();//
-                growthKid = growth.getText().toString();//
-                diagnoseKid = diagnose.getText().toString();//
-                dateKid = date.getText().toString();//
+                final String widthKid = width.getText().toString().trim();//+
+                final String lastNameKid = lastKid.getText().toString().trim();
+                final String firstNameKid = first.getText().toString().trim();//
+                final String cityKid = city.getText().toString().trim();//
+                final String countryKid = country.getText().toString().trim();//
+                final String growthKid = growth.getText().toString().trim();//
+                final String diagnoseKid = diagnose.getText().toString().trim();//
+                final String dateKid = date.getText().toString().trim();//
 
 
                 if (firstNameKid.equals("")) {
@@ -130,9 +155,8 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
 
                 } else if (widthKid.equals("")) {
                     width.setError("can't be blank");
-                } else if (dateKid.equals("")) {
-                    date.setError("can't be blank");
-
+                   /* else if (dateKid.equals("")) {
+                    date.setError("can't be blank");*/
                 } else if (growthKid.equals("")) {
                     growth.setError("can't be blank");
 
@@ -142,11 +166,31 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
                     final ProgressDialog pd = new ProgressDialog(ThirdStepOfRegistrationAddKid.this);
                     pd.setMessage("Loading...");
                     pd.show();
+                    Map<String, Object> kids = new HashMap<>();
+                    kids.put("Width of kid ", widthKid);
+                    kids.put("Last Name kid ", lastNameKid);
+                    kids.put("First name kid ", firstNameKid);
+                    kids.put("City ", cityKid);
+                    kids.put("Country kid ", countryKid);
+                    kids.put("Growth kid ", growthKid);
+                    kids.put("Diagnoze ", diagnoseKid);
+                    kids.put("Data ", dateKid);
 
-                    String url = "https://ionkid-abd2f.firebaseio.com/users/kids.json";
+
+                    db.collection("UserInfo").document(UserDetails.username).collection("KidInfo").document(firstNameKid)
+                            .set(kids)
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    String error = e.getMessage();
+                                    Toast.makeText(ThirdStepOfRegistrationAddKid.this, "Error " + error, Toast.LENGTH_LONG);
+                                }
+                            });
+
+                   /* String url = "https://ionkid-abd2f.firebaseio.com/users/kids.json";
                     final Firebase reference = new Firebase("https://ionkid-abd2f.firebaseio.com/users/" + UserDetails.username + "/kids");
 
-                    StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
 
@@ -168,7 +212,7 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
 
                                 reference.child(lastNameKid).child("date").setValue(decryptDate);
                                 */
-                                try {
+                              /*  try {
                                     decryptDiagnose=EncryptAndDecryptData.encrypt(diagnoseKid, UserDetails.SECRET_KEY);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -222,18 +266,18 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
                                 //reference.child(lastNameKid).child("growth").setValue(growthKid);
 
                                // reference.child(lastNameKid).child("country").setValue(countryKid);
-                              //  reference.child(lastNameKid).child("city").setValue(cityKid);
-                                if (!UserDetails.registerCheck.equals("0")) {
+                              //  reference.child(lastNameKid).child("city").setValue(cityKid);*/
+                    if (!UserDetails.registerCheck.equals("0")) {
 
-                                    UserDetails.registerCheck = "0";
-                                    Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, LoginWithFBAuth.class));
-                                } else {
-                                    UserDetails.kidName = lastNameKid;
-                                    Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, Menu.class));
-                                }
-                            } else {
+                        UserDetails.registerCheck = "0";
+                        Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, LoginWithFBAuth.class));
+                    } else {
+                        UserDetails.kidName = lastNameKid;
+                        Toast.makeText(ThirdStepOfRegistrationAddKid.this, "registration successful", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ThirdStepOfRegistrationAddKid.this, Menu.class));
+                    }
+                            /*} else {
                                 try {
                                     JSONObject obj = new JSONObject(s);
 
@@ -281,14 +325,27 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
                     });
 
                     RequestQueue rQueue = Volley.newRequestQueue(ThirdStepOfRegistrationAddKid.this);
-                    rQueue.add(request);
+                    rQueue.add(request);*/
+
                 }
 
             }
         });
+
     }
 
-    public void onclick(View view) {
+
+}
+
+
+
+
+
+
+
+
+
+   /* public void onclick(View view) {
         showDialog(DIALOG_DATE);
     }
 
@@ -324,7 +381,7 @@ public class ThirdStepOfRegistrationAddKid extends Activity {
         lastKid = findViewById(R.id.lastKidName);
 
         addKid = findViewById(R.id.addKid);
-    }
+    }*/
 
 
-}
+
