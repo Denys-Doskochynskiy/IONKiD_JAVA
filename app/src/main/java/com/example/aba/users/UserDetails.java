@@ -24,6 +24,11 @@ public class UserDetails {
     public static String ratingDoc = "";
     public static String registerCheck = "";
     public static String KidCity = "";
+
     public static String secretKey_1 ="";
     public static String secretKey_2 ="";
+
+    public static String logDetails = "";
+    public static String statusDetails = "";
+
 }

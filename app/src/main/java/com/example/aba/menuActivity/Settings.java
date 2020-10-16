@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
+import com.example.aba.skip.SkipData;
 import com.example.aba.task.TaskList;
 import com.example.aba.users.LoginWithFBAuth;
 import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
@@ -78,7 +79,7 @@ SharedPreferences sp;
         startActivity(intent);
     }
     public void sensorKit() {
-        Intent intent = new Intent(this, SensorKit.class);
+        Intent intent = new Intent(this, SkipData.class);
         startActivity(intent);
     }
     public void exit() {
