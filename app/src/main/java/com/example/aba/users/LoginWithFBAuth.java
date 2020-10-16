@@ -1,8 +1,8 @@
 /*
  *
- *   Created Your Name on 16.10.20 16:37
+ *   Created Your Name on 16.10.20 16:43
  *   Copyright Ⓒ 2020. All rights reserved Ⓒ 2020 http://freefuninfo.com/
- *   Last modified: 16.10.20 16:36
+ *   Last modified: 16.10.20 16:43
  *
  *   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
  *   except in compliance with the License. You may obtain a copy of the License at
@@ -95,7 +95,7 @@ progressBar=findViewById(R.id.progressBar);
 
                                UserDetails.username = userEmail.getText().toString().replace(".", ",");
                                saveText();
-                               startActivity(new Intent(LoginWithFBAuth.this, Menu.class));
+                               startActivity(new Intent(LoginWithFBAuth.this, KidList.class));
                                sp.edit().putBoolean("loggeded", true).apply();
 
 
