@@ -5,30 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_doctor"
-            android:icon="@drawable/ic_person_black_24dp"
-            android:title="Doctor" />
+            android:id="@+id/nav_taskaktivityday"
+            android:icon="@drawable/ic_content_paste_black_24dp"
+            android:title="@string/eng_tasks" />
         <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_chat_black_24dp"
-            android:title="Chat" />
+            android:title="@string/eng_messages" />
         <item
             android:id="@+id/nav_kids"
             android:icon="@drawable/ic_people_outline_black_24dp"
-            android:title="Add Kids" />
+            android:title="@string/eng_kids" />
+        <item
+            android:id="@+id/nav_doctor"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/eng_doctors" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings_black_24dp"
-            android:title="Settings" />
+            android:title="@string/eng_settings" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_taskaktivityday"
-                android:icon="@drawable/ic_content_paste_black_24dp"
-                android:title="Tasks" />
-        </menu>
-    </item>
 
 </menu>
