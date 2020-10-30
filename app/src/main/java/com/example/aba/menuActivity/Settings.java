@@ -1,15 +1,34 @@
+/*
+ *
+ *   Created Your Name on 30.10.20 15:32
+ *   Copyright Ⓒ 2020. All rights reserved Ⓒ 2020 http://freefuninfo.com/
+ *   Last modified: 30.10.20 14:29
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+ *   except in compliance with the License. You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ *    either express or implied. See the License for the specific language governing permissions and
+ *    limitations under the License.
+ * /
+ */
+
 package com.example.aba.menuActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -25,26 +44,45 @@ import com.android.volley.toolbox.Volley;
 import com.example.aba.R;
 import com.example.aba.skip.SkipData;
 import com.example.aba.task.TaskList;
+import com.example.aba.task.UploadVideo;
 import com.example.aba.users.LoginWithFBAuth;
+import com.example.aba.users.registration.SecondStepOfRegistration;
 import com.example.aba.users.registration.ThirdStepOfRegistrationAddKid;
 import com.example.aba.unimplementedOrUnused.Login;
 import com.example.aba.users.UserDetails;
 import com.example.aba.users.UserPersonalData;
 import com.example.aba.users.UsersList;
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.PublicKey;
+import java.util.UUID;
+
 public class Settings extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 SharedPreferences sp;
+ImageView profImg;
+public Uri imageUri;
+private FirebaseStorage storage;
+private StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        storage=FirebaseStorage.getInstance();
+        storageReference=storage.getReference();
+        findView();
         sp = getSharedPreferences("login", MODE_PRIVATE);
         floatingActionButton();
         drawerLayoutAndToolbar();
@@ -66,6 +104,13 @@ SharedPreferences sp;
             }
         });
         Button exit = findViewById(R.id.exitFromAccount) ;
+        final Button uploadVideo = findViewById(R.id.uploadVideo);
+        uploadVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToUploadVideo();
+            }
+        });
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +118,70 @@ SharedPreferences sp;
             }
         });
 
+        profImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chosePicture();
+            }
+        });
+
+    }
+    void goToUploadVideo(){
+        Intent intent = new Intent(this, UploadVideo.class);
+        startActivity(intent);
+    }
+    void chosePicture(){
+        Intent intent =new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1&&resultCode==RESULT_OK && data!=null&&data.getData()!=null){
+            imageUri =data.getData();
+            UserDetails.photoKey=imageUri;
+            profImg.setImageURI(UserDetails.photoKey);
+            uploadPicture();
+        }
+    }
+
+    private void uploadPicture() {
+        final ProgressDialog pd= new ProgressDialog(this);
+        pd.setTitle("Uploading Image... ");
+        pd.show();
+        final String randomKey= UUID.randomUUID().toString();
+        StorageReference riversRef = storageReference.child("images/"+randomKey);
+
+        riversRef.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        pd.dismiss();
+                        Toast.makeText(Settings.this, "Image uploaded success"
+                                , Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        pd.dismiss();
+                        Toast.makeText(Settings.this, "Image uploaded fail"
+                                , Toast.LENGTH_LONG).show();
+                    }
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                double progressPercent= (100.00*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                pd.setMessage("Percentage: "+(int)progressPercent+";");
+            }
+        });
+    }
+
+    void findView(){
+        profImg= findViewById(R.id.avatar);
     }
     public void openPersonalData() {
         Intent intent = new Intent(this, UserPersonalData.class);

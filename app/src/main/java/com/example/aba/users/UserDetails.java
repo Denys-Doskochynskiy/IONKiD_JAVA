@@ -1,8 +1,8 @@
 /*
  *
- *   Created Your Name on 16.10.20 16:37
+ *   Created Your Name on 30.10.20 15:32
  *   Copyright Ⓒ 2020. All rights reserved Ⓒ 2020 http://freefuninfo.com/
- *   Last modified: 16.10.20 16:23
+ *   Last modified: 30.10.20 12:51
  *
  *   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
  *   except in compliance with the License. You may obtain a copy of the License at
@@ -14,6 +14,8 @@
  */
 
 package com.example.aba.users;
+
+import android.net.Uri;
 
 public class UserDetails {
     public static String SECRET_KEY="";
@@ -27,7 +29,7 @@ public class UserDetails {
 
     public static String secretKey_1 ="";
     public static String secretKey_2 ="";
-
+public static Uri photoKey =null;
     public static String logDetails = "";
     public static String statusDetails = "";
 

@@ -1,8 +1,8 @@
 /*
  *
- *   Created Your Name on 16.10.20 16:43
+ *   Created Your Name on 30.10.20 15:32
  *   Copyright Ⓒ 2020. All rights reserved Ⓒ 2020 http://freefuninfo.com/
- *   Last modified: 16.10.20 16:43
+ *   Last modified: 30.10.20 11:58
  *
  *   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
  *   except in compliance with the License. You may obtain a copy of the License at
@@ -128,7 +128,7 @@ progressBar=findViewById(R.id.progressBar);
 
     }
     public void goToKidList() {
-        Intent intent = new Intent(this, KidList.class);
+        Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
 }
