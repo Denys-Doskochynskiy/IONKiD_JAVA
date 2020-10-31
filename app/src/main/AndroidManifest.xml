@@ -34,6 +34,7 @@
         <activity android:name=".working_and_test.StepCounter" />
         <activity android:name=".task.TaskList" />
         <activity android:name=".users.RecoverPasswordWithFBAuth" />
+        <!-- Main activity -->
         <activity android:name=".menuActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
