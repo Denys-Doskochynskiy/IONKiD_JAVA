@@ -26,26 +26,25 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="94dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="70dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/shape_for_user_photo"
         app:layout_constraintBottom_toTopOf="@+id/sensorKitActivity"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397"
-        app:srcCompat="@mipmap/photo_to_change" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sensorKitActivity"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:textColor="@color/login_form_text"
+        android:layout_height="55dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/button_background"
         android:text="Connect Sensor Kit"
         android:textAllCaps="false"
-
+        android:textSize="17sp"
+        android:textColor="@color/sky"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/avatar" />
@@ -53,12 +52,13 @@
     <Button
         android:id="@+id/personalData"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_personal_data"
+        android:textColor="@color/sky"
+        android:textSize="17sp"
         android:textAllCaps="false"
-        android:textColor="@color/login_form_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/sensorKitActivity" />
@@ -66,24 +66,26 @@
     <Button
         android:id="@+id/uploadVideo"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/button_background"
         android:text="Upload video"
+        android:textSize="17sp"
+        android:textColor="@color/sky"
         android:textAllCaps="false"
-        android:textColor="@color/login_form_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/exitFromAccount" />
     <Button
         android:id="@+id/exitFromAccount"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_exit"
+        android:textColor="@color/sky"
+        android:textSize="17sp"
         android:textAllCaps="false"
-        android:textColor="@color/login_form_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/personalData" />
