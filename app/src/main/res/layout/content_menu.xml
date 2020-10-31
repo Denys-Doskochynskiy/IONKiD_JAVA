@@ -13,80 +13,61 @@
         android:id="@+id/kidsActivity"
         android:layout_width="268dp"
         android:layout_height="53dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_kids"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/sky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/messageActivity"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/messageActivity" />
 
     <Button
         android:id="@+id/taskActivity"
         android:layout_width="268dp"
         android:layout_height="53dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_tasks"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/sky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/messageActivity"
         android:layout_width="268dp"
         android:layout_height="53dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_messages"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/sky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskActivity"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/taskActivity" />
 
     <Button
         android:id="@+id/doctorsActivity"
         android:layout_width="268dp"
         android:layout_height="53dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_doctors"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/sky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kidsActivity"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintTop_toBottomOf="@+id/kidsActivity" />
 
     <Button
         android:id="@+id/settingsActivity"
         android:layout_width="268dp"
         android:layout_height="53dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:text="@string/eng_settings"
-        android:textColor="#1B262C"
-        android:textColorHighlight="#835766"
-        android:textColorHint="#00B30E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/sky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorsActivity"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintTop_toBottomOf="@+id/doctorsActivity" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
