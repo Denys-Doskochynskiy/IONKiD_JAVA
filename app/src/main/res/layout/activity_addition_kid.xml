@@ -22,139 +22,38 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="40dp" />
 
-    <EditText
-        android:id="@+id/growth"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="25dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Growth"
-        android:inputType="numberDecimal"
-        android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.933"
-        app:layout_constraintStart_toStartOf="@+id/weidth"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="1dp">
 
-    <EditText
-        android:id="@+id/country"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Country"
-        android:inputType="textPersonName"
-        android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
-
-    <EditText
-        android:id="@+id/diagnose"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="25dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Diagnose"
-        android:inputType="textPersonName"
-        android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="@+id/spinnerBlood"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
-
-    <TextView
-        android:id="@+id/dateOfBirth"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="25dp"
-        android:background="@drawable/edit_text_background"
-        android:clickable="true"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Date of birth"
-        android:onClick="onclick"
-        android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="135dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_background"
         android:ems="10"
         android:gravity="center"
         android:hint="First name"
         android:inputType="textPersonName"
         android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lastKidName"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <EditText
-        android:id="@+id/city"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="25dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="City"
-        android:inputType="textPersonName"
-        android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toStartOf="@+id/country"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
-
-    <EditText
-        android:id="@+id/weidth"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Width"
-        android:inputType="numberDecimal"
-        android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addKid"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/edit_text_background"
         android:text="Add Kid"
         android:textColor="#BBE1FA"
@@ -164,47 +63,133 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/lastKidName"
+        android:id="@+id/growth"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Growth"
+        android:inputType="numberDecimal"
+        android:textColorHint="#BBE1FA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/city" />
+
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="135dp"
         android:layout_height="40dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="Gender"
+        android:textColorHint="#BBE1FA"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/dateOfBirth" />
+
+    <Spinner
+        android:id="@+id/spinnerBlood"
+        android:layout_width="135dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/country"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Country"
+        android:inputType="textPersonName"
+        android:textColorHint="#BBE1FA"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/lastKidName" />
+
+    <EditText
+        android:id="@+id/lastKidName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
         android:ems="10"
         android:gravity="center"
         android:hint="Second name"
         android:inputType="textPersonName"
         android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="@+id/firstName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="135dp"
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
-        android:hint="Gender"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="City"
+        android:inputType="textPersonName"
         android:textColorHint="#BBE1FA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.274" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/country" />
 
-    <Spinner
-        android:id="@+id/spinnerBlood"
-        android:layout_width="135dp"
+    <TextView
+        android:id="@+id/dateOfBirth"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Date of birth"
+        android:onClick="onclick"
+        android:textColorHint="#BBE1FA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/diagnose" />
+
+    <EditText
+        android:id="@+id/weidth"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Width"
+        android:inputType="numberDecimal"
+        android:textColorHint="#BBE1FA"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintTop_toBottomOf="@+id/growth" />
+
+    <EditText
+        android:id="@+id/diagnose"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Diagnose"
+        android:inputType="textPersonName"
+        android:textColorHint="#BBE1FA"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/weidth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
