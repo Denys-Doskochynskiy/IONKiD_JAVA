@@ -44,7 +44,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         sp = getSharedPreferences("login", MODE_PRIVATE);
-        floatingActionButton();
+        //floatingActionButton();
         drawerLayoutAndToolbar();
         navigationView();
 
@@ -100,15 +100,15 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
     }
 
-    public void floatingActionButton() {
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTaskMessage();
-            }
-        });
-    }
+//    public void floatingActionButton() {
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openTaskMessage();
+//            }
+//        });
+//    }
 
     public void drawerLayoutAndToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
